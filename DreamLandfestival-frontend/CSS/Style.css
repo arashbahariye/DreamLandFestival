@@ -1,0 +1,23 @@
+/* tag selectors */
+body {
+  background-color: #495057;
+}
+/* class selectors */
+.logo {
+  border-radius: 50%;
+}
+.logo-text {
+  font-family: 'Pacifico', cursive;
+}
+.container {
+  margin: auto;
+}
+.col-md-padding {
+  padding: 0 0 0 0;
+}
+.container-size {
+ margin-top: 5%;
+}
+.general-information {
+  margin-top: 2%;
+}
