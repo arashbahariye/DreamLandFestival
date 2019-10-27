@@ -1,6 +1,6 @@
 /* tag selectors */
 body {
-  background-color: #495057;
+  background-color: #E0F8F1;
 }
 /* class selectors */
 .logo {
@@ -16,7 +16,7 @@ body {
   padding: 0 0 0 0;
 }
 .container-size {
- margin-top: 5%;
+ margin-top: 1%;
 }
 .general-information {
   margin-top: 2%;
