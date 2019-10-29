@@ -408,6 +408,23 @@ textarea.input100 {
   background: #333333;
 }
 
+.contact100-form-social {
+  padding-top: 10px;
+}
+
+.contact100-form-social-item {
+  width: 50px;
+  height: 50px;
+  font-size: 30px;
+  color: #fff;
+  border-radius: 50%;
+}
+
+.contact100-form-social-item:hover {
+  background: rgba(121, 195, 118, 0.92);
+  color: rgba(36, 28, 190, 0.14);
+}
+
 
 
 /*------------------------------------------------------------------
@@ -448,10 +465,6 @@ textarea.input100 {
     border-left: 1px solid #e6e6e6;
     border-top: none;
   }
-}
-
-.contact100-form-social {
-  padding-top: 75px;
 }
 
 /*------------------------------------------------------------------
