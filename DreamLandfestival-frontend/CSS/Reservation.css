@@ -1,0 +1,368 @@
+
+
+body{
+
+	padding:0;
+	margin:0;
+  height: 100%;
+	font-family: Poppins-Regular, sans-serif;
+	font-size: 100%;
+  background: #E0F8F1;
+}
+ @font-face {
+   	font-family: Poppins-Regular, sans-serif;
+
+}
+h1,h2,h3,h4,h5,h6{
+	margin:0;
+}
+p{
+	margin:0;
+}
+ul{
+	margin:0;
+	padding:0;
+}
+label{
+	margin:0;
+}
+a{
+	transition: 0.5s all;
+  -webkit-transition: 0.5s all;
+  -moz-transition: 0.5s all;
+  -o-transition: 0.5s all;
+}
+a:hover{
+	transition: 0.5s all;
+  -webkit-transition: 0.5s all;
+  -moz-transition: 0.5s all;
+  -o-transition: 0.5s all;
+}
+
+/*--main--*/
+
+.DL-header {
+    padding: 4em 0 0 ;
+
+}
+
+.icon1 {
+    margin: 0 0 1em;
+    border-bottom: 1px solid #ececec;
+}
+
+a {
+    color: #FFFFFF;
+    margin: .1em;
+}
+
+.main-container{
+    margin: 0;
+    height: 100%;
+  width: 100%;
+  position: absolute;
+
+}
+
+
+.bottom {
+    margin: 0;
+    text-align: center;
+}
+
+
+.header-main {
+    float: left;
+    padding: 2em 5em;
+    width: 31%;
+    margin-left: 5em;
+    margin-bottom: 2em;
+    background: #53B6BD;
+
+}
+.header-main-right {
+    float: right;
+    padding: 2rem 5rem;
+    width: 31%;
+    margin-right: 5rem;
+    background: #53B6BD;
+}
+
+.header-main h1 {
+    font-size: 2.5em;
+    color: #17202A;
+    text-align: center;
+    padding-bottom: 0.8em;
+}
+.sign-up {
+    margin: 2em 0;
+}
+.header-left {
+  background: #fff;
+  padding: 0px;
+}
+
+::-webkit-input-placeholder{
+	color:#FFFFFF !important;
+}
+.header-left-bottom input[type="text"] {
+    outline: none;
+    font-size: 15px;
+    font-weight: 400;
+    color: #ececec;
+    padding: 12px 13px 20px 20px;
+	border:none;
+    width: 80%;
+    display: inline-block;
+    background: transparent;
+   font-family: Poppins-Regular, sans-serif;
+}
+.header-left-bottom input[type="email"] {
+    outline: none;
+    font-size: 15px;
+    font-weight: 400;
+    color: #ececec;
+    padding: 12px 13px 20px 11px;
+	border:none;
+    width: 80%;
+    display: inline-block;
+    background: transparent;
+   font-family: Poppins-Regular, sans-serif;
+}
+.header-left-bottom input[type="tel"] {
+    outline: none;
+    font-size: 15px;
+    font-weight: 400;
+    color: #ececec;
+    padding: 12px 13px 20px 17px;
+	border:none;
+    width: 80%;
+    display: inline-block;
+    background: transparent;
+   font-family: Poppins-Regular, sans-serif;
+}
+.header-left-bottom input[type="password"]{
+  outline: none;
+  font-size: 15px;
+  font-weight: 400;
+  color: #ececec;
+  border:none;
+  padding: 12px 13px 20px 20px;
+  width: 80%;
+  display: inline-block;
+  background: transparent;
+  font-family: Poppins-Regular, sans-serif;
+}
+.header-left-bottom input[type="submit"] {
+    background: #34a853;
+    color: #FFF;
+    font-size: 1.5em;
+    padding: 0.3em 1.2em;
+    width: 50%;
+    font-weight: 500;
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    display: inline-block;
+    cursor: pointer;
+    outline: none;
+    border: none;
+	font-family: Poppins-Regular, sans-serif;
+}
+.header-left-bottom input[type="submit"]:hover {
+    background: #11732b;
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+}
+/*-- agileits --*/
+.header-left-bottom p {
+  font-size: 20px;
+  font-weight: 400;
+  color: #000;
+  display: inline-block;
+  padding: 0px 0px 0px 68px;
+}
+.header-left-bottom p a{
+  font-size: 20px;
+  font-weight: 400;
+  color: #000;
+}
+.header-left-bottom p a:hover{
+	color:#777;
+	text-decoration:none;
+}
+
+
+
+@media (max-width:1440px) {
+	.header-main {
+		width: 35%;
+	}
+}
+@media (max-width:1366px) {
+	.header-main {
+		width: 36%;
+	}
+}
+@media (max-width:1280px) {
+	.header-main {
+		width: 37%;
+	}
+	.t ,.g,.f{
+		padding: .4em 1em;
+	}
+	.header-left-bottom input[type="submit"] {
+		font-size: 1.4em;
+	}
+}
+@media (max-width:1080px) {
+	.header-main h1 {
+		font-size: 2.1em;
+	}
+	.header-left-bottom input[type="submit"] {
+		font-size: 1.2em;
+		padding: 0.4em 1em;
+	}
+	.t, .g, .f {
+		padding: .3em .4em;
+	}
+}
+@media (max-width:1024px) {
+	.header-main {
+		width: 39%;
+	}
+	.sign-up h2 {
+		font-size: 1.2em;
+		width: 35px;
+		height: 35px;
+	}
+}
+@media (max-width:991px) {
+	.header-main {
+		width: 41%;
+	}
+}
+
+@media (max-width:800px) {
+	.header-main {
+		width: 50%;
+		padding: 2em 4em;
+	}
+}
+@media (max-width:768px) {
+	.header-main {
+		width: 53%;
+	}
+}
+@media (max-width:736px) {
+	.header-main {
+		width: 55%;
+		padding: 2em 3em;
+	}
+}
+@media (max-width: 667px) {
+	.header-main {
+		width: 62%;
+		padding: 3em;
+	}
+}
+@media (max-width:600px) {
+	.header-main {
+		width: 68%;
+		padding: 2em;
+	}
+}
+@media (max-width:568px) {
+	.header-main h1 {
+		font-size: 2em;
+	}
+	.t, .g, .f {
+		font-size: .9em;
+	}
+
+	.sign-up h2 {
+		font-size: 1.1em;
+		width: 32px;
+		height: 32px;
+		line-height: 2em;
+	}
+}
+@media (max-width:480px) {
+	.header-main {
+		width: 80%;
+		padding: 2em;
+	}
+}
+@media (max-width:414px) {
+	.header-main h1 {
+		font-size: 1.5em;
+	}
+	.header-main {
+		width: 70%;
+		padding: 2em;
+	}
+	.icon1 i.fa {
+		font-size: 1.2em;
+	}
+	.header-left-bottom input[type="text"],.header-left-bottom input[type="email"],.header-left-bottom input[type="tel"],.header-left-bottom input[type="password"] {
+		font-size: .8em;
+	}
+	.header-left-bottom input[type="submit"] {
+		font-size: 1em;
+		padding: 0.4em;
+	}
+	.header-left-bottom input[type="text"] {
+		padding: 7px 8px 15px 20px;
+	}
+	.header-left-bottom input[type="email"] {
+		padding: 7px 8px 15px 11px;
+	}
+	.header-left-bottom input[type="tel"] {
+		padding: 7px 8px 15px 17px;
+	}
+	.header-left-bottom input[type="password"] {
+		padding: 7px 8px 15px 20px;
+	}
+
+}
+@media (max-width:384px) {
+	.header-main {
+		width: 77%;
+	}
+
+	.sign-up {
+		margin: 1em 0;
+	}
+}
+@media (max-width:375px) {
+	.header-main {
+		width: 79%;
+	}
+	.DL-header {
+		padding: 1em 0 0;
+	}
+}
+@media (max-width:320px) {
+	.DL-header {
+		padding: 0em 0 0;
+	}
+	.header-main {
+		width: 93%;
+		padding: 2em 0.5em;
+	}
+	.icon1 {
+		margin: 0 0 .5em;
+	}
+	.icon1 i.fa {
+		font-size: 1em;
+	}
+	.header-left-bottom input[type="text"], .header-left-bottom input[type="email"], .header-left-bottom input[type="tel"], .header-left-bottom input[type="password"] {
+		font-size: .7em;
+	}
+	.header-left-bottom input[type="submit"] {
+		font-size: .9em;
+		padding: 0.3em 0;
+	}
