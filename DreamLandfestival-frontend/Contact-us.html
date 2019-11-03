@@ -29,20 +29,14 @@
   <link href="https://fonts.googleapis.com/css?family=Modak&display=swap" rel="stylesheet">
   <!-- Style.css -->
   <link rel="stylesheet" href="CSS/style.css">
-  <link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
-  <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
-  <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
-  <link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
-  <link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
-  <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
-  <link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
-  <link rel="stylesheet" type="text/css" href="CSS/utilcontactus.css">
-  <link rel="stylesheet" type="text/css" href="CSS/contactus.css">
+  <!-- Style.css -->
+  <script src="https://kit.fontawesome.com/8dce347ea2.js" crossorigin="anonymous"></script>
+
+  <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
 </head>
 
-<body>
+
+<body class="body-image">
   <nav class="navbar navbar-expand-lg navbar-dark bg-info">
     <a class="navbar-brand" href="index.html">
       <img src="pictures/logo.png" alt="DreamlandFestival" class="d-inline-block align-center logo" width="50" height="50">
@@ -68,9 +62,9 @@
             Artistic Events
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Item1</a>
-            <a class="dropdown-item" href="#">Item2</a>
-            <a class="dropdown-item" href="#">Item3</a>
+            <a class="dropdown-item" href="Artistic-Event-Music.html">Music</a>
+            <a class="dropdown-item" href="Artistic-Event-Dance.html">Dance</a>
+            <a class="dropdown-item" href="Artistic-Event-Theater.html">Theater</a>
           </div>
         </li>
         <li class="nav-item dropdown">
@@ -101,156 +95,176 @@
     </div>
   </nav>
 
-  <div class="container-contact100">
-		<div class="wrap-contact100">
-			<form class="contact100-form validate-form">
-				<span class="contact100-form-title">
-					Send Us A Message
-				</span>
+  <div class="container">
 
-				<label class="label-input100" for="first-name">Tell us your name *</label>
-				<div class="wrap-input100 rs1-wrap-input100 validate-input" data-validate="Type first name">
-					<input id="first-name" class="input100" type="text" name="first-name" placeholder="First name">
-					<span class="focus-input100"></span>
-				</div>
-				<div class="wrap-input100 rs2-wrap-input100 validate-input" data-validate="Type last name">
-					<input class="input100" type="text" name="last-name" placeholder="Last name">
-					<span class="focus-input100"></span>
-				</div>
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-8 col-lg-6 pb-5">
 
-				<label class="label-input100" for="email">Enter your email *</label>
-				<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-					<input id="email" class="input100" type="text" name="email" placeholder="Eg. example@email.com">
-					<span class="focus-input100"></span>
-				</div>
 
-				<label class="label-input100" for="phone">Enter phone number</label>
-				<div class="wrap-input100">
-					<input id="phone" class="input100" type="text" name="phone" placeholder="Eg. +39 3662834625">
-					<span class="focus-input100"></span>
-				</div>
+        <!--Form with header-->
 
-				<label class="label-input100" for="message">Message *</label>
-				<div class="wrap-input100 validate-input" data-validate = "Message is required">
-					<textarea id="message" class="input100" name="message" placeholder="Write us a message"></textarea>
-					<span class="focus-input100"></span>
-				</div>
+        <form action="mail.php" method="post">
+          <div class="card">
+            <div class="card-header p-0">
+              <div class="bg-info text-white text-center py-2">
+                <h3><i class="fa fa-envelope"></i> Contact Us</h3>
+                <p class="m-0">Please fill below fields</p>
+              </div>
+            </div>
+            <div class="card-body p-3">
 
-				<div class="container-contact100-form-btn">
-					<button class="contact100-form-btn">
-						Send Message
-					</button>
-				</div>
+              <!--Body-->
+              <div class="form-group">
+                <div class="input-group mb-2">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text"><i class="fa fa-user text-info"></i></div>
+                  </div>
+                  <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Name and surename" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group mb-2">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text"><i class="fa fa-envelope text-info"></i></div>
+                  </div>
+                  <input type="email" class="form-control" id="nombre" name="email" placeholder="Example@gmail.com" required>
+                </div>
+              </div>
 
-        <div class="contact100-form-social flex-c-m">
-					<a href="#" class="contact100-form-social-item flex-c-m bg1 m-r-5">
-						<i class="fa fa-facebook-f" aria-hidden="true"></i>
-					</a>
+              <div class="form-group">
+                <div class="input-group mb-2">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text"><i class="fa fa-comment text-info"></i></div>
+                  </div>
+                  <textarea class="form-control" placeholder="Your message" required></textarea>
+                </div>
+              </div>
 
-					<a href="#" class="contact100-form-social-item flex-c-m bg2 m-r-5">
-						<i class="fa fa-instagram" aria-hidden="true"></i>
-					</a>
+              <div class="text-center">
+                <input type="submit" value="Send" class="btn btn-primary btn-block py-2">
+              </div>
+            </div>
 
-					<a href="#" class="contact100-form-social-item flex-c-m bg3">
-						<i class="fa fa-youtube-play" aria-hidden="true"></i>
-					</a>
-				</div>
+          </div>
+        </form>
+        <!--Form with header-->
 
-			</form>
 
-			<div class="contact100-more flex-col-c-m" style="background-image: url('images/crowdshot.jpg');">
-				<div class="flex-w size1 p-b-47">
-					<div class="txt1 p-r-25">
-						<span class="lnr lnr-map-marker"></span>
-					</div>
-
-					<div class="flex-col size2">
-						<span class="txt1 p-b-20">
-							Address
-						</span>
-
-						<span class="txt2">
-							Piazza Leonardo da Vinci, 32, 20133 Milano MI
-						</span>
-					</div>
-				</div>
-
-				<div class="dis-flex size1 p-b-47">
-					<div class="txt1 p-r-25">
-						<span class="lnr lnr-phone-handset"></span>
-					</div>
-
-					<div class="flex-col size2">
-						<span class="txt1 p-b-20">
-							Lets Talk
-						</span>
-
-						<span class="txt3">
-							+39 3662834625
-						</span>
-					</div>
-				</div>
-
-				<div class="dis-flex size1 p-b-47">
-					<div class="txt1 p-r-25">
-						<span class="lnr lnr-envelope"></span>
-					</div>
-
-					<div class="flex-col size2">
-						<span class="txt1 p-b-20">
-							General Support
-						</span>
-
-						<span class="txt3">
-							dreamlandfestival@gmail.com
-						</span>
-					</div>
-				</div>
-        <div class="contact100-form-social flex-c-m">
-          <a href="#" class="contact100-form-social-item flex-c-m bg1 m-r-5">
-            <i class="fa fa-facebook-f" aria-hidden="true"></i>
-          </a>
-
-          <a href="#" class="contact100-form-social-item flex-c-m bg2 m-r-5">
-            <i class="fa fa-instagram" aria-hidden="true"></i>
-          </a>
-
-          <a href="#" class="contact100-form-social-item flex-c-m bg3">
-            <i class="fa fa-youtube-play" aria-hidden="true"></i>
-          </a>
-        </div>
-			</div>
-		</div>
-	</div>
-  <div id="dropDownSelect1"></div>
-
-  <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
-  <script src="vendor/animsition/js/animsition.min.js"></script>
-  <script src="vendor/bootstrap/js/popper.js"></script>
-  <script src="vendor/select2/select2.min.js"></script>
-  <script>
-    $(".selection-2").select2({
-      minimumResultsForSearch: 20,
-      dropdownParent: $('#dropDownSelect1')
-    });
-  </script>
-  <script src="vendor/daterangepicker/moment.min.js"></script>
-  <script src="vendor/daterangepicker/daterangepicker.js"></script>
-  <script src="vendor/countdowntime/countdowntime.js"></script>
-  <script src="js/contactus.js"></script>
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'UA-23581568-13');
-  </script>
-  <!-- Optional JavaScript -->
-  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+      </div>
+    </div>
+  </div>
 </body>
-
-</html>
+<!-- Footer -->
+<footer class="pt-5 pb-4" id="contact">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3 col-md-6 col-sm-6 mt-2 mb-4">
+        <h5 class="mb-4 font-weight-bold">ABOUT US</h5>
+        <p class="mb-4">Etiam laoreet in ex quis efficitur.</p>
+        <ul class="f-address">
+          <li>
+            <div class="row">
+              <div class="col-1"><i class="fas fa-map-marker"></i></div>
+              <div class="col-10">
+                <h6 class="font-weight-bold mb-0">Address:</h6>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="row">
+              <div class="col-1"><i class="far fa-envelope"></i></div>
+              <div class="col-10">
+                <h6 class="font-weight-bold mb-0">Have any questions?</h6>
+                <p><a href="#">Support@userthemes.com</a></p>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="row">
+              <div class="col-1"><i class="fas fa-phone-volume"></i></div>
+              <div class="col-10">
+                <h6 class="font-weight-bold mb-0">Address:</h6>
+                <p><a href="#">+XX (0) XX XX-XXXX-XXXX</a></p>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-md-6 col-sm-6 mt-2 mb-4">
+        <h5 class="mb-4 font-weight-bold">ANNOUNCEMENT</h5>
+        <ul class="f-address">
+          <li>
+            <div class="row">
+              <div class="col-1"><i class="fab fa-twitter"></i></div>
+              <div class="col-10">
+                <p class="mb-0"><a href="#">@userthemesrel </a> HTML Version Out Now</p>
+                <label>10 Mins Ago</label>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="row">
+              <div class="col-1"><i class="fab fa-twitter"></i></div>
+              <div class="col-10">
+                <p class="mb-0"><a href="#">@userthemesrel </a> HTML Version Out Now</p>
+                <label>20 Mins Ago</label>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="row">
+              <div class="col-1"><i class="fab fa-twitter"></i></div>
+              <div class="col-10">
+                <p class="mb-0"><a href="#">@userthemesrel </a> HTML Version Out Now</p>
+                <label>1 Hour Ago</label>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-md-6 col-sm-6 mt-2 mb-4">
+        <h5 class="mb-4 font-weight-bold">LATEST UPDATES</h5>
+        <ul class="recent-post">
+          <li>
+            <label class="mr-3">28 <br><span>APR</span></label>
+            <span>Rendomised words which dont look eveable.</span>
+          </li>
+          <li>
+            <label class="mr-3">29 <br><span>APR</span></label>
+            <span>Rendomised words which dont look eveable.</span>
+          </li>
+          <li>
+            <label class="mr-3">30 <br><span>APR</span></label>
+            <span>Rendomised words which dont look eveable.</span>
+          </li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-md-6 col-sm-6 mt-2 mb-4">
+        <h5 class="mb-4 font-weight-bold">SUBSCRIBE</h5>
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Your Email Address">
+          <span class="input-group-addon" id="basic-addon2"><i class="fas fa-check"></i></span>
+        </div>
+        <ul class="social-pet mt-4">
+          <li><a href="#" title="facebook"><i class="fab fa-facebook-f"></i></a></li>
+          <li><a href="#" title="twitter"><i class="fab fa-twitter"></i></a></li>
+          <li><a href="#" title="google-plus"><i class="fab fa-google-plus-g"></i></a></li>
+          <li><a href="#" title="instagram"><i class="fab fa-instagram"></i></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- Copyright -->
+<section class="copyright">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 ">
+        <div class="text-center text-white">
+          &copy; 2019 DreamLandFestival. All Rights Reserved.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
