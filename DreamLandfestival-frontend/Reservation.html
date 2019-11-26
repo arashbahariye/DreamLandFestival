@@ -28,14 +28,18 @@
   <!-- Google fonts -->
   <link href="https://fonts.googleapis.com/css?family=Modak&display=swap" rel="stylesheet">
   <!-- Style.css -->
-  <link rel="stylesheet" href="CSS\Reservation.css">
+  <link rel="stylesheet" href="CSS/Style.css">
+<link rel="stylesheet" href="Reservation.css">
+
 
   <!-- Style.css -->
   <script src="https://kit.fontawesome.com/8dce347ea2.js" crossorigin="anonymous"></script>
 
+  <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
 </head>
 
-<body>
+
+  <body class="form-v8">
   <nav class="navbar navbar-expand-lg navbar-dark bg-info">
     <a class="navbar-brand" href="index.html">
       <img src="pictures/logo.png" alt="DreamlandFestival" class="d-inline-block align-center logo" width="50" height="50">
@@ -61,9 +65,9 @@
             Artistic Events
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Item1</a>
-            <a class="dropdown-item" href="#">Item2</a>
-            <a class="dropdown-item" href="#">Item3</a>
+            <a class="dropdown-item" href="Artistic-Event-Music.html">Music</a>
+            <a class="dropdown-item" href="Artistic-Event-Dance.html">Dance</a>
+            <a class="dropdown-item" href="Artistic-Event-Theater.html">Theater</a>
           </div>
         </li>
         <li class="nav-item dropdown">
@@ -94,76 +98,211 @@
     </div>
   </nav>
 
-  <div class="main-container">
-    <div class="DL-header">
-      <div class="header-main">
-        <h1>Sign Up</h1>
-        <div class="header-bottom">
-          <div class="header-right agile">
-            <div class="header-left-bottom agileinfo">
-              <form action="#" method="post">
-                <div class="icon1">
-                  <i class="fa fa-user" aria-hidden="true"></i>
-                  <input type="text" placeholder="Enter your name" required="" />
-                </div>
-                <div class="icon1">
-                  <i class="fa fa-envelope" aria-hidden="true"></i>
-                  <input type="email" placeholder="Enter your email" required="" />
-                </div>
-                <div class="icon1">
-                  <i class="fa fa-phone" aria-hidden="true"></i>
-                  <input type="tel" placeholder="Phone number" required="" />
-                </div>
-                <div class="icon1">
-                  <i class="fa fa-lock" aria-hidden="true"></i>
-                  <input type="password" placeholder="Create password" required="" />
-                </div>
-                <div class="icon1">
-                  <i class="fa fa-lock" aria-hidden="true"></i>
-                  <input type="password" placeholder="Confirm password" required="" />
-                </div>
-                <div class="bottom">
-                  <input type="submit" value="Register" />
-                </div>
-              </form>
-            </div>
-          </div>
+
+    <div class="page-content">
+      <div class="form-v8-content">
+        <div class="form-left">
+          <img src="css\login2.jpg" alt="form">
         </div>
-      </div>
-      <div class="header-main-right">
-        <h1>Sign in</h1>
-        <div class="header-bottom">
-          <div class="header-right agile">
-            <div class="header-left-bottom agileinfo">
-              <form action="#" method="post">
-
-                <div class="icon1">
-                  <i class="fa fa-envelope" aria-hidden="true"></i>
-                  <input type="email" placeholder="Enter your email" required="" />
-                </div>
-
-                <div class="icon1">
-                  <i class="fa fa-lock" aria-hidden="true"></i>
-                  <input type="password" placeholder="Enter your password" required="" />
-                </div>
-                <div class="bottom">
-                  <input type="submit" value="login" />
-                </div>
-              </form>
+        <div class="form-right">
+          <div class="tab">
+            <div class="tab-inner">
+              <button class="tablinks" onclick="openCity(event, 'sign-up')" id="defaultOpen">Sign Up</button>
+            </div>
+            <div class="tab-inner">
+              <button class="tablinks" onclick="openCity(event, 'sign-in')">Sign In</button>
             </div>
           </div>
+          <form class="form-detail" action="#" method="post">
+            <div class="tabcontent" id="sign-up">
+              <div class="form-row">
+                <label class="form-row-inner">
+                  <input type="text" name="full_name" id="full_name" class="input-text" required>
+                  <span class="label">Username</span>
+                    <span class="border"></span>
+                </label>
+              </div>
+              <div class="form-row">
+                <label class="form-row-inner">
+                  <input type="text" name="your_email" id="your_email" class="input-text" required>
+                  <span class="label">E-Mail</span>
+                    <span class="border"></span>
+                </label>
+              </div>
+              <div class="form-row">
+                <label class="form-row-inner">
+                  <input type="password" name="password" id="password" class="input-text" required>
+                  <span class="label">Password</span>
+                  <span class="border"></span>
+                </label>
+              </div>
+              <div class="form-row">
+                <label class="form-row-inner">
+                  <input type="password" name="comfirm_password" id="comfirm_password" class="input-text" required>
+                  <span class="label">Comfirm Password</span>
+                  <span class="border"></span>
+                </label>
+              </div>
+              <div class="form-row-last">
+                <input type="submit" name="register" class="register" value="Register">
+              </div>
+            </div>
+          </form>
+          <form class="form-detail" action="#" method="post">
+            <div class="tabcontent" id="sign-in">
+              <div class="form-row">
+                <label class="form-row-inner">
+                  <input type="text" name="full_name_1" id="full_name_1" class="input-text" required>
+                  <span class="label">Username</span>
+                    <span class="border"></span>
+                </label>
+              </div>
+              <div class="form-row">
+                <label class="form-row-inner">
+                  <input type="text" name="your_email_1" id="your_email_1" class="input-text" required>
+                  <span class="label">E-Mail</span>
+                    <span class="border"></span>
+                </label>
+              </div>
+
+              <div class="form-row-last">
+                <input type="submit" name="register" class="register" value="Sign In">
+              </div>
+            </div>
+          </form>
         </div>
       </div>
     </div>
-</div>
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      function openCity(evt, cityName) {
+          var i, tabcontent, tablinks;
+          tabcontent = document.getElementsByClassName("tabcontent");
+          for (i = 0; i < tabcontent.length; i++) {
+              tabcontent[i].style.display = "none";
+          }
+          tablinks = document.getElementsByClassName("tablinks");
+          for (i = 0; i < tablinks.length; i++) {
+              tablinks[i].className = tablinks[i].className.replace(" active", "");
+          }
+          document.getElementById(cityName).style.display = "block";
+          evt.currentTarget.className += " active";
+      }
 
-
-
-  <!-- Optional JavaScript -->
-  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+      // Get the element with id="defaultOpen" and click on it
+      document.getElementById("defaultOpen").click();
+    </script>
 </body>
-
-</html>
+<!-- Footer -->
+<footer class="pt-5 pb-4" id="contact">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3 col-md-6 col-sm-6 mt-2 mb-4">
+        <h5 class="mb-4 font-weight-bold">ABOUT US</h5>
+        <p class="mb-4">Etiam laoreet in ex quis efficitur.</p>
+        <ul class="f-address">
+          <li>
+            <div class="row">
+              <div class="col-1"><i class="fas fa-map-marker"></i></div>
+              <div class="col-10">
+                <h6 class="font-weight-bold mb-0">Address:</h6>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="row">
+              <div class="col-1"><i class="far fa-envelope"></i></div>
+              <div class="col-10">
+                <h6 class="font-weight-bold mb-0">Have any questions?</h6>
+                <p><a href="#">Support@userthemes.com</a></p>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="row">
+              <div class="col-1"><i class="fas fa-phone-volume"></i></div>
+              <div class="col-10">
+                <h6 class="font-weight-bold mb-0">Address:</h6>
+                <p><a href="#">+XX (0) XX XX-XXXX-XXXX</a></p>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-md-6 col-sm-6 mt-2 mb-4">
+        <h5 class="mb-4 font-weight-bold">ANNOUNCEMENT</h5>
+        <ul class="f-address">
+          <li>
+            <div class="row">
+              <div class="col-1"><i class="fab fa-twitter"></i></div>
+              <div class="col-10">
+                <p class="mb-0"><a href="#">@userthemesrel </a> HTML Version Out Now</p>
+                <label>10 Mins Ago</label>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="row">
+              <div class="col-1"><i class="fab fa-twitter"></i></div>
+              <div class="col-10">
+                <p class="mb-0"><a href="#">@userthemesrel </a> HTML Version Out Now</p>
+                <label>20 Mins Ago</label>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="row">
+              <div class="col-1"><i class="fab fa-twitter"></i></div>
+              <div class="col-10">
+                <p class="mb-0"><a href="#">@userthemesrel </a> HTML Version Out Now</p>
+                <label>1 Hour Ago</label>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-md-6 col-sm-6 mt-2 mb-4">
+        <h5 class="mb-4 font-weight-bold">LATEST UPDATES</h5>
+        <ul class="recent-post">
+          <li>
+            <label class="mr-3">28 <br><span>APR</span></label>
+            <span>Rendomised words which dont look eveable.</span>
+          </li>
+          <li>
+            <label class="mr-3">29 <br><span>APR</span></label>
+            <span>Rendomised words which dont look eveable.</span>
+          </li>
+          <li>
+            <label class="mr-3">30 <br><span>APR</span></label>
+            <span>Rendomised words which dont look eveable.</span>
+          </li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-md-6 col-sm-6 mt-2 mb-4">
+        <h5 class="mb-4 font-weight-bold">SUBSCRIBE</h5>
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Your Email Address">
+          <span class="input-group-addon" id="basic-addon2"><i class="fas fa-check"></i></span>
+        </div>
+        <ul class="social-pet mt-4">
+          <li><a href="#" title="facebook"><i class="fab fa-facebook-f"></i></a></li>
+          <li><a href="#" title="twitter"><i class="fab fa-twitter"></i></a></li>
+          <li><a href="#" title="google-plus"><i class="fab fa-google-plus-g"></i></a></li>
+          <li><a href="#" title="instagram"><i class="fab fa-instagram"></i></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- Copyright -->
+<section class="copyright">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 ">
+        <div class="text-center text-white">
+          &copy; 2019 DreamLandFestival. All Rights Reserved.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
