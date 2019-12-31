@@ -1,0 +1,9 @@
+{
+   "env" : {
+       "NODE_ENV" : "dev",
+       "NODE_DATABASE" : "dreamland_festival",
+       "NODE_DATABASE_USER" : "root",
+       "NODE_DATABASE_PW" : "rootroot",
+       "NODE_DATABASE_URL" : "localhost"
+   }
+}

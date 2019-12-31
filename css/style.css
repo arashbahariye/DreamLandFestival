@@ -1,0 +1,165 @@
+/* tag selectors */
+body {
+  background-color: #E0F8F1;
+}
+
+/* class selectors */
+.logo {
+  border-radius: 50%;
+}
+
+.logo-text {
+  font-family: 'Pacifico', cursive;
+}
+
+.container {
+  margin: auto;
+}
+
+.col-md-padding {
+  padding: 0 0 0 0;
+}
+
+.container-size {
+  margin-top: 1%;
+}
+
+.general-information {
+  margin-top: 2%;
+}
+
+.google-maps {
+  position: relative;
+  padding-bottom: 75%;
+  height: 0;
+  overflow: hidden;
+}
+
+.google-maps>iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100% ;
+  height: 100% ;
+}
+
+.row-content {
+  text-align: center;
+  margin-top: 1%;
+  padding: 5%;
+}
+
+.col-content {
+  text-align: center;
+}
+
+.card-img-size {
+  border-radius: 50%;
+  width: 250px;
+  height: 250px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5%;
+}
+.card-size {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  background-color: #17a2b8;
+  border-radius: 5%;
+}
+
+.card {
+  margin-top: 10%;
+  border-style: none;
+  border-radius: 10%;
+}
+.card-body {
+  background-color: #E0F8F1;
+}
+.body-image {
+  background-image:url(letter.jpg);
+}
+
+/*=-footer-=*/
+    footer {
+      color: #111;
+      background-attachment: fixed;
+      background-color:#E0F8F1;
+      background-image: url(https://s7.postimg.org/uyf0oioaz/footer-bg.png);
+      background-size: cover;
+      background-position: bottom;
+    }
+    footer p {
+      color: #111;
+    }
+   footer a {
+      color: #ccc;
+    }
+    .social-pet li {
+      display: inline-block;
+      margin-right: 10px;
+    }
+    .social-pet li a {
+      height: 35px;
+      width: 35px;
+      border-radius: 50%;
+      text-align: center;
+      display: block;
+      line-height: 35px;
+      background-color: #3a5a95;
+      color: #fff;
+    }
+    .social-pet li:nth-child(2) a {
+      background-color: #57aced;
+    }
+    .social-pet li:nth-child(3) a {
+      background-color: #dd4f43;
+    }
+    .social-pet li:nth-child(4) a {
+      background-color: #6b27b2;
+    }
+    .social-pet li a:hover {
+      background-color: #0141a2;
+    }
+    .social-pet li a:hover i {
+      transform: rotate(360deg);
+      -moz-transform: rotate(360deg);
+      -webkit-transform: rotate(360deg);
+    }
+    .recent-post li {
+      display: block;
+      color: #111;
+      margin-bottom: 25px;
+    }
+    .recent-post li label {
+      float: left;
+      border: 2px solid #111;
+      padding: 1px 7px;
+      text-align: center;
+    }
+    .recent-post li label span {
+      color: #111;
+    }
+    footer .input-group-addon {
+      background-color: #0141a2;
+      padding: 10px;
+    }
+    .f-address li {
+      display: inline-block;
+    }
+    .f-address li i {
+      color: #2995de;
+      font-size: 18px;
+    }
+    .f-address li a {
+      color: #111;
+    }
+    /*=-Copyright-=*/
+    .copyright {
+      background-color: #17a2b8;
+      padding: 12px 0;
+      font-size:14px;
+    }
