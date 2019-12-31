@@ -49,7 +49,6 @@ exports.getSeminary = (req, res, next) => {
         promises.push(seminaryWithArtisticEvents);
         return Promise.all(promises);
         }).then((seminary) => {
-            console.log(seminary);
             res.json({seminary : seminary});
         }).catch(
             err => console.log(err)
@@ -73,7 +72,6 @@ exports.searchSeminary = (req, res, next) => {
         });
         return Promise.all(promises);
     }).then((seminaries) => {
-            console.log(seminaries);
             res.json({seminaries : seminaries});
     }).catch(
             err => console.log(err)

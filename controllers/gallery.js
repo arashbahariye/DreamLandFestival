@@ -11,5 +11,4 @@ exports.createGallery = (req, res, next) => {
             message : req.fileValidationError ? req.fileValidationError : 'Nessun immagine allegata',
         });
     }
-
 };

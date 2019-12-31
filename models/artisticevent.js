@@ -14,7 +14,7 @@ const Artistic_Event = sequelize.define('artisticevent', {
         allowNull : false,
     },
     date : {
-        type : Sequelize.DATE,
+        type : Sequelize.STRING,
         allowNull : true,
     },
     factsheet : { //it must include the date

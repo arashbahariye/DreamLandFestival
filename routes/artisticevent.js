@@ -34,8 +34,10 @@ var upload = multer({ storage : storage, fileFilter : fileFilter});
 var cpUpload = upload.single('image');
 
 router.get('/artisticevent', artisticeventController.getArtisticevents);
-router.get('/artisticevent/search', artisticeventController.searchArtisticevent);
+router.get('/artisticevent/searchbytitle', artisticeventController.searchArtisticeventByTitle);
+router.get('/artisticevent/searchbydate', artisticeventController.searchArtisticeventByDate);
 router.get('/artisticevent/:id', artisticeventController.getArtisticevent);
+router.get('/artisticevent/sameday/:id', artisticeventController.getSameDay);
 router.get('/artisticevent/similars/:id', artisticeventController.getSimilars);
 
 module.exports = router;
