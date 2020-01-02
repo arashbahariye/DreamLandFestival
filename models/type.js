@@ -2,25 +2,18 @@ const Sequelize = require('sequelize');
 
 const sequelize = require('../utils/database');
 
-const Seminary = sequelize.define('seminary', {
+const Type = sequelize.define('type', {
     id : {
         type : Sequelize.INTEGER,
         autoIncrement : true,
         allowNull : false,
         primaryKey : true
     },
-    title : {
+    name : {
         type : Sequelize.STRING,
         allowNull : false,
     },
-    date : {
-        type : Sequelize.STRING,
-        allowNull : true,
-    },
-    location : {
-        type : Sequelize.STRING,
-        allowNull : true
-    }
+
 });
 
-module.exports = Seminary;
+module.exports = Type;

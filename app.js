@@ -41,8 +41,11 @@ const Ticket = require('./models/ticket');
 const Artistic_Event = require('./models/artisticevent');
 const Performer = require('./models/performer');
 const Seminary = require('./models/seminary');
+const Type = require('./models/type');
 const Similarity = require('./models/similarity');
 const Performance = require('./models/performance');
+const Typologyae = require('./models/typologyae');
+const Typologyse = require('./models/typologyse');
 
 //user and ticket
 User.hasMany(Ticket);
@@ -58,6 +61,14 @@ Artistic_Event.belongsTo(Seminary);
 
 //artistic event and similar
 Artistic_Event.belongsToMany(Artistic_Event, { as: 'similar', through: Similarity });
+
+//artistic event and type
+Artistic_Event.belongsToMany(Type, {through : Typologyae});
+Type.belongsToMany(Artistic_Event, {through : Typologyae});
+
+//seminary and type
+Seminary.belongsToMany(Type, {through : Typologyse});
+Type.belongsToMany(Seminary, {through : Typologyse});
 
 console.log(process.env.NODE_ENV || 'develop');
 

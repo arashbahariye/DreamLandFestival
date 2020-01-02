@@ -35,9 +35,11 @@ var cpUpload = upload.single('image');
 
 router.get('/artisticevent', artisticeventController.getArtisticevents);
 router.get('/artisticevent/searchbytitle', artisticeventController.searchArtisticeventByTitle);
-router.get('/artisticevent/searchbydate', artisticeventController.searchArtisticeventByDate);
+router.get('/artisticevent/searcheventsbydate', artisticeventController.searchEventsByDate);
+router.get('/artisticevent/searcheventsbytype', artisticeventController.searchEventsByType);
 router.get('/artisticevent/:id', artisticeventController.getArtisticevent);
-router.get('/artisticevent/sameday/:id', artisticeventController.getSameDay);
+router.get('/artisticevent/sameday/:id', artisticeventController.getSameDayEvents);
 router.get('/artisticevent/similars/:id', artisticeventController.getSimilars);
+router.get('/types', artisticeventController.getTypes);
 
 module.exports = router;
