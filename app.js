@@ -7,6 +7,7 @@ const reservationRoutes = require('./routes/reservation');
 const fs = require('fs');
 var helmet = require('helmet');
 var morgan = require('morgan');
+var compression = require('compression');
 
 const sequelize  = require('./utils/database');
 
@@ -18,6 +19,8 @@ const logStream = fs.createWriteStream(path.join(__dirname, 'access.log'), {flag
 app.use(morgan('combined', {stream : logStream}));
 
 app.use(bodyParser.json());
+
+app.use(compression());
 
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
