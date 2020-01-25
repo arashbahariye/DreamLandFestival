@@ -895,3 +895,7 @@
 ::ffff:127.0.0.1 - - [13/Jan/2020:19:10:08 +0000] "POST /auth/register HTTP/1.1" 201 279 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36"
 ::ffff:127.0.0.1 - - [13/Jan/2020:19:21:28 +0000] "POST /auth/register HTTP/1.1" 201 278 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36"
 ::ffff:127.0.0.1 - - [13/Jan/2020:19:24:46 +0000] "POST /auth/register HTTP/1.1" 422 137 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36"
+::ffff:127.0.0.1 - - [25/Jan/2020:15:29:41 +0000] "POST /auth/register HTTP/1.1" 422 148 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36"
+::ffff:127.0.0.1 - - [25/Jan/2020:15:29:49 +0000] "POST /auth/register HTTP/1.1" 201 290 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36"
+::ffff:127.0.0.1 - - [25/Jan/2020:15:29:54 +0000] "POST /auth/login HTTP/1.1" 201 264 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36"
+::ffff:127.0.0.1 - - [25/Jan/2020:15:29:58 +0000] "GET /auth/me HTTP/1.1" 304 - "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36"
