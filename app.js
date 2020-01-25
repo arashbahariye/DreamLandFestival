@@ -31,6 +31,9 @@ app.use((req, res, next) => {
 
 app.use(express.static('public'));
 
+var distDir = __dirname + "/dist/";
+app.use(express.static(distDir));
+
 router.get('/',function(req,res){
     res.sendFile(path.join(__dirname + '/index.html'));
 });
