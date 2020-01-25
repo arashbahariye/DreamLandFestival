@@ -1,0 +1,293 @@
+/* tag selectors */
+body {
+  background-color: #E0F8F1;
+}
+
+/* class selectors */
+.reservation-btn {
+  margin-bottom: 5%;
+}
+.background-image{
+  background-size: cover;
+  background-image: url("https://www.apartmentlist.com/rentonomics/wp-content/uploads/2019/03/writing-a-renter-reference-letter-for-a-colleague-1024x611.jpg");
+}
+.top-div{
+  margin-top: 3%;
+}
+.subscription {
+  text-align: center;
+}
+.email-input{
+  border-radius: 5%;
+  border: 2px solid #17a2b8;
+}
+.latest-update{
+  color: black;
+}
+.latest-update:hover{
+  color: #17a2b8;
+}
+.logo {
+  border-radius: 50%;
+}
+
+.logo-text {
+  font-family: 'Pacifico', cursive;
+}
+
+.container {
+  margin-bottom: 2%;
+}
+
+.col-md-padding {
+  padding: 0 0 0 0;
+}
+
+.container-size {
+  margin-top: 1%;
+}
+
+.general-information {
+  margin-top: 2%;
+}
+
+.google-maps {
+  position: relative;
+  padding-bottom: 75%;
+  height: 0;
+  overflow: hidden;
+}
+
+.google-maps>iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100% ;
+  height: 100% ;
+}
+
+.row-content {
+  text-align: center;
+  margin-top: 1%;
+  padding: 5%;
+}
+
+.col-content {
+  text-align: center;
+}
+
+.card-img-size {
+  border-radius: 50%;
+  width: 250px;
+  height: 250px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5%;
+}
+.card-size {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  background-color: #17a2b8;
+  border-radius: 5%;
+}
+
+.card {
+  margin-top: 10%;
+  border-style: none;
+  border-radius: 10%;
+}
+.card-body {
+  background-color: #E0F8F1;
+}
+.body-image {
+  background-image:url(letter.jpg);
+}
+#login {
+  font-style: oblique;
+  font-size: 25px;
+  color: #cbf1f5;
+  margin-right: 2%;
+}
+.register{
+    background: -webkit-linear-gradient(left, #3931af, #00c6ff);
+    margin-top: 3%;
+    padding: 3%;
+}
+.register-left{
+    text-align: center;
+    color: #fff;
+    margin-top: 4%;
+}
+.register-left input{
+    border: none;
+    border-radius: 1.5rem;
+    padding: 2%;
+    width: 60%;
+    background: #f8f9fa;
+    font-weight: bold;
+    color: #383d41;
+    margin-top: 30%;
+    margin-bottom: 3%;
+    cursor: pointer;
+}
+.register-right{
+    background: #f8f9fa;
+    border-top-left-radius: 10% 50%;
+    border-bottom-left-radius: 10% 50%;
+}
+.register-left img{
+    margin-top: 15%;
+    margin-bottom: 5%;
+    width: 25%;
+    -webkit-animation: mover 2s infinite  alternate;
+    animation: mover 1s infinite  alternate;
+}
+@-webkit-keyframes mover {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-20px); }
+}
+@keyframes mover {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-20px); }
+}
+.register-left p{
+    font-weight: lighter;
+    padding: 12%;
+    margin-top: -9%;
+}
+.register .register-form{
+    padding: 10%;
+    margin-top: 10%;
+}
+.btnRegister{
+    float: right;
+    margin-top: 10%;
+    border: none;
+    border-radius: 1.5rem;
+    padding: 2%;
+    background: #0062cc;
+    color: #fff;
+    font-weight: 600;
+    width: 50%;
+    cursor: pointer;
+}
+.register .nav-tabs{
+    margin-top: 3%;
+    border: none;
+    background: #0062cc;
+    border-radius: 1.5rem;
+    width: 28%;
+    float: right;
+}
+.register .nav-tabs .nav-link{
+    padding: 2%;
+    height: 34px;
+    font-weight: 600;
+    color: #fff;
+    border-top-right-radius: 1.5rem;
+    border-bottom-right-radius: 1.5rem;
+}
+.register .nav-tabs .nav-link:hover{
+    border: none;
+}
+.register .nav-tabs .nav-link.active{
+    width: 100px;
+    color: #0062cc;
+    border: 2px solid #0062cc;
+    border-top-left-radius: 1.5rem;
+    border-bottom-left-radius: 1.5rem;
+}
+.register-heading{
+    text-align: center;
+    margin-top: 8%;
+    margin-bottom: -15%;
+    color: #495057;
+}
+/*=-footer-=*/
+    footer {
+      color: #111;
+      background-attachment: fixed;
+      background-color:#cbf1f5;
+      background-image: url(https://s7.postimg.org/uyf0oioaz/footer-bg.png);
+      background-size: cover;
+      background-position: bottom;
+    }
+    footer p {
+      color: #111;
+    }
+   footer a {
+      color: #ccc;
+    }
+    .social-pet li {
+      display: inline-block;
+      margin-right: 10px;
+    }
+    .social-pet li a {
+      height: 35px;
+      width: 35px;
+      border-radius: 50%;
+      text-align: center;
+      display: block;
+      line-height: 35px;
+      background-color: #3a5a95;
+      color: #fff;
+    }
+    .social-pet li:nth-child(2) a {
+      background-color: #57aced;
+    }
+    .social-pet li:nth-child(3) a {
+      background-color: #dd4f43;
+    }
+    .social-pet li:nth-child(4) a {
+      background-color: #6b27b2;
+    }
+    .social-pet li a:hover {
+      background-color: #0141a2;
+    }
+    .social-pet li a:hover i {
+      transform: rotate(360deg);
+      -moz-transform: rotate(360deg);
+      -webkit-transform: rotate(360deg);
+    }
+    .recent-post li {
+      display: block;
+      color: #111;
+      margin-bottom: 25px;
+    }
+    .recent-post li label {
+      float: left;
+      border: 2px solid #111;
+      padding: 1px 7px;
+      text-align: center;
+    }
+    .recent-post li label span {
+      color: #111;
+    }
+    footer .input-group-addon {
+      background-color: #0141a2;
+      padding: 10px;
+    }
+    .f-address li {
+      display: inline-block;
+    }
+    .f-address li i {
+      color: #2995de;
+      font-size: 18px;
+    }
+    .f-address li a {
+      color: #111;
+    }
+    /*=-Copyright-=*/
+    .copyright {
+      background-color: #17a2b8;
+      padding: 12px 0;
+      font-size:14px;
+    }
+    .row-padding{
+      padding: 4%;
+      text-align: center;
+      margin: 1%;
+    }
