@@ -23,7 +23,7 @@ exports.getSeminaries = (req, res, next) => {
         });
         return Promise.all(promises);
     }).then((seminaries) => {
-        res.json({seminaries : seminaries});
+        res.json({data : seminaries});
     }).catch(
         err => console.log(err)
     );
@@ -49,7 +49,7 @@ exports.getSeminary = (req, res, next) => {
         promises.push(seminaryWithArtisticEvents);
         return Promise.all(promises);
         }).then((seminary) => {
-            res.json({seminary : seminary});
+            res.json({data : seminary});
         }).catch(
             err => console.log(err)
         );
@@ -72,7 +72,7 @@ exports.searchSeminary = (req, res, next) => {
         });
         return Promise.all(promises);
     }).then((seminaries) => {
-            res.json({seminaries : seminaries});
+            res.json({data : seminaries});
     }).catch(
             err => console.log(err)
     );

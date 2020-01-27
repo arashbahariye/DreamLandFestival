@@ -9,7 +9,7 @@ const User = require('../models/user');
 
 exports.getTicketsByMe = (req, res, next) => {
     req.user.getTickets().then((tickets) => {
-        res.json({tickets : tickets});
+        res.json({data : tickets});
     }).catch(
         err => console.log(err)
     );
@@ -19,7 +19,7 @@ exports.searchTicketByMe = (req, res, next) => {
     const title = '%' + req.query.title + '%';
     Ticket.findAll({where : {title : {[Op.like] : title}, userId : req.user.id}})
     .then((tickets) => {
-        res.json({tickets : tickets});
+        res.json({data : tickets});
     }).catch(
         err => console.log(err)
     );
@@ -46,7 +46,7 @@ exports.createTicket = (req, res, next) => {
     }).then((ticket) => {
         res.status(201).json({
             messages : 'Success Operation',
-            ticket : ticket
+            data : ticket
         });
     }).catch( err => {
        return res.status(422).json({

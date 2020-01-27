@@ -29,7 +29,7 @@ exports.getArtisticevents = (req, res, next) => {
         });
         return Promise.all(promises);
     }).then((artisticevents) => {
-        res.json({artisticevents : artisticevents});
+        res.json({data : artisticevents});
     }).catch(
         err => console.log(err)
     );
@@ -55,7 +55,7 @@ exports.getArtisticevent = (req, res, next) => {
         promises.push(artisticeventWithPerformers);
         return Promise.all(promises);
         }).then((artisticevent) => {
-            res.json({artisticevent : artisticevent});
+            res.json({data : artisticevent});
         }).catch(
             err => console.log(err)
         );
@@ -81,7 +81,7 @@ exports.getSimilars = (req, res, next) => {
         promises.push(artisticeventWithSimilars);
         return Promise.all(promises);
         }).then((artisticevent) => {
-            res.json({artisticevent : artisticevent});
+            res.json({data : artisticevent});
         }).catch(
             err => console.log(err)
         );
@@ -119,7 +119,7 @@ exports.getSameDayEvents = (req, res, next) => {
         promises.push(artisticeventWithSameDay);
         return Promise.all(promises);
         }).then((artisticevent) => {
-            res.json({artisticevent : artisticevent});
+            res.json({data : artisticevent});
         }).catch(
             err => console.log(err)
         );
@@ -142,7 +142,7 @@ exports.searchArtisticeventByTitle = (req, res, next) => {
         });
         return Promise.all(promises);
     }).then((artisticevents) => {
-            res.json({artisticevents : artisticevents});
+            res.json({data : artisticevents});
     }).catch(
             err => console.log(err)
     );
@@ -194,8 +194,8 @@ exports.searchEventsByDate = (req, res, next) => {
         Seminary.findAll({where : {date : date}})
         .then(seminaries => {
             res.json({
-                artisticevents : artisticevents,
-                seminaries : seminaries
+                data : artisticevents,
+                data : seminaries
             });
         })
     }).catch(
@@ -252,8 +252,8 @@ exports.searchEventsByType = (req, res, next) => {
         })
         .then(seminaries => {
             res.json({
-                artisticevents : artisticevents,
-                seminaries : seminaries
+                data : artisticevents,
+                data : seminaries
             });
         });
     }).catch(
@@ -264,7 +264,7 @@ exports.searchEventsByType = (req, res, next) => {
 exports.getTypes = (req, res, next) => {
     Type.findAll()
     .then(types => {
-        res.json({types : types});
+        res.json({data : types});
     }).catch(
         err => console.log(err)
     );

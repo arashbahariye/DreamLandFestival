@@ -25,7 +25,7 @@ exports.getPerformers = (req, res, next) => {
         });
         return Promise.all(promises);
     }).then((performers) => {
-        res.json({performers : performers});
+        res.json({data : performers});
     }).catch(
         err => console.log(err)
     );
@@ -51,7 +51,7 @@ exports.getPerformer = (req, res, next) => {
         promises.push(performerWithArtisticEvents);
         return Promise.all(promises);
         }).then((performer) => {
-            res.json({performer : performer});
+            res.json({data : performer});
         }).catch(
             err => console.log(err)
         );
@@ -74,7 +74,7 @@ exports.searchPerformer = (req, res, next) => {
         });
         return Promise.all(promises);
     }).then((performers) => {
-            res.json({performers : performers});
+            res.json({data : performers});
     }).catch(
             err => console.log(err)
     );
