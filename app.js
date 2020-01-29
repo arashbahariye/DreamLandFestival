@@ -31,7 +31,7 @@ app.use((req, res, next) => {
 
 app.use(express.static('public'));
 
-app.get('/',function(req,res){
+router.get('/',function(req,res){
     res.sendFile(path.join(__dirname + '/index.html'));
 });
 
