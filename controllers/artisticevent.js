@@ -252,8 +252,8 @@ exports.searchEventsByType = (req, res, next) => {
         })
         .then(seminaries => {
             res.json({
-                data : artisticevents,
-                data : seminaries
+                artisticevents : artisticevents,
+                seminaries : seminaries
             });
         });
     }).catch(
