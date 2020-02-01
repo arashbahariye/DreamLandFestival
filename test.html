@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h2>Extract all types</h2>
+    <p id = "demo"></p>
+
+    <script>
+    var txt, myObj;
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            var myObj = JSON.parse(this.responseText)
+            txt += "<table border = '1'>";
+                for(x in myObj) {
+                    txt += "<tr><td>" + myObj[x].name + "</td></tr>";
+                }
+                txt += "</table>"
+        document.getElementById("demo").innerHTML = txt;
+        }
+    };
+    xmlhttp.open("GET", "https://dreamlandfestival1.herokuapp.com/artisticevent/types", true);
+    xmlhttp.setRequestHeader("Content-type", "applicaton/x-www-form-urlencoded");
+    </script>
+
+  </body>
+</html>
