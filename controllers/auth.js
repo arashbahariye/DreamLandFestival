@@ -13,6 +13,8 @@ exports.registerUser = (req, res, next) => {
         });
     }
 
+    console.log(req.body);
+
     const email = req.body.email;
     const name = req.body.name;
     const phoneNumber = req.body.phoneNumber;

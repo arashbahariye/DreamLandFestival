@@ -1,25 +1,26 @@
 <!DOCTYPE html>
 <html>
   <body>
-    <h2>Extract all types</h2>
+    <h2>Extract all kind of types</h2>
     <p id = "demo"></p>
 
     <script>
     var txt, myObj;
     var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open("GET", "https://dreamlandfestival1.herokuapp.com/artisticevent/type", true);
+    xmlhttp.setRequestHeader("Content-type", "applicaton/x-www-form-urlencoded");
+    alert(xmlhttp.readyState);
     xmlhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            var myObj = JSON.parse(this.responseText)
+        if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            var myObj = JSON.parse(xmlhttp.response);
             txt += "<table border = '1'>";
-                for(x in myObj.data) {
-                    txt += "<tr><td>" + x.name + "</td></tr>";
+                for(x in myObj[data]) {
+                    txt += "<tr><td>" + "ciao" + "</td></tr>";
                 }
                 txt += "</table>"
         document.getElementById("demo").innerHTML = txt;
         }
     };
-    xmlhttp.open("GET", "https://dreamlandfestival1.herokuapp.com/artisticevent/types", true);
-    xmlhttp.setRequestHeader("Content-type", "applicaton/x-www-form-urlencoded");
     </script>
 
   </body>
