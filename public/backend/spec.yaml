@@ -1,0 +1,2196 @@
+swagger: '2.0'
+info:
+  version: '1.0'
+  title: Dreamland festival
+  contact: {}
+host: dreamlandfestival1.herokuapp.com
+basePath: /
+securityDefinitions:
+  Bearer:
+    type: apiKey
+    name: Authorization
+    in: header
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+paths:
+  /artisticevent/artisticevent:
+    get:
+      summary: GET - ALL - ARTISTIC EVENT
+      tags:
+      - Artistic Events
+      operationId: GET-ALL-ARTISTICEVENT
+      deprecated: false
+      produces:
+      - application/json
+      parameters: []
+      responses:
+        200:
+          description: 'Successful'
+          headers: {}
+          schema:
+            $ref: '#/definitions/AllArtisticEvents'
+      security: []
+  /artisticevent/types:
+    get:
+      summary: GET - ALL - TYPE
+      tags:
+      - Artistic Events
+      operationId: GET-ALL-TYPE
+      deprecated: false
+      produces:
+      - application/json
+      parameters: []
+      responses:
+        200:
+          description: 'Successful'
+          headers: {}
+          schema:
+            $ref: '#/definitions/AllTypes'
+      security: []
+  /artisticevent/artisticevent/{artisticEventId}:
+    get:
+      summary: GET - ARTISTIC EVENT
+      tags:
+      - Artistic Events
+      operationId: GET-ARTISTICEVENT
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+        - in: path
+          name: artisticEventId
+          type: integer
+          required: true
+          description: Numeric ID of the artistic event to get.
+      responses:
+        200:
+          description: 'Successful'
+          headers: {}
+          schema:
+            $ref: '#/definitions/ArtisticEventFound'
+        404:
+          description: 'Not Found'
+          headers: {}
+      security: []
+  /artisticevent/artisticevent/sameday/{artisticEventId}:
+    get:
+      summary: GET - SAME DAY - EVENT
+      tags:
+      - Artistic Events
+      operationId: GET-SAMEDAY-EVENT
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+        - in: path
+          name: artisticEventId
+          type: integer
+          required: true
+          description: Numeric ID of the related artistic event.
+      responses:
+        200:
+          description: 'Successful'
+          headers: {}
+          schema:
+            $ref: '#/definitions/ArtisticEventsSameDate'
+        404:
+          description: 'Not Found'
+          headers: {}
+      security: []
+  /artisticevent/artisticevent/searchbytitle:
+    get:
+      summary: SEARCH - ARTISTIC EVENT by title
+      tags:
+      - Artistic Events
+      operationId: SEARCH-ARTISTICEVENTbytitle
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: title
+        in: query
+        required: true
+        type: string
+        description: ''
+      responses:
+        200:
+          description: 'Successful'
+          headers: {}
+          schema:
+            $ref: '#/definitions/ArtisticEventsTitle'
+        404:
+          description: 'Not Found'
+          headers: {}
+      security: []
+  /artisticevent/artisticevent/searcheventsbydate:
+    get:
+      summary: SEARCH - EVENT by date
+      tags:
+      - Artistic Events
+      operationId: SEARCH-EVENTbydate
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: date
+        in: query
+        required: true
+        type: string
+        description: ''
+      responses:
+        200:
+          description: 'Successful'
+          headers: {}
+          schema:
+            $ref: '#/definitions/ArtisticEventsDate'
+        404:
+          description: 'Not Found'
+          headers: {}
+      security: []
+  /artisticevent/artisticevent/searcheventsbytype:
+    get:
+      summary: SEARCH - EVENT by type
+      tags:
+      - Artistic Events
+      operationId: SEARCH-EVENTbytype
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: type
+        in: query
+        required: true
+        type: string
+        description: ''
+      responses:
+        200:
+          description: 'Successful'
+          headers: {}
+          schema:
+            $ref: '#/definitions/ArtisticEventsType'
+        404:
+          description: 'Not Found'
+          headers: {}
+      security: []
+  /auth/register:
+    post:
+      summary: POST - Register
+      tags:
+      - Authentication
+      operationId: POST-Register
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: Body
+        in: body
+        required: true
+        description: ''
+        schema:
+          $ref: '#/definitions/POST-RegisterRequest'
+      responses:
+        201:
+          description: 'Successful'
+          headers: {}
+          schema:
+            $ref: '#/definitions/POST-RegisterResponse'
+        422:
+          description: 'Unprocessable entity'
+          headers: {}
+      security: []
+  /auth/login:
+    post:
+      summary: POST - Login
+      tags:
+      - Authentication
+      operationId: POST-Login
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: Body
+        in: body
+        required: true
+        description: ''
+        schema:
+          $ref: '#/definitions/POST-LoginRequest'
+      responses:
+        201:
+          description: 'Successful'
+          headers: {}
+          schema:
+            $ref: '#/definitions/POST-LoginResponse'
+        401:
+          description: 'Unauthorized'
+          headers: {}
+      security: []
+  /auth/me:
+    get:
+      summary: GET - ME
+      tags:
+      - Authentication
+      operationId: GET-ME
+      deprecated: false
+      produces:
+      - application/json
+      security:
+        - Bearer: []
+      responses:
+        200:
+          description: 'Successful'
+          headers: {}
+          schema:
+            $ref: '#/definitions/AuthenticationResponse'
+        500:
+          description: 'Internal Server Error - Unauthorized'
+          headers: {}
+  /performer/performer:
+    get:
+      summary: GET - ALL - PERFORMER
+      tags:
+      - Performers
+      operationId: GET-ALL-PERFORMER
+      deprecated: false
+      produces:
+      - application/json
+      parameters: []
+      responses:
+        200:
+          description: 'Successful'
+          headers: {}
+          schema:
+            $ref: '#/definitions/AllPerformers'
+      security: []
+  /performer/performer/{performerId}:
+    get:
+      summary: GET - PERFORMER
+      tags:
+      - Performers
+      operationId: GET-PERFORMER
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+        - in: path
+          name: performerId
+          type: integer
+          required: true
+          description: Numeric ID of the performer to get.
+      responses:
+        200:
+          description: 'Successful'
+          headers: {}
+          schema:
+            $ref: '#/definitions/PerformerFound'
+        404:
+          description: 'Not Found'
+          headers: {}
+      security: []
+  /performer/performer/search:
+    get:
+      summary: SEARCH - PERFORMER
+      tags:
+      - Performers
+      operationId: SEARCH-PERFORMER
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: name
+        in: query
+        required: true
+        type: string
+        description: ''
+      responses:
+        200:
+          description: 'Successful'
+          headers: {}
+          schema:
+            $ref: '#/definitions/PerformersFound'
+        404:
+          description: 'Not Found'
+          headers: {}
+      security: []
+  /seminary/seminary:
+    get:
+      summary: GET - ALL - SEMINARY
+      tags:
+      - Seminaries
+      operationId: GET-ALL-SEMINARY
+      deprecated: false
+      produces:
+      - application/json
+      responses:
+        200:
+          description: 'Successful'
+          headers: {}
+          schema:
+            $ref: '#/definitions/AllSeminaries'
+  /seminary/seminary/{seminaryId}:
+    get:
+      summary: GET - SEMINARY
+      tags:
+      - Seminaries
+      operationId: GET-SEMINARY
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+        - in: path
+          name: seminaryId
+          type: integer
+          required: true
+          description: Numeric ID of the seminary to get.
+      responses:
+        200:
+          description: 'Successful'
+          headers: {}
+          schema:
+            $ref: '#/definitions/SeminaryFound'
+        404:
+          description: 'Not Found'
+          headers: {}
+  /seminary/seminary/search:
+    get:
+      summary: SEARCH - SEMINARY
+      tags:
+      - Seminaries
+      operationId: SEARCH-SEMINARY
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: title
+        in: query
+        required: true
+        type: string
+        description: ''
+      responses:
+        200:
+          description: 'Successful'
+          headers: {}
+          schema:
+            $ref: '#/definitions/SeminariesFound'
+        404:
+          description: 'Not Found'
+          headers: {}
+  /reservation/ticket/user/me:
+    get:
+      summary: GET - ALL FOR ME - TICKET
+      tags:
+      - Reservation
+      operationId: GET-ALLFORME-TICKET
+      deprecated: false
+      produces:
+      - application/json
+      security:
+        - Bearer: []
+      responses:
+        200:
+          description: 'Successful'
+          headers: {}
+          schema:
+            $ref: '#/definitions/MyTickets'
+        500:
+          description: 'Unauthorized'
+          headers: {}
+  /reservation/ticket:
+    post:
+      summary: POST - TICKET
+      tags:
+      - Reservation
+      operationId: POST-TICKET
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: Body
+        in: body
+        required: true
+        description: ''
+        schema:
+          $ref: '#/definitions/POST-TicketRequest'
+      security:
+        - Bearer: []
+      responses:
+        201:
+          description: 'Successful'
+          headers: {}
+          schema:
+            $ref: '#/definitions/CreatedTicket'
+        500:
+          description: 'Unauthorized'
+          headers: {}
+  /reservation/ticket/user/me/search:
+    get:
+      summary: SEARCH - ALL for ME - TICKET
+      tags:
+      - Reservation
+      operationId: SEARCH-ALLforME-TICKET
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: title
+        in: query
+        required: true
+        type: string
+        description: ''
+      security:
+        - Bearer: []
+      responses:
+        200:
+          description: 'Successful'
+          headers: {}
+          schema:
+            $ref: '#/definitions/TicketsFound'
+        500:
+          description: 'Unauthorized'
+          headers: {}
+definitions:
+
+  POST-RegisterRequest:
+    title: POST-RegisterRequest
+    example:
+      email: alessandro96@email.com
+      name: alessandro musolino
+      phoneNumber: 3662834625
+      password: 12345678
+    type: object
+    properties:
+      email:
+        type: string
+      name:
+        type: string
+      phoneNumber:
+        type: string
+      password:
+        type: string
+    required:
+    - email
+    - name
+    - phoneNumber
+    - password
+    
+  POST-LoginRequest:
+    title: POST-LoginRequest
+    example:
+      email: alessandro96@email.com
+      password: 12345678
+    type: object
+    properties:
+      email:
+        type: string
+      password:
+        type: string
+    required:
+    - email
+    - password
+    
+  POST-TicketRequest:
+    title: POST-TicketRequest
+    example:
+      title: Music Infinity
+      date: 15-06-2020
+      name: Alessandro Musolino
+    type: object
+    properties:
+      title:
+        type: string
+      date:
+        type: string
+      name:
+        type: string
+    required:
+    - title
+    - date
+    - name
+    
+  POST-LoginResponse:
+    title: POST-LoginResponse
+    example:
+      messages: Sei Loggato
+      id: 111
+      token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTExLCJlbWFpbCI6ImFsZXNzYW5kcm85NkBlbWFpbC5jb20iLCJuYW1lIjoiYWxlc3NhbmRybyBtdXNvbGlubyIsImlhdCI6MTU4MDY1NjE1MCwiZXhwIjoxNTgwNjU5NzUwfQ.q0tal_wwqBgGrXZQN2eSLJCFkhdY9ZkGSkvOyJjzmQ4
+    type: object
+    properties:
+      messages:
+        type: string
+      id:
+        type: integer
+      token:
+        type: string
+        
+  POST-RegisterResponse:
+    title: POST-RegisterResponse
+    example:
+      messages: Success Operation
+      user: {
+             "id": 121,
+             "name": "alessandro musolino",
+             "email": "alessandromusolino96@email.com",
+             "phoneNumber": 3662834625,
+             "password": "$2a$12$CjVnzmvsjxpB4D5n55poxOvRPr4UxDGHtXP5clfM8pme12wEsUxaC",
+             "updatedAt": "2020-02-02T15:17:20.659Z",
+             "createdAt": "2020-02-02T15:17:20.659Z"
+            }
+    type: object
+    properties:
+      messages:
+        type: string
+      user: 
+          $ref: '#/definitions/User'
+          
+  AuthenticationResponse:
+    title: AuthenticationResponse
+    example:
+      user: {
+            "id": 121,
+            "name": "alessandro musolino",
+            "email": "alessandromusolino96@email.com",
+            "phoneNumber": 3662834625,
+            "password": "$2a$12$CjVnzmvsjxpB4D5n55poxOvRPr4UxDGHtXP5clfM8pme12wEsUxaC",
+            "updatedAt": "2020-02-02T15:17:20.659Z",
+            "createdAt": "2020-02-02T15:17:20.659Z"
+          }
+    type: object
+    properties:
+      user: 
+          $ref: '#/definitions/User'
+          
+  CreatedTicket:
+    title: CreatedTicket
+    example:
+      messages: Success Operation
+      data: {
+              "id": 71,
+              "title": "music infinity",
+              "date": "15-06-2020",
+              "name": "Alessandro Musolino",
+              "userId": 111,
+              "updatedAt": "2020-02-02T17:31:58.065Z",
+              "createdAt": "2020-02-02T17:31:58.065Z"
+            }
+    type: object
+    properties:
+      messages:
+        type: string
+      data: 
+          $ref: '#/definitions/Ticket'      
+  
+  MyTickets:
+    title: MyTickets
+    example:
+      data: [
+              {
+                "id": 61,
+                "title": "music infinity",
+                "date": "15-06-2020",
+                "name": "Alessandro Musolino",
+                "createdAt": "2020-02-02T17:30:21.000Z",
+                "updatedAt": "2020-02-02T17:30:21.000Z",
+                "userId": 111
+              },
+              {
+               "id": 71,
+               "title": "music infinity",
+               "date": "15-06-2020",
+               "name": "Alessandro Musolino",
+               "createdAt": "2020-02-02T17:31:58.000Z",
+              "updatedAt": "2020-02-02T17:31:58.000Z",
+              "userId": 111
+              },
+              {
+               "id": 81,
+                "title": "music infinity",
+                "date": "15-06-2020",
+                "name": "Alessandro Musolino",
+                "createdAt": "2020-02-02T17:35:08.000Z",
+                "updatedAt": "2020-02-02T17:35:08.000Z",
+                "userId": 111
+              }
+          ]
+    type: object
+    properties:
+      data: 
+          type: array
+          items: 
+            $ref: '#/definitions/Ticket'
+            
+  
+  TicketsFound:
+    title: TicketsFound
+    example:
+      data: [
+              {
+                "id": 61,
+                "title": "music infinity",
+                "date": "15-06-2020",
+                "name": "Alessandro Musolino",
+                "createdAt": "2020-02-02T17:30:21.000Z",
+                "updatedAt": "2020-02-02T17:30:21.000Z",
+                "userId": 111
+              },
+              {
+               "id": 71,
+               "title": "music infinity",
+               "date": "15-06-2020",
+               "name": "Alessandro Musolino",
+               "createdAt": "2020-02-02T17:31:58.000Z",
+              "updatedAt": "2020-02-02T17:31:58.000Z",
+              "userId": 111
+              },
+              {
+               "id": 81,
+                "title": "music infinity",
+                "date": "15-06-2020",
+                "name": "Alessandro Musolino",
+                "createdAt": "2020-02-02T17:35:08.000Z",
+                "updatedAt": "2020-02-02T17:35:08.000Z",
+                "userId": 111
+              }
+          ]
+    type: object
+    properties:
+      data: 
+          type: array
+          items: 
+            $ref: '#/definitions/Ticket'
+            
+            
+  AllSeminaries:
+    title: AllSeminaries
+    example:
+      data: [
+    {
+      "id": 1,
+      "title": "Music Forever",
+      "date": "15-06-2020",
+      "location": "Milano",
+      "createdAt": "2020-01-01T17:00:40.000Z",
+      "updatedAt": "2020-01-01T17:00:40.000Z",
+      "artisticevents": [
+        {
+          "id": 41,
+          "title": "Music Infinity",
+          "date": "15-06-2020",
+          "factsheet": null,
+          "abstract": null,
+          "image": "https://www.onstageweb.com/wp-content/uploads/2019/02/Foto-concerto-billie-eilish-milano-21-febbraio-2019-16.jpg",
+          "createdAt": "2020-01-01T17:00:40.000Z",
+          "updatedAt": "2020-01-01T17:00:40.000Z",
+          "seminaryId": 1
+        },
+        {
+          "id": 51,
+          "title": "Musology",
+          "date": "25-06-2020",
+          "factsheet": null,
+          "abstract": null,
+          "image": "https://zero-media.s3.amazonaws.com/uploads/2018/02/slowdive-brooklynsteel-48-e1519906647931.jpg",
+          "createdAt": "2020-01-01T17:00:40.000Z",
+          "updatedAt": "2020-01-01T17:00:40.000Z",
+          "seminaryId": 1
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "title": "Dance Deeper",
+      "date": "17-06-2020",
+      "location": "Milano",
+      "createdAt": "2020-01-01T17:00:40.000Z",
+      "updatedAt": "2020-01-01T17:00:40.000Z",
+      "artisticevents": [
+        {
+          "id": 71,
+          "title": "Danceaholic",
+          "date": "18-06-2020",
+          "factsheet": null,
+          "abstract": null,
+          "image": "https://ilarge.lisimg.com/image/20123927/1118full-autumn-miller.jpg",
+          "createdAt": "2020-01-01T17:00:40.000Z",
+          "updatedAt": "2020-01-01T17:00:40.000Z",
+          "seminaryId": 11
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "title": "Inside Dance",
+      "date": "17-06-2020",
+      "location": "Milano",
+      "createdAt": "2020-01-01T17:00:40.000Z",
+      "updatedAt": "2020-01-01T17:00:40.000Z",
+      "artisticevents": [
+        {
+          "id": 61,
+          "title": "Boom Dance",
+          "date": "15-06-2020",
+          "factsheet": null,
+          "abstract": null,
+          "image": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/5-1495727507.png?crop=1xw:1xh;center,top&resize=480:*",
+          "createdAt": "2020-01-01T17:00:40.000Z",
+          "updatedAt": "2020-01-01T17:00:40.000Z",
+          "seminaryId": 21
+        }
+      ]
+    }
+  ]
+    type: object
+    properties:
+      data: 
+          type: array
+          items: 
+            $ref: '#/definitions/SeminaryComplete'
+  
+  SeminaryFound:
+    title: SeminaryFound
+    example:
+      data: [
+    {
+      "id": 1,
+      "title": "Music Forever",
+      "date": "15-06-2020",
+      "location": "Milano",
+      "createdAt": "2020-01-01T17:00:40.000Z",
+      "updatedAt": "2020-01-01T17:00:40.000Z",
+      "artisticevents": [
+        {
+          "id": 41,
+          "title": "Music Infinity",
+          "date": "15-06-2020",
+          "factsheet": null,
+          "abstract": null,
+          "image": "https://www.onstageweb.com/wp-content/uploads/2019/02/Foto-concerto-billie-eilish-milano-21-febbraio-2019-16.jpg",
+          "createdAt": "2020-01-01T17:00:40.000Z",
+          "updatedAt": "2020-01-01T17:00:40.000Z",
+          "seminaryId": 1
+        },
+        {
+          "id": 51,
+          "title": "Musology",
+          "date": "25-06-2020",
+          "factsheet": null,
+          "abstract": null,
+          "image": "https://zero-media.s3.amazonaws.com/uploads/2018/02/slowdive-brooklynsteel-48-e1519906647931.jpg",
+          "createdAt": "2020-01-01T17:00:40.000Z",
+          "updatedAt": "2020-01-01T17:00:40.000Z",
+          "seminaryId": 1
+        },
+        {
+          "id": 61,
+          "title": "Boom Dance",
+          "date": "15-06-2020",
+          "factsheet": null,
+          "abstract": null,
+          "image": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/5-1495727507.png?crop=1xw:1xh;center,top&resize=480:*",
+          "createdAt": "2020-01-01T17:00:40.000Z",
+          "updatedAt": "2020-01-01T17:00:40.000Z",
+          "seminaryId": 1
+        }
+      ]
+    }
+  ]
+    type: object
+    properties:
+      data: 
+          type: array
+          items: 
+            $ref: '#/definitions/SeminaryComplete'
+            
+  SeminariesFound:
+    title: SeminariesFound
+    example:
+      data: [
+    {
+      "id": 11,
+      "title": "Dance Deeper",
+      "date": "17-06-2020",
+      "location": "Milano",
+      "createdAt": "2020-01-01T17:00:40.000Z",
+      "updatedAt": "2020-01-01T17:00:40.000Z",
+      "artisticevents": [
+        {
+          "id": 71,
+          "title": "Danceaholic",
+          "date": "18-06-2020",
+          "factsheet": null,
+          "abstract": null,
+          "image": "https://ilarge.lisimg.com/image/20123927/1118full-autumn-miller.jpg",
+          "createdAt": "2020-01-01T17:00:40.000Z",
+          "updatedAt": "2020-01-01T17:00:40.000Z",
+          "seminaryId": 11
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "title": "Inside Dance",
+      "date": "17-06-2020",
+      "location": "Milano",
+      "createdAt": "2020-01-01T17:00:40.000Z",
+      "updatedAt": "2020-01-01T17:00:40.000Z",
+      "artisticevents": [
+        {
+          "id": 61,
+          "title": "Boom Dance",
+          "date": "15-06-2020",
+          "factsheet": null,
+          "abstract": null,
+          "image": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/5-1495727507.png?crop=1xw:1xh;center,top&resize=480:*",
+          "createdAt": "2020-01-01T17:00:40.000Z",
+          "updatedAt": "2020-01-01T17:00:40.000Z",
+          "seminaryId": 21
+        }
+      ]
+    }
+  ]
+    type: object
+    properties:
+      data: 
+          type: array
+          items: 
+            $ref: '#/definitions/SeminaryComplete'
+            
+  PerformerFound:
+    title: PerformerFound
+    example:
+      data: [
+    {
+      "id": 1,
+      "name": "Billie Eilish",
+      "company_members": null,
+      "current_affiliation": "Darkroom, Interscope Records",
+      "main_achievements": "American Music Awards, Apple Music Awards, Grammy Awards, MTV Video Music Awards",
+      "image": "https://vulcanostatale.it/wp-content/uploads/2019/04/billie-eilish-1-950x745.jpg",
+      "details": "Billie Eilish is an American singer and songwriter. She is best known for her successful debut single, ‘Ocean Eyes.’ She was born and raised in Los Angeles, California. Belonging to a family of musicians, she was destined to make a career in performing arts. She joined a choir at the age of 8, and by the time she turned 11, she had begun writing and singing her own songs. Her elder brother, Finneas O’Connell, was the biggest influence in her life while she was grew up. He had his own band and had written a song titled ‘Ocean Eyes.’ Billie performed the song and released it online. It became a massive success. This turned out to be her first massive breakthrough. In 2017, her brother helped her record the single ‘Bellyache.’ With the success of the song, Billie released her debut EP, ‘Don’t Smile at Me,’ in August 2017. The EP appeared on several American and international music charts. In October 2017, ‘Apple’ named her their newest ‘Up Next’ artist.",
+      "isCompany": false,
+      "createdAt": "2020-01-01T17:00:40.000Z",
+      "updatedAt": "2020-01-01T17:00:40.000Z",
+      "artisticevents": [
+        {
+          "id": 41,
+          "title": "Music Infinity",
+          "date": "15-06-2020",
+          "factsheet": null,
+          "abstract": null,
+          "image": "https://www.onstageweb.com/wp-content/uploads/2019/02/Foto-concerto-billie-eilish-milano-21-febbraio-2019-16.jpg",
+          "createdAt": "2020-01-01T17:00:40.000Z",
+          "updatedAt": "2020-01-01T17:00:40.000Z",
+          "seminaryId": 1,
+          "performance": {
+            "id": 31,
+            "createdAt": "2020-01-01T17:00:40.000Z",
+            "updatedAt": "2020-01-01T17:00:40.000Z",
+            "artisticeventId": 41,
+            "performerId": 1
+          }
+        }
+      ]
+    }
+  ]
+    type: object
+    properties:
+      data: 
+          type: array
+          items: 
+            $ref: '#/definitions/PerformerComplete'         
+
+            
+            
+  AllPerformers:
+    title: AllPerformers
+    example:
+      data: [
+    {
+      "id": 1,
+      "name": "Billie Eilish",
+      "company_members": null,
+      "current_affiliation": "Darkroom, Interscope Records",
+      "main_achievements": "American Music Awards, Apple Music Awards, Grammy Awards, MTV Video Music Awards",
+      "image": "https://vulcanostatale.it/wp-content/uploads/2019/04/billie-eilish-1-950x745.jpg",
+      "details": "Billie Eilish is an American singer and songwriter. She is best known for her successful debut single, ‘Ocean Eyes.’ She was born and raised in Los Angeles, California. Belonging to a family of musicians, she was destined to make a career in performing arts. She joined a choir at the age of 8, and by the time she turned 11, she had begun writing and singing her own songs. Her elder brother, Finneas O’Connell, was the biggest influence in her life while she was grew up. He had his own band and had written a song titled ‘Ocean Eyes.’ Billie performed the song and released it online. It became a massive success. This turned out to be her first massive breakthrough. In 2017, her brother helped her record the single ‘Bellyache.’ With the success of the song, Billie released her debut EP, ‘Don’t Smile at Me,’ in August 2017. The EP appeared on several American and international music charts. In October 2017, ‘Apple’ named her their newest ‘Up Next’ artist.",
+      "isCompany": false,
+      "createdAt": "2020-01-01T17:00:40.000Z",
+      "updatedAt": "2020-01-01T17:00:40.000Z",
+      "artisticevents": [
+        {
+          "id": 41,
+          "title": "Music Infinity",
+          "date": "15-06-2020",
+          "factsheet": null,
+          "abstract": null,
+          "image": "https://www.onstageweb.com/wp-content/uploads/2019/02/Foto-concerto-billie-eilish-milano-21-febbraio-2019-16.jpg",
+          "createdAt": "2020-01-01T17:00:40.000Z",
+          "updatedAt": "2020-01-01T17:00:40.000Z",
+          "seminaryId": 1,
+          "performance": {
+            "id": 31,
+            "createdAt": "2020-01-01T17:00:40.000Z",
+            "updatedAt": "2020-01-01T17:00:40.000Z",
+            "artisticeventId": 41,
+            "performerId": 1
+          }
+        }
+      ]
+    }
+  ]
+    type: object
+    properties:
+      data: 
+          type: array
+          items: 
+            $ref: '#/definitions/PerformerComplete'
+            
+            
+  PerformersFound:
+    title: PerformersFound
+    example:
+      data: [
+    {
+      "id": 1,
+      "name": "Billie Eilish",
+      "company_members": null,
+      "current_affiliation": "Darkroom, Interscope Records",
+      "main_achievements": "American Music Awards, Apple Music Awards, Grammy Awards, MTV Video Music Awards",
+      "image": "https://vulcanostatale.it/wp-content/uploads/2019/04/billie-eilish-1-950x745.jpg",
+      "details": "Billie Eilish is an American singer and songwriter. She is best known for her successful debut single, ‘Ocean Eyes.’ She was born and raised in Los Angeles, California. Belonging to a family of musicians, she was destined to make a career in performing arts. She joined a choir at the age of 8, and by the time she turned 11, she had begun writing and singing her own songs. Her elder brother, Finneas O’Connell, was the biggest influence in her life while she was grew up. He had his own band and had written a song titled ‘Ocean Eyes.’ Billie performed the song and released it online. It became a massive success. This turned out to be her first massive breakthrough. In 2017, her brother helped her record the single ‘Bellyache.’ With the success of the song, Billie released her debut EP, ‘Don’t Smile at Me,’ in August 2017. The EP appeared on several American and international music charts. In October 2017, ‘Apple’ named her their newest ‘Up Next’ artist.",
+      "isCompany": false,
+      "createdAt": "2020-01-01T17:00:40.000Z",
+      "updatedAt": "2020-01-01T17:00:40.000Z",
+      "artisticevents": [
+        {
+          "id": 41,
+          "title": "Music Infinity",
+          "date": "15-06-2020",
+          "factsheet": null,
+          "abstract": null,
+          "image": "https://www.onstageweb.com/wp-content/uploads/2019/02/Foto-concerto-billie-eilish-milano-21-febbraio-2019-16.jpg",
+          "createdAt": "2020-01-01T17:00:40.000Z",
+          "updatedAt": "2020-01-01T17:00:40.000Z",
+          "seminaryId": 1,
+          "performance": {
+            "id": 31,
+            "createdAt": "2020-01-01T17:00:40.000Z",
+            "updatedAt": "2020-01-01T17:00:40.000Z",
+            "artisticeventId": 41,
+            "performerId": 1
+          }
+        }
+      ]
+    }
+  ]
+    type: object
+    properties:
+      data: 
+          type: array
+          items: 
+            $ref: '#/definitions/PerformerComplete'
+  
+  
+  ArtisticEventFound:
+    title: ArtisticEventFound
+    example:
+      data: [
+    {
+      "id": 41,
+      "title": "Music Infinity",
+      "date": "15-06-2020",
+      "factsheet": null,
+      "abstract": null,
+      "image": "https://www.onstageweb.com/wp-content/uploads/2019/02/Foto-concerto-billie-eilish-milano-21-febbraio-2019-16.jpg",
+      "createdAt": "2020-01-01T17:00:40.000Z",
+      "updatedAt": "2020-01-01T17:00:40.000Z",
+      "seminaryId": 1,
+      "performers": [
+        {
+          "id": 1,
+          "name": "Billie Eilish",
+          "company_members": null,
+          "current_affiliation": "Darkroom, Interscope Records",
+          "main_achievements": "American Music Awards, Apple Music Awards, Grammy Awards, MTV Video Music Awards",
+          "image": "https://vulcanostatale.it/wp-content/uploads/2019/04/billie-eilish-1-950x745.jpg",
+          "details": "Billie Eilish is an American singer and songwriter. She is best known for her successful debut single, ‘Ocean Eyes.’ She was born and raised in Los Angeles, California. Belonging to a family of musicians, she was destined to make a career in performing arts. She joined a choir at the age of 8, and by the time she turned 11, she had begun writing and singing her own songs. Her elder brother, Finneas O’Connell, was the biggest influence in her life while she was grew up. He had his own band and had written a song titled ‘Ocean Eyes.’ Billie performed the song and released it online. It became a massive success. This turned out to be her first massive breakthrough. In 2017, her brother helped her record the single ‘Bellyache.’ With the success of the song, Billie released her debut EP, ‘Don’t Smile at Me,’ in August 2017. The EP appeared on several American and international music charts. In October 2017, ‘Apple’ named her their newest ‘Up Next’ artist.",
+          "isCompany": false,
+          "createdAt": "2020-01-01T17:00:40.000Z",
+          "updatedAt": "2020-01-01T17:00:40.000Z",
+          "performance": {
+            "id": 31,
+            "createdAt": "2020-01-01T17:00:40.000Z",
+            "updatedAt": "2020-01-01T17:00:40.000Z",
+            "artisticeventId": 41,
+            "performerId": 1
+          }
+        },
+        {
+          "id": 21,
+          "name": "Eminem",
+          "company_members": null,
+          "current_affiliation": "Shady\nAftermath\nInterscope",
+          "main_achievements": "American Music Awards, Billboard Music Award, Grammy Award, MTV Europe Music Awards",
+          "image": "https://www.musicattitude.it/wp-content/images/2017/10/eminem-freestyle-donald-trump-video.jpg",
+          "details": "Eminem is an American rapper, record producer, songwriter, and actor. He is considered as one of the greatest and most influential artists of all time. The 'Rolling Stone' magazine has labeled him the 'King of Hip Hop,' and listed him in its list of the '100 Greatest Artists of All Time.' He became passionate about rapping at a young age of fourteen, and began attending local open-mic competitions with friends. As he grew up, he formed a group of rappers called 'D12,' which became quite popular among local music lovers. Soon, he caught the attention of famous record producer Dr. Dre, and with Dre's assistance, he released successful albums like 'The Slim Shady LP,' and 'The Marshall Mathers LP.' His albums have all been roaring hits, making him one of the biggest sensations in the rap industry. Most of his songs are based on his personal struggles with his family members and his career. This is considered by many as the USP of his albums, making them close to his fans' hearts. He has often run into trouble with the law. He is known for his explicit use of words, often sending out aggressive signals. Yet, this famous rap artiste has managed to win the hearts of critics and followers alike, bagging more than a dozen 'Grammy Awards.'",
+          "isCompany": false,
+          "createdAt": "2020-01-01T17:00:40.000Z",
+          "updatedAt": "2020-01-01T17:00:40.000Z",
+          "performance": {
+            "id": 131,
+            "createdAt": "2020-01-01T17:00:40.000Z",
+            "updatedAt": "2020-01-01T17:00:40.000Z",
+            "artisticeventId": 41,
+            "performerId": 21
+          }
+        },
+        {
+          "id": 31,
+          "name": "Justin Bieber ",
+          "company_members": null,
+          "current_affiliation": "Island, Def Jam, RBMG",
+          "main_achievements": "Grammy Award, MTV Video Music Awards, MTV Europe Music Awards, American Music Awards, Billboard Music Awards",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9ywlOmldy0Hs1GqC3PPU4WctmuZMbHk6XYe5IEOaa9dzqM0_s&s",
+          "details": "Justin Bieber is a Canadian singer and songwriter who was taken the music world by storm. Releasing his first album at the age of 15, he has gone on to become one of the most talked about artists in recent times, both for good and bad reasons. Bieber was discovered by a talent scout via YouTube. He achieved immense success following the release of his singles from his debut EP 'My World'. He retained his soaring fame with the release of his debut studio album 'My World 2.0' and continued to break records with his next albums, 'Under the Mistletoe', 'Believe' and 'Purpose'. He has also released a couple of remix albums, two biographical concert films, and has appeared on numerous television shows to perform live. The young star has has won several awards, including one Grammy Award for Best Dance Recording. He has been just as famous for his past relationship with pop-star Selena Gomez as he has been infamous for his numerous celebrity hook-ups. He also has had several run-ins with the law, culminating in arrest a couple of times for DUI and dangerous driving.",
+          "isCompany": false,
+          "createdAt": "2020-01-01T17:00:40.000Z",
+          "updatedAt": "2020-01-01T17:00:40.000Z",
+          "performance": {
+            "id": 41,
+            "createdAt": "2020-01-01T17:00:40.000Z",
+            "updatedAt": "2020-01-01T17:00:40.000Z",
+            "artisticeventId": 41,
+            "performerId": 31
+          }
+        },
+        {
+          "id": 171,
+          "name": "Maneskin",
+          "company_members": "Lead vocalist Damiano David, bassist Victoria De Angelis, guitarist Thomas Raggi, and drummer Ethan Torchio.",
+          "current_affiliation": "Sony Music",
+          "main_achievements": "The band rose to fame after ending up second in the eleventh series of the Italian talent show X Factor in 2017.",
+          "image": "https://www.rollingstone.it/wp-content/uploads/2018/10/DpjbFh9WwAAPOaN-e1540551316772.jpg",
+          "details": "Italian funk rock band from Rome. The band members first met each other as students of the same middle school. In 2016, while they were students of the liceo scientifico J.F. Kennedy in Monteverde, Rome, they decided to start a band. The band's name was chosen when they had to register for Pulse, a local music contest for emerging bands. While brainstorming, Victoria, who is of Danish descent, was asked by her bandmates to toss out some Danish words, and they agreed on Måneskin (\"moonshine\"), although its meaning is not related to the band itself. Their debut single, \"Chosen\", was released on 24 November 2017 by Sony Music and charted at number 2 on the Italian FIMI Singles Chart. It was included in the extended play of the same title, released in mid December 2017 and mainly consisting of covers previously performed during the X Factor live shows.",
+          "isCompany": true,
+          "createdAt": "2020-01-01T17:00:40.000Z",
+          "updatedAt": "2020-01-01T17:00:40.000Z",
+          "performance": {
+            "id": 51,
+            "createdAt": "2020-01-01T17:00:40.000Z",
+            "updatedAt": "2020-01-01T17:00:40.000Z",
+            "artisticeventId": 41,
+            "performerId": 171
+          }
+        }
+      ]
+    }
+  ]
+    type: object
+    properties:
+      data: 
+          type: array
+          items: 
+            $ref: '#/definitions/ArtisticEventComplete'  
+            
+            
+  AllArtisticEvents:
+    title: AllArtisticEvents
+    example:
+      data: [
+    {
+      "id": 41,
+      "title": "Music Infinity",
+      "date": "15-06-2020",
+      "factsheet": null,
+      "abstract": null,
+      "image": "https://www.onstageweb.com/wp-content/uploads/2019/02/Foto-concerto-billie-eilish-milano-21-febbraio-2019-16.jpg",
+      "createdAt": "2020-01-01T17:00:40.000Z",
+      "updatedAt": "2020-01-01T17:00:40.000Z",
+      "seminaryId": 1,
+      "performers": [
+        {
+          "id": 1,
+          "name": "Billie Eilish",
+          "company_members": null,
+          "current_affiliation": "Darkroom, Interscope Records",
+          "main_achievements": "American Music Awards, Apple Music Awards, Grammy Awards, MTV Video Music Awards",
+          "image": "https://vulcanostatale.it/wp-content/uploads/2019/04/billie-eilish-1-950x745.jpg",
+          "details": "Billie Eilish is an American singer and songwriter. She is best known for her successful debut single, ‘Ocean Eyes.’ She was born and raised in Los Angeles, California. Belonging to a family of musicians, she was destined to make a career in performing arts. She joined a choir at the age of 8, and by the time she turned 11, she had begun writing and singing her own songs. Her elder brother, Finneas O’Connell, was the biggest influence in her life while she was grew up. He had his own band and had written a song titled ‘Ocean Eyes.’ Billie performed the song and released it online. It became a massive success. This turned out to be her first massive breakthrough. In 2017, her brother helped her record the single ‘Bellyache.’ With the success of the song, Billie released her debut EP, ‘Don’t Smile at Me,’ in August 2017. The EP appeared on several American and international music charts. In October 2017, ‘Apple’ named her their newest ‘Up Next’ artist.",
+          "isCompany": false,
+          "createdAt": "2020-01-01T17:00:40.000Z",
+          "updatedAt": "2020-01-01T17:00:40.000Z",
+          "performance": {
+            "id": 31,
+            "createdAt": "2020-01-01T17:00:40.000Z",
+            "updatedAt": "2020-01-01T17:00:40.000Z",
+            "artisticeventId": 41,
+            "performerId": 1
+          }
+        },
+        {
+          "id": 21,
+          "name": "Eminem",
+          "company_members": null,
+          "current_affiliation": "Shady\nAftermath\nInterscope",
+          "main_achievements": "American Music Awards, Billboard Music Award, Grammy Award, MTV Europe Music Awards",
+          "image": "https://www.musicattitude.it/wp-content/images/2017/10/eminem-freestyle-donald-trump-video.jpg",
+          "details": "Eminem is an American rapper, record producer, songwriter, and actor. He is considered as one of the greatest and most influential artists of all time. The 'Rolling Stone' magazine has labeled him the 'King of Hip Hop,' and listed him in its list of the '100 Greatest Artists of All Time.' He became passionate about rapping at a young age of fourteen, and began attending local open-mic competitions with friends. As he grew up, he formed a group of rappers called 'D12,' which became quite popular among local music lovers. Soon, he caught the attention of famous record producer Dr. Dre, and with Dre's assistance, he released successful albums like 'The Slim Shady LP,' and 'The Marshall Mathers LP.' His albums have all been roaring hits, making him one of the biggest sensations in the rap industry. Most of his songs are based on his personal struggles with his family members and his career. This is considered by many as the USP of his albums, making them close to his fans' hearts. He has often run into trouble with the law. He is known for his explicit use of words, often sending out aggressive signals. Yet, this famous rap artiste has managed to win the hearts of critics and followers alike, bagging more than a dozen 'Grammy Awards.'",
+          "isCompany": false,
+          "createdAt": "2020-01-01T17:00:40.000Z",
+          "updatedAt": "2020-01-01T17:00:40.000Z",
+          "performance": {
+            "id": 131,
+            "createdAt": "2020-01-01T17:00:40.000Z",
+            "updatedAt": "2020-01-01T17:00:40.000Z",
+            "artisticeventId": 41,
+            "performerId": 21
+          }
+        },
+        {
+          "id": 31,
+          "name": "Justin Bieber ",
+          "company_members": null,
+          "current_affiliation": "Island, Def Jam, RBMG",
+          "main_achievements": "Grammy Award, MTV Video Music Awards, MTV Europe Music Awards, American Music Awards, Billboard Music Awards",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9ywlOmldy0Hs1GqC3PPU4WctmuZMbHk6XYe5IEOaa9dzqM0_s&s",
+          "details": "Justin Bieber is a Canadian singer and songwriter who was taken the music world by storm. Releasing his first album at the age of 15, he has gone on to become one of the most talked about artists in recent times, both for good and bad reasons. Bieber was discovered by a talent scout via YouTube. He achieved immense success following the release of his singles from his debut EP 'My World'. He retained his soaring fame with the release of his debut studio album 'My World 2.0' and continued to break records with his next albums, 'Under the Mistletoe', 'Believe' and 'Purpose'. He has also released a couple of remix albums, two biographical concert films, and has appeared on numerous television shows to perform live. The young star has has won several awards, including one Grammy Award for Best Dance Recording. He has been just as famous for his past relationship with pop-star Selena Gomez as he has been infamous for his numerous celebrity hook-ups. He also has had several run-ins with the law, culminating in arrest a couple of times for DUI and dangerous driving.",
+          "isCompany": false,
+          "createdAt": "2020-01-01T17:00:40.000Z",
+          "updatedAt": "2020-01-01T17:00:40.000Z",
+          "performance": {
+            "id": 41,
+            "createdAt": "2020-01-01T17:00:40.000Z",
+            "updatedAt": "2020-01-01T17:00:40.000Z",
+            "artisticeventId": 41,
+            "performerId": 31
+          }
+        },
+        {
+          "id": 171,
+          "name": "Maneskin",
+          "company_members": "Lead vocalist Damiano David, bassist Victoria De Angelis, guitarist Thomas Raggi, and drummer Ethan Torchio.",
+          "current_affiliation": "Sony Music",
+          "main_achievements": "The band rose to fame after ending up second in the eleventh series of the Italian talent show X Factor in 2017.",
+          "image": "https://www.rollingstone.it/wp-content/uploads/2018/10/DpjbFh9WwAAPOaN-e1540551316772.jpg",
+          "details": "Italian funk rock band from Rome. The band members first met each other as students of the same middle school. In 2016, while they were students of the liceo scientifico J.F. Kennedy in Monteverde, Rome, they decided to start a band. The band's name was chosen when they had to register for Pulse, a local music contest for emerging bands. While brainstorming, Victoria, who is of Danish descent, was asked by her bandmates to toss out some Danish words, and they agreed on Måneskin (\"moonshine\"), although its meaning is not related to the band itself. Their debut single, \"Chosen\", was released on 24 November 2017 by Sony Music and charted at number 2 on the Italian FIMI Singles Chart. It was included in the extended play of the same title, released in mid December 2017 and mainly consisting of covers previously performed during the X Factor live shows.",
+          "isCompany": true,
+          "createdAt": "2020-01-01T17:00:40.000Z",
+          "updatedAt": "2020-01-01T17:00:40.000Z",
+          "performance": {
+            "id": 51,
+            "createdAt": "2020-01-01T17:00:40.000Z",
+            "updatedAt": "2020-01-01T17:00:40.000Z",
+            "artisticeventId": 41,
+            "performerId": 171
+          }
+        }
+      ]
+    }
+  ]
+    type: object
+    properties:
+      data: 
+          type: array
+          items: 
+            $ref: '#/definitions/ArtisticEventComplete'
+            
+  ArtisticEventsTitle:
+    title: ArtisticEventsTitle
+    example:
+      data: [
+    {
+      "id": 41,
+      "title": "Music Infinity",
+      "date": "15-06-2020",
+      "factsheet": null,
+      "abstract": null,
+      "image": "https://www.onstageweb.com/wp-content/uploads/2019/02/Foto-concerto-billie-eilish-milano-21-febbraio-2019-16.jpg",
+      "createdAt": "2020-01-01T17:00:40.000Z",
+      "updatedAt": "2020-01-01T17:00:40.000Z",
+      "seminaryId": 1,
+      "performers": [
+        {
+          "id": 1,
+          "name": "Billie Eilish",
+          "company_members": null,
+          "current_affiliation": "Darkroom, Interscope Records",
+          "main_achievements": "American Music Awards, Apple Music Awards, Grammy Awards, MTV Video Music Awards",
+          "image": "https://vulcanostatale.it/wp-content/uploads/2019/04/billie-eilish-1-950x745.jpg",
+          "details": "Billie Eilish is an American singer and songwriter. She is best known for her successful debut single, ‘Ocean Eyes.’ She was born and raised in Los Angeles, California. Belonging to a family of musicians, she was destined to make a career in performing arts. She joined a choir at the age of 8, and by the time she turned 11, she had begun writing and singing her own songs. Her elder brother, Finneas O’Connell, was the biggest influence in her life while she was grew up. He had his own band and had written a song titled ‘Ocean Eyes.’ Billie performed the song and released it online. It became a massive success. This turned out to be her first massive breakthrough. In 2017, her brother helped her record the single ‘Bellyache.’ With the success of the song, Billie released her debut EP, ‘Don’t Smile at Me,’ in August 2017. The EP appeared on several American and international music charts. In October 2017, ‘Apple’ named her their newest ‘Up Next’ artist.",
+          "isCompany": false,
+          "createdAt": "2020-01-01T17:00:40.000Z",
+          "updatedAt": "2020-01-01T17:00:40.000Z",
+          "performance": {
+            "id": 31,
+            "createdAt": "2020-01-01T17:00:40.000Z",
+            "updatedAt": "2020-01-01T17:00:40.000Z",
+            "artisticeventId": 41,
+            "performerId": 1
+          }
+        },
+        {
+          "id": 21,
+          "name": "Eminem",
+          "company_members": null,
+          "current_affiliation": "Shady\nAftermath\nInterscope",
+          "main_achievements": "American Music Awards, Billboard Music Award, Grammy Award, MTV Europe Music Awards",
+          "image": "https://www.musicattitude.it/wp-content/images/2017/10/eminem-freestyle-donald-trump-video.jpg",
+          "details": "Eminem is an American rapper, record producer, songwriter, and actor. He is considered as one of the greatest and most influential artists of all time. The 'Rolling Stone' magazine has labeled him the 'King of Hip Hop,' and listed him in its list of the '100 Greatest Artists of All Time.' He became passionate about rapping at a young age of fourteen, and began attending local open-mic competitions with friends. As he grew up, he formed a group of rappers called 'D12,' which became quite popular among local music lovers. Soon, he caught the attention of famous record producer Dr. Dre, and with Dre's assistance, he released successful albums like 'The Slim Shady LP,' and 'The Marshall Mathers LP.' His albums have all been roaring hits, making him one of the biggest sensations in the rap industry. Most of his songs are based on his personal struggles with his family members and his career. This is considered by many as the USP of his albums, making them close to his fans' hearts. He has often run into trouble with the law. He is known for his explicit use of words, often sending out aggressive signals. Yet, this famous rap artiste has managed to win the hearts of critics and followers alike, bagging more than a dozen 'Grammy Awards.'",
+          "isCompany": false,
+          "createdAt": "2020-01-01T17:00:40.000Z",
+          "updatedAt": "2020-01-01T17:00:40.000Z",
+          "performance": {
+            "id": 131,
+            "createdAt": "2020-01-01T17:00:40.000Z",
+            "updatedAt": "2020-01-01T17:00:40.000Z",
+            "artisticeventId": 41,
+            "performerId": 21
+          }
+        },
+        {
+          "id": 31,
+          "name": "Justin Bieber ",
+          "company_members": null,
+          "current_affiliation": "Island, Def Jam, RBMG",
+          "main_achievements": "Grammy Award, MTV Video Music Awards, MTV Europe Music Awards, American Music Awards, Billboard Music Awards",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9ywlOmldy0Hs1GqC3PPU4WctmuZMbHk6XYe5IEOaa9dzqM0_s&s",
+          "details": "Justin Bieber is a Canadian singer and songwriter who was taken the music world by storm. Releasing his first album at the age of 15, he has gone on to become one of the most talked about artists in recent times, both for good and bad reasons. Bieber was discovered by a talent scout via YouTube. He achieved immense success following the release of his singles from his debut EP 'My World'. He retained his soaring fame with the release of his debut studio album 'My World 2.0' and continued to break records with his next albums, 'Under the Mistletoe', 'Believe' and 'Purpose'. He has also released a couple of remix albums, two biographical concert films, and has appeared on numerous television shows to perform live. The young star has has won several awards, including one Grammy Award for Best Dance Recording. He has been just as famous for his past relationship with pop-star Selena Gomez as he has been infamous for his numerous celebrity hook-ups. He also has had several run-ins with the law, culminating in arrest a couple of times for DUI and dangerous driving.",
+          "isCompany": false,
+          "createdAt": "2020-01-01T17:00:40.000Z",
+          "updatedAt": "2020-01-01T17:00:40.000Z",
+          "performance": {
+            "id": 41,
+            "createdAt": "2020-01-01T17:00:40.000Z",
+            "updatedAt": "2020-01-01T17:00:40.000Z",
+            "artisticeventId": 41,
+            "performerId": 31
+          }
+        },
+        {
+          "id": 171,
+          "name": "Maneskin",
+          "company_members": "Lead vocalist Damiano David, bassist Victoria De Angelis, guitarist Thomas Raggi, and drummer Ethan Torchio.",
+          "current_affiliation": "Sony Music",
+          "main_achievements": "The band rose to fame after ending up second in the eleventh series of the Italian talent show X Factor in 2017.",
+          "image": "https://www.rollingstone.it/wp-content/uploads/2018/10/DpjbFh9WwAAPOaN-e1540551316772.jpg",
+          "details": "Italian funk rock band from Rome. The band members first met each other as students of the same middle school. In 2016, while they were students of the liceo scientifico J.F. Kennedy in Monteverde, Rome, they decided to start a band. The band's name was chosen when they had to register for Pulse, a local music contest for emerging bands. While brainstorming, Victoria, who is of Danish descent, was asked by her bandmates to toss out some Danish words, and they agreed on Måneskin (\"moonshine\"), although its meaning is not related to the band itself. Their debut single, \"Chosen\", was released on 24 November 2017 by Sony Music and charted at number 2 on the Italian FIMI Singles Chart. It was included in the extended play of the same title, released in mid December 2017 and mainly consisting of covers previously performed during the X Factor live shows.",
+          "isCompany": true,
+          "createdAt": "2020-01-01T17:00:40.000Z",
+          "updatedAt": "2020-01-01T17:00:40.000Z",
+          "performance": {
+            "id": 51,
+            "createdAt": "2020-01-01T17:00:40.000Z",
+            "updatedAt": "2020-01-01T17:00:40.000Z",
+            "artisticeventId": 41,
+            "performerId": 171
+          }
+        }
+      ]
+    },
+    {
+      "id": 51,
+      "title": "Musology",
+      "date": "25-06-2020",
+      "factsheet": null,
+      "abstract": null,
+      "image": "https://zero-media.s3.amazonaws.com/uploads/2018/02/slowdive-brooklynsteel-48-e1519906647931.jpg",
+      "createdAt": "2020-01-01T17:00:40.000Z",
+      "updatedAt": "2020-01-01T17:00:40.000Z",
+      "seminaryId": 1,
+      "performers": [
+        {
+          "id": 41,
+          "name": "Lady Gaga",
+          "company_members": null,
+          "current_affiliation": "Interscope, Streamline, Kon Live, Cherrytree",
+          "main_achievements": "Premio Oscar, Grammy Award, BRIT Award, Golden Globe",
+          "image": "https://www.spettacolo.eu/wp-content/uploads/2019/11/Lady-Gaga-696x392.jpg",
+          "details": "Although the world boasts of many pop icons today, Lady Gaga has proved that she’s poles apart from the rest of her kind. Apart from her foot-tapping numbers, the singer is also world-renowned for her eccentric personality. Her sense of fashion has become a great source of inspiration for many youngsters across the world. Putting her education at stake, during her teens, Gaga decided to embark on a path which would lead her towards her dream. Although she struggled for a break during the initial couple of years, Gaga’s decision proved to be totally worth. She got her first break in 2008 through the album ‘The Fame’, and since then this celebrity’s fame has just grown by leaps and bounds. ‘The Beatles’, ‘Stevie Wonder’, ‘Pink Floyd’, ‘Led Zeppelin’ and ‘Mariah Carey’ are some of the few artists who influenced this woman to turn towards music. Her songs not only became chartbusters and party anthems, but also won her three time ‘Grammy’ award winner, which in itself in an incredible accomplishment. Though few individuals from across the world opine that her songs promote Satanism, Gaga’s popularity has continued to soar higher and higher over the past few years.",
+          "isCompany": false,
+          "createdAt": "2020-01-01T17:00:40.000Z",
+          "updatedAt": "2020-01-01T17:00:40.000Z",
+          "performance": {
+            "id": 81,
+            "createdAt": "2020-01-01T17:00:40.000Z",
+            "updatedAt": "2020-01-01T17:00:40.000Z",
+            "artisticeventId": 51,
+            "performerId": 41
+          }
+        },
+        {
+          "id": 91,
+          "name": "Robyn Rihanna ",
+          "company_members": null,
+          "current_affiliation": "Def Jam, Roc Nation, SRP, Westbury Road",
+          "main_achievements": "Grammy Awards, American Music Awards, Billboard Music Awards, MTV Video Music Awards",
+          "image": "https://www.amica.it/wp-content/uploads/2019/12/rihanna-2.jpg?v=904575",
+          "details": "Robyn Rihanna Fenty popularly known as Rihanna is a Barbadian singer-songwriter who gave us hits like ‘Pon de Replay’, ‘SOS’, ‘Umbrella’, and ‘Take a Bow’. A very successful artist still in the prime of her youth, she has already sold over 41 million albums and 150 million songs worldwide, becoming one of the best-selling artists of all time. Born in Barbados, she grew up listening to reggae music and began singing when she was quite young. Disturbed by her chaotic family life and the constant arguments between her parents, she immersed herself in music and before long realized that she wanted to be a professional singer. She formed a musical group while still in high school and got an opportunity to an audition with music producer Evan Rodgers who was highly impressed by the teenager’s talents. He asked the girl to move to New York in order to pursue a full-time career as a singer which she gladly did. Her debut album was soon released and Rihanna became a musical sensation before long. Her peppy, foot-tapping songs became the hot favorites of the youngsters motivating her to venture into films as well. Pretty, young and highly talented, she is today regarded as a teen idol and a fashion icon. Rihanna also puts her fame to good use and is actively involved with several charitable causes",
+          "isCompany": false,
+          "createdAt": "2020-01-01T17:00:40.000Z",
+          "updatedAt": "2020-01-01T17:00:40.000Z",
+          "performance": {
+            "id": 61,
+            "createdAt": "2020-01-01T17:00:40.000Z",
+            "updatedAt": "2020-01-01T17:00:40.000Z",
+            "artisticeventId": 51,
+            "performerId": 91
+          }
+        },
+        {
+          "id": 111,
+          "name": "Bruno Mars ",
+          "company_members": null,
+          "current_affiliation": "Elektra Records",
+          "main_achievements": "American Music Awards, ASCAP, BRIT Award, Grammy Award",
+          "image": "https://media.resources.festicket.com/www/artists/BrunoMars_New.jpg",
+          "details": "Bruno Mars is a Grammy Award winning singer-songwriter who rose to prominence with his super-hit singles like “Just the Way You Are”, “Grenade”, and “Locked Out of Heaven”. With worldwide sales of over 11 million albums and 68 million singles, he is undoubtedly, one of the world's best-selling artists of all time. Along with being a great singer, he is also known for his showmanship which makes him a very entertaining stage performer. He was musically inclined from a young age, which is not at all surprising given that he was born into a family of musicians. Exposed to a diverse mix of reggae, rock, hip hop, and R&B at an early age, he started making music of his own when he was a little boy. Throughout his childhood he performed at different musical venues in his hometown and there was no doubt in his mind that he would grow up to become a professional musician. A Hawaiian by birth, he moved to Los Angeles to pursue his musical ambitions. Initially he struggled to establish himself as a singer and took to songwriting in order to earn his livelihood. Eventually he released his debut album, ‘Doo-Wops & Hooligans’, which became a major hit and set the pace for his illustrious career as a singer",
+          "isCompany": false,
+          "createdAt": "2020-01-01T17:00:40.000Z",
+          "updatedAt": "2020-01-01T17:00:40.000Z",
+          "performance": {
+            "id": 71,
+            "createdAt": "2020-01-01T17:00:40.000Z",
+            "updatedAt": "2020-01-01T17:00:40.000Z",
+            "artisticeventId": 51,
+            "performerId": 111
+          }
+        },
+        {
+          "id": 141,
+          "name": "Black Veil Brides",
+          "company_members": "Andy Biersack (lead vocals), Jake Pitts (lead guitar), Jinxx (rhythm guitar, violin), Lonny Eagleton (bass guitar), and Christian \"CC\" Coma (drums).",
+          "current_affiliation": null,
+          "main_achievements": null,
+          "image": "https://metalitalia.com/wp-content/uploads/2016/12/black-veil-brides-band-2016-700x465.jpg",
+          "details": "Black Veil Brides is an American rock band based in Hollywood, California. Black Veil Brides were originally formed in Cincinnati, Ohio in 2006 by Andy Biersack, Johnny Herold, and Phil Cennedella. Eventually, Andy relocated to Los Angeles, California.  The group's debut album We Stitch These Wounds was released July 20, 2010 and sold over 10,000 copies in its first week, ranking at No. 36 on the Billboard Top 200 chart, and No. 1 on the Billboard Independent chart. The band's second studio album, Set the World on Fire was released on June 14, 2011 through Lava Music/Universal Republic Records. A Black Veil Brides song, titled \"Unbroken\", appeared on the soundtrack to the movie The Avengers on May 1, 2012, and is the only track released by Black Veil Brides solely on a compilation album.    ",
+          "isCompany": true,
+          "createdAt": "2020-01-01T17:00:40.000Z",
+          "updatedAt": "2020-01-01T17:00:40.000Z",
+          "performance": {
+            "id": 91,
+            "createdAt": "2020-01-01T17:00:40.000Z",
+            "updatedAt": "2020-01-01T17:00:40.000Z",
+            "artisticeventId": 51,
+            "performerId": 141
+          }
+        }
+      ]
+    }
+  ]
+    type: object
+    properties:
+      data: 
+          type: array
+          items: 
+            $ref: '#/definitions/ArtisticEventComplete'
+            
+            
+  ArtisticEventsType:
+    title: ArtisticEventsType
+    example:
+      artisticevents: [
+    {
+      "id": 41,
+      "title": "Music Infinity",
+      "date": "15-06-2020",
+      "factsheet": null,
+      "abstract": null,
+      "image": "https://www.onstageweb.com/wp-content/uploads/2019/02/Foto-concerto-billie-eilish-milano-21-febbraio-2019-16.jpg",
+      "createdAt": "2020-01-01T17:00:40.000Z",
+      "updatedAt": "2020-01-01T17:00:40.000Z",
+      "seminaryId": 1,
+      "typologyae": {
+        "id": 11,
+        "createdAt": "2020-01-01T17:00:40.000Z",
+        "updatedAt": "2020-01-01T17:00:40.000Z",
+        "artisticeventId": 41,
+        "typeId": 1
+      },
+      "performers": [
+        {
+          "id": 1,
+          "name": "Billie Eilish",
+          "company_members": null,
+          "current_affiliation": "Darkroom, Interscope Records",
+          "main_achievements": "American Music Awards, Apple Music Awards, Grammy Awards, MTV Video Music Awards",
+          "image": "https://vulcanostatale.it/wp-content/uploads/2019/04/billie-eilish-1-950x745.jpg",
+          "details": "Billie Eilish is an American singer and songwriter. She is best known for her successful debut single, ‘Ocean Eyes.’ She was born and raised in Los Angeles, California. Belonging to a family of musicians, she was destined to make a career in performing arts. She joined a choir at the age of 8, and by the time she turned 11, she had begun writing and singing her own songs. Her elder brother, Finneas O’Connell, was the biggest influence in her life while she was grew up. He had his own band and had written a song titled ‘Ocean Eyes.’ Billie performed the song and released it online. It became a massive success. This turned out to be her first massive breakthrough. In 2017, her brother helped her record the single ‘Bellyache.’ With the success of the song, Billie released her debut EP, ‘Don’t Smile at Me,’ in August 2017. The EP appeared on several American and international music charts. In October 2017, ‘Apple’ named her their newest ‘Up Next’ artist.",
+          "isCompany": false,
+          "createdAt": "2020-01-01T17:00:40.000Z",
+          "updatedAt": "2020-01-01T17:00:40.000Z",
+          "performance": {
+            "id": 31,
+            "createdAt": "2020-01-01T17:00:40.000Z",
+            "updatedAt": "2020-01-01T17:00:40.000Z",
+            "artisticeventId": 41,
+            "performerId": 1
+          }
+        },
+        {
+          "id": 21,
+          "name": "Eminem",
+          "company_members": null,
+          "current_affiliation": "Shady\nAftermath\nInterscope",
+          "main_achievements": "American Music Awards, Billboard Music Award, Grammy Award, MTV Europe Music Awards",
+          "image": "https://www.musicattitude.it/wp-content/images/2017/10/eminem-freestyle-donald-trump-video.jpg",
+          "details": "Eminem is an American rapper, record producer, songwriter, and actor. He is considered as one of the greatest and most influential artists of all time. The 'Rolling Stone' magazine has labeled him the 'King of Hip Hop,' and listed him in its list of the '100 Greatest Artists of All Time.' He became passionate about rapping at a young age of fourteen, and began attending local open-mic competitions with friends. As he grew up, he formed a group of rappers called 'D12,' which became quite popular among local music lovers. Soon, he caught the attention of famous record producer Dr. Dre, and with Dre's assistance, he released successful albums like 'The Slim Shady LP,' and 'The Marshall Mathers LP.' His albums have all been roaring hits, making him one of the biggest sensations in the rap industry. Most of his songs are based on his personal struggles with his family members and his career. This is considered by many as the USP of his albums, making them close to his fans' hearts. He has often run into trouble with the law. He is known for his explicit use of words, often sending out aggressive signals. Yet, this famous rap artiste has managed to win the hearts of critics and followers alike, bagging more than a dozen 'Grammy Awards.'",
+          "isCompany": false,
+          "createdAt": "2020-01-01T17:00:40.000Z",
+          "updatedAt": "2020-01-01T17:00:40.000Z",
+          "performance": {
+            "id": 131,
+            "createdAt": "2020-01-01T17:00:40.000Z",
+            "updatedAt": "2020-01-01T17:00:40.000Z",
+            "artisticeventId": 41,
+            "performerId": 21
+          }
+        },
+        {
+          "id": 31,
+          "name": "Justin Bieber ",
+          "company_members": null,
+          "current_affiliation": "Island, Def Jam, RBMG",
+          "main_achievements": "Grammy Award, MTV Video Music Awards, MTV Europe Music Awards, American Music Awards, Billboard Music Awards",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9ywlOmldy0Hs1GqC3PPU4WctmuZMbHk6XYe5IEOaa9dzqM0_s&s",
+          "details": "Justin Bieber is a Canadian singer and songwriter who was taken the music world by storm. Releasing his first album at the age of 15, he has gone on to become one of the most talked about artists in recent times, both for good and bad reasons. Bieber was discovered by a talent scout via YouTube. He achieved immense success following the release of his singles from his debut EP 'My World'. He retained his soaring fame with the release of his debut studio album 'My World 2.0' and continued to break records with his next albums, 'Under the Mistletoe', 'Believe' and 'Purpose'. He has also released a couple of remix albums, two biographical concert films, and has appeared on numerous television shows to perform live. The young star has has won several awards, including one Grammy Award for Best Dance Recording. He has been just as famous for his past relationship with pop-star Selena Gomez as he has been infamous for his numerous celebrity hook-ups. He also has had several run-ins with the law, culminating in arrest a couple of times for DUI and dangerous driving.",
+          "isCompany": false,
+          "createdAt": "2020-01-01T17:00:40.000Z",
+          "updatedAt": "2020-01-01T17:00:40.000Z",
+          "performance": {
+            "id": 41,
+            "createdAt": "2020-01-01T17:00:40.000Z",
+            "updatedAt": "2020-01-01T17:00:40.000Z",
+            "artisticeventId": 41,
+            "performerId": 31
+          }
+        },
+        {
+          "id": 171,
+          "name": "Maneskin",
+          "company_members": "Lead vocalist Damiano David, bassist Victoria De Angelis, guitarist Thomas Raggi, and drummer Ethan Torchio.",
+          "current_affiliation": "Sony Music",
+          "main_achievements": "The band rose to fame after ending up second in the eleventh series of the Italian talent show X Factor in 2017.",
+          "image": "https://www.rollingstone.it/wp-content/uploads/2018/10/DpjbFh9WwAAPOaN-e1540551316772.jpg",
+          "details": "Italian funk rock band from Rome. The band members first met each other as students of the same middle school. In 2016, while they were students of the liceo scientifico J.F. Kennedy in Monteverde, Rome, they decided to start a band. The band's name was chosen when they had to register for Pulse, a local music contest for emerging bands. While brainstorming, Victoria, who is of Danish descent, was asked by her bandmates to toss out some Danish words, and they agreed on Måneskin (\"moonshine\"), although its meaning is not related to the band itself. Their debut single, \"Chosen\", was released on 24 November 2017 by Sony Music and charted at number 2 on the Italian FIMI Singles Chart. It was included in the extended play of the same title, released in mid December 2017 and mainly consisting of covers previously performed during the X Factor live shows.",
+          "isCompany": true,
+          "createdAt": "2020-01-01T17:00:40.000Z",
+          "updatedAt": "2020-01-01T17:00:40.000Z",
+          "performance": {
+            "id": 51,
+            "createdAt": "2020-01-01T17:00:40.000Z",
+            "updatedAt": "2020-01-01T17:00:40.000Z",
+            "artisticeventId": 41,
+            "performerId": 171
+          }
+        }
+      ]
+    },
+    {
+      "id": 51,
+      "title": "Musology",
+      "date": "25-06-2020",
+      "factsheet": null,
+      "abstract": null,
+      "image": "https://zero-media.s3.amazonaws.com/uploads/2018/02/slowdive-brooklynsteel-48-e1519906647931.jpg",
+      "createdAt": "2020-01-01T17:00:40.000Z",
+      "updatedAt": "2020-01-01T17:00:40.000Z",
+      "seminaryId": 1,
+      "typologyae": {
+        "id": 21,
+        "createdAt": "2020-01-01T17:00:40.000Z",
+        "updatedAt": "2020-01-01T17:00:40.000Z",
+        "artisticeventId": 51,
+        "typeId": 1
+      },
+      "performers": [
+        {
+          "id": 41,
+          "name": "Lady Gaga",
+          "company_members": null,
+          "current_affiliation": "Interscope, Streamline, Kon Live, Cherrytree",
+          "main_achievements": "Premio Oscar, Grammy Award, BRIT Award, Golden Globe",
+          "image": "https://www.spettacolo.eu/wp-content/uploads/2019/11/Lady-Gaga-696x392.jpg",
+          "details": "Although the world boasts of many pop icons today, Lady Gaga has proved that she’s poles apart from the rest of her kind. Apart from her foot-tapping numbers, the singer is also world-renowned for her eccentric personality. Her sense of fashion has become a great source of inspiration for many youngsters across the world. Putting her education at stake, during her teens, Gaga decided to embark on a path which would lead her towards her dream. Although she struggled for a break during the initial couple of years, Gaga’s decision proved to be totally worth. She got her first break in 2008 through the album ‘The Fame’, and since then this celebrity’s fame has just grown by leaps and bounds. ‘The Beatles’, ‘Stevie Wonder’, ‘Pink Floyd’, ‘Led Zeppelin’ and ‘Mariah Carey’ are some of the few artists who influenced this woman to turn towards music. Her songs not only became chartbusters and party anthems, but also won her three time ‘Grammy’ award winner, which in itself in an incredible accomplishment. Though few individuals from across the world opine that her songs promote Satanism, Gaga’s popularity has continued to soar higher and higher over the past few years.",
+          "isCompany": false,
+          "createdAt": "2020-01-01T17:00:40.000Z",
+          "updatedAt": "2020-01-01T17:00:40.000Z",
+          "performance": {
+            "id": 81,
+            "createdAt": "2020-01-01T17:00:40.000Z",
+            "updatedAt": "2020-01-01T17:00:40.000Z",
+            "artisticeventId": 51,
+            "performerId": 41
+          }
+        },
+        {
+          "id": 91,
+          "name": "Robyn Rihanna ",
+          "company_members": null,
+          "current_affiliation": "Def Jam, Roc Nation, SRP, Westbury Road",
+          "main_achievements": "Grammy Awards, American Music Awards, Billboard Music Awards, MTV Video Music Awards",
+          "image": "https://www.amica.it/wp-content/uploads/2019/12/rihanna-2.jpg?v=904575",
+          "details": "Robyn Rihanna Fenty popularly known as Rihanna is a Barbadian singer-songwriter who gave us hits like ‘Pon de Replay’, ‘SOS’, ‘Umbrella’, and ‘Take a Bow’. A very successful artist still in the prime of her youth, she has already sold over 41 million albums and 150 million songs worldwide, becoming one of the best-selling artists of all time. Born in Barbados, she grew up listening to reggae music and began singing when she was quite young. Disturbed by her chaotic family life and the constant arguments between her parents, she immersed herself in music and before long realized that she wanted to be a professional singer. She formed a musical group while still in high school and got an opportunity to an audition with music producer Evan Rodgers who was highly impressed by the teenager’s talents. He asked the girl to move to New York in order to pursue a full-time career as a singer which she gladly did. Her debut album was soon released and Rihanna became a musical sensation before long. Her peppy, foot-tapping songs became the hot favorites of the youngsters motivating her to venture into films as well. Pretty, young and highly talented, she is today regarded as a teen idol and a fashion icon. Rihanna also puts her fame to good use and is actively involved with several charitable causes",
+          "isCompany": false,
+          "createdAt": "2020-01-01T17:00:40.000Z",
+          "updatedAt": "2020-01-01T17:00:40.000Z",
+          "performance": {
+            "id": 61,
+            "createdAt": "2020-01-01T17:00:40.000Z",
+            "updatedAt": "2020-01-01T17:00:40.000Z",
+            "artisticeventId": 51,
+            "performerId": 91
+          }
+        },
+        {
+          "id": 111,
+          "name": "Bruno Mars ",
+          "company_members": null,
+          "current_affiliation": "Elektra Records",
+          "main_achievements": "American Music Awards, ASCAP, BRIT Award, Grammy Award",
+          "image": "https://media.resources.festicket.com/www/artists/BrunoMars_New.jpg",
+          "details": "Bruno Mars is a Grammy Award winning singer-songwriter who rose to prominence with his super-hit singles like “Just the Way You Are”, “Grenade”, and “Locked Out of Heaven”. With worldwide sales of over 11 million albums and 68 million singles, he is undoubtedly, one of the world's best-selling artists of all time. Along with being a great singer, he is also known for his showmanship which makes him a very entertaining stage performer. He was musically inclined from a young age, which is not at all surprising given that he was born into a family of musicians. Exposed to a diverse mix of reggae, rock, hip hop, and R&B at an early age, he started making music of his own when he was a little boy. Throughout his childhood he performed at different musical venues in his hometown and there was no doubt in his mind that he would grow up to become a professional musician. A Hawaiian by birth, he moved to Los Angeles to pursue his musical ambitions. Initially he struggled to establish himself as a singer and took to songwriting in order to earn his livelihood. Eventually he released his debut album, ‘Doo-Wops & Hooligans’, which became a major hit and set the pace for his illustrious career as a singer",
+          "isCompany": false,
+          "createdAt": "2020-01-01T17:00:40.000Z",
+          "updatedAt": "2020-01-01T17:00:40.000Z",
+          "performance": {
+            "id": 71,
+            "createdAt": "2020-01-01T17:00:40.000Z",
+            "updatedAt": "2020-01-01T17:00:40.000Z",
+            "artisticeventId": 51,
+            "performerId": 111
+          }
+        },
+        {
+          "id": 141,
+          "name": "Black Veil Brides",
+          "company_members": "Andy Biersack (lead vocals), Jake Pitts (lead guitar), Jinxx (rhythm guitar, violin), Lonny Eagleton (bass guitar), and Christian \"CC\" Coma (drums).",
+          "current_affiliation": null,
+          "main_achievements": null,
+          "image": "https://metalitalia.com/wp-content/uploads/2016/12/black-veil-brides-band-2016-700x465.jpg",
+          "details": "Black Veil Brides is an American rock band based in Hollywood, California. Black Veil Brides were originally formed in Cincinnati, Ohio in 2006 by Andy Biersack, Johnny Herold, and Phil Cennedella. Eventually, Andy relocated to Los Angeles, California.  The group's debut album We Stitch These Wounds was released July 20, 2010 and sold over 10,000 copies in its first week, ranking at No. 36 on the Billboard Top 200 chart, and No. 1 on the Billboard Independent chart. The band's second studio album, Set the World on Fire was released on June 14, 2011 through Lava Music/Universal Republic Records. A Black Veil Brides song, titled \"Unbroken\", appeared on the soundtrack to the movie The Avengers on May 1, 2012, and is the only track released by Black Veil Brides solely on a compilation album.    ",
+          "isCompany": true,
+          "createdAt": "2020-01-01T17:00:40.000Z",
+          "updatedAt": "2020-01-01T17:00:40.000Z",
+          "performance": {
+            "id": 91,
+            "createdAt": "2020-01-01T17:00:40.000Z",
+            "updatedAt": "2020-01-01T17:00:40.000Z",
+            "artisticeventId": 51,
+            "performerId": 141
+          }
+        }
+      ]
+    }
+  ]
+      seminaries: [
+    {
+      "id": 1,
+      "title": "Music Forever",
+      "date": "15-06-2020",
+      "location": "Milano",
+      "createdAt": "2020-01-01T17:00:40.000Z",
+      "updatedAt": "2020-01-01T17:00:40.000Z",
+      "typologyse": {
+        "id": 1,
+        "createdAt": "2020-01-01T17:00:40.000Z",
+        "updatedAt": "2020-01-01T17:00:40.000Z",
+        "seminaryId": 1,
+        "typeId": 1
+      },
+      "artisticevents": [
+        {
+          "id": 41,
+          "title": "Music Infinity",
+          "date": "15-06-2020",
+          "factsheet": null,
+          "abstract": null,
+          "image": "https://www.onstageweb.com/wp-content/uploads/2019/02/Foto-concerto-billie-eilish-milano-21-febbraio-2019-16.jpg",
+          "createdAt": "2020-01-01T17:00:40.000Z",
+          "updatedAt": "2020-01-01T17:00:40.000Z",
+          "seminaryId": 1
+        },
+        {
+          "id": 51,
+          "title": "Musology",
+          "date": "25-06-2020",
+          "factsheet": null,
+          "abstract": null,
+          "image": "https://zero-media.s3.amazonaws.com/uploads/2018/02/slowdive-brooklynsteel-48-e1519906647931.jpg",
+          "createdAt": "2020-01-01T17:00:40.000Z",
+          "updatedAt": "2020-01-01T17:00:40.000Z",
+          "seminaryId": 1
+        }
+      ]
+    }
+  ]
+    type: object
+    properties:
+      artisticevents: 
+          type: array
+          items: 
+            $ref: '#/definitions/ArtisticEventCompleteType'
+      seminaries: 
+          type: array
+          items: 
+            $ref: '#/definitions/SeminaryCompleteType'
+            
+  ArtisticEventsDate:
+    title: ArtisticEventsDate
+    example:
+      artisticevents: []
+      seminaries: [
+    {
+      "id": 1,
+      "title": "Music Forever",
+      "date": "15-06-2020",
+      "location": "Milano",
+      "createdAt": "2020-01-01T17:00:40.000Z",
+      "updatedAt": "2020-01-01T17:00:40.000Z"
+    }
+  ]
+    type: object
+    properties:
+      artisticevents: 
+          type: array
+          items: 
+            $ref: '#/definitions/ArtisticEventComplete'
+      seminaries: 
+          type: array
+          items: 
+            $ref: '#/definitions/Seminary'
+
+  ArtisticEventsSameDate:
+    title: ArtisticEventsSameDate
+    example:
+      data: [
+    {
+      "id": 41,
+      "title": "Music Infinity",
+      "date": "15-06-2020",
+      "factsheet": null,
+      "abstract": null,
+      "image": "https://www.onstageweb.com/wp-content/uploads/2019/02/Foto-concerto-billie-eilish-milano-21-febbraio-2019-16.jpg",
+      "createdAt": "2020-01-01T17:00:40.000Z",
+      "updatedAt": "2020-01-01T17:00:40.000Z",
+      "seminaryId": 1,
+      "sameday_artisticevents": [
+        {
+          "id": 61,
+          "title": "Boom Dance",
+          "date": "15-06-2020",
+          "factsheet": null,
+          "abstract": null,
+          "image": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/5-1495727507.png?crop=1xw:1xh;center,top&resize=480:*",
+          "createdAt": "2020-01-01T17:00:40.000Z",
+          "updatedAt": "2020-01-01T17:00:40.000Z",
+          "seminaryId": 21
+        }
+      ],
+      "sameday_seminaries": [
+        {
+          "id": 1,
+          "title": "Music Forever",
+          "date": "15-06-2020",
+          "location": "Milano",
+          "createdAt": "2020-01-01T17:00:40.000Z",
+          "updatedAt": "2020-01-01T17:00:40.000Z"
+        }
+      ]
+    }
+  ]
+    type: object
+    properties:
+      data: 
+          type: array
+          items: 
+            $ref: '#/definitions/ArtisticEventSameDay'
+            
+  AllTypes:
+    title: AllTypes
+    example:
+      data: [
+    {
+      "id": 1,
+      "name": "music",
+      "createdAt": "2020-01-01T17:00:40.000Z",
+      "updatedAt": "2020-01-01T17:00:40.000Z"
+    },
+    {
+      "id": 2,
+      "name": "dance",
+      "createdAt": "2020-01-01T17:00:40.000Z",
+      "updatedAt": "2020-01-01T17:00:40.000Z"
+    },
+    {
+      "id": 3,
+      "name": "theatre",
+      "createdAt": "2020-01-01T17:00:40.000Z",
+      "updatedAt": "2020-01-01T17:00:40.000Z"
+    }
+  ]
+    type: object
+    properties:
+      data: 
+          type: array
+          items: 
+            $ref: '#/definitions/Type'
+            
+            
+  Type:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: The type ID.
+        name:
+          type: string
+          description: The type name
+        createdAt:
+          type: string
+          description: creation date
+        updatedAt:
+          type: string
+          description: update date
+            
+  
+  User:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: The user ID.
+        name:
+          type: string
+          description: The user name
+        email:
+          type: string
+          description: The user email
+        phoneNumber:
+          type: string
+          description: The user phone number
+        password:
+          type: string
+          description: The user password
+        updatedAt:
+          type: string
+          description: update date
+        createdAt:
+          type: string
+          description: creation date
+          
+  Ticket:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: The ticket ID.
+        title:
+          type: string
+          description: The artistic event title
+        date:
+          type: string
+          description: The artistic event date
+        name:
+          type: string
+          description: The person who goes to the event
+        userId:
+          type: integer
+          description: The authenticated user who buys the ticket
+        updatedAt:
+          type: string
+          description: update date
+        createdAt:
+          type: string
+          description: creation date
+          
+  ArtisticEvent:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: The artistic event ID.
+        title:
+          type: string
+          description: The artistic event title
+        date:
+          type: string
+          description: The artistic event date
+        factsheet:
+          type: string
+          description: The artistic event factsheet
+        abstract:
+          type: string
+          description: The artistic event abstract
+        image:
+          type: string
+          description: The artistic event image
+        createdAt:
+          type: string
+          description: creation date
+        updateAt:
+          type: string
+          description: update date
+        seminaryId:
+          type: string
+          description: related seminary Id
+          
+  ArtisticEventWithPerformance:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: The artistic event ID.
+        title:
+          type: string
+          description: The artistic event title
+        date:
+          type: string
+          description: The artistic event date
+        factsheet:
+          type: string
+          description: The artistic event factsheet
+        abstract:
+          type: string
+          description: The artistic event abstract
+        image:
+          type: string
+          description: The artistic event image
+        createdAt:
+          type: string
+          description: creation date
+        updateAt:
+          type: string
+          description: update date
+        seminaryId:
+          type: string
+          description: related seminary Id
+        performance:
+            $ref: '#/definitions/Performance'
+            
+  ArtisticEventSameDay:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: The artistic event ID.
+        title:
+          type: string
+          description: The artistic event title
+        date:
+          type: string
+          description: The artistic event date
+        factsheet:
+          type: string
+          description: The artistic event factsheet
+        abstract:
+          type: string
+          description: The artistic event abstract
+        image:
+          type: string
+          description: The artistic event image
+        createdAt:
+          type: string
+          description: creation date
+        updateAt:
+          type: string
+          description: update date
+        seminaryId:
+          type: string
+          description: related seminary Id
+        sameday_artisticevents:
+          type: array
+          items: 
+            $ref: '#/definitions/ArtisticEvent'
+        sameday_seminaries:
+          type: array
+          items: 
+            $ref: '#/definitions/Seminary'
+            
+  Performance:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: The performance ID.
+        createdAt:
+          type: string
+          description: creation date
+        updateAt:
+          type: string
+          description: update date
+        artisticeventId:
+          type: integer
+          description: the artistic event ID
+        performerId:
+          type: integer
+          description: the performer ID
+
+  Seminary:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: The seminary ID.
+        title:
+          type: string
+          description: The seminary title
+        date:
+          type: string
+          description: The seminary date
+        location:
+          type: string
+          description: The seminary location
+        createdAt:
+          type: string
+          description: creation date
+        updateAt:
+          type: string
+          description: update date
+
+          
+  SeminaryComplete:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: The seminary ID.
+        title:
+          type: string
+          description: The seminary title
+        date:
+          type: string
+          description: The seminary date
+        location:
+          type: string
+          description: The seminary location
+        createdAt:
+          type: string
+          description: creation date
+        updateAt:
+          type: string
+          description: update date
+        artisticevents:
+          type: array
+          items: 
+            $ref: '#/definitions/ArtisticEvent'
+            
+  SeminaryCompleteType:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: The seminary ID.
+        title:
+          type: string
+          description: The seminary title
+        date:
+          type: string
+          description: The seminary date
+        location:
+          type: string
+          description: The seminary location
+        createdAt:
+          type: string
+          description: creation date
+        updateAt:
+          type: string
+          description: update date
+        typologyse:
+            $ref: '#/definitions/Typologyse'
+        artisticevents:
+          type: array
+          items: 
+            $ref: '#/definitions/ArtisticEvent'
+            
+  Typologyse:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: entry ID
+        createdAt:
+          type: string
+          description: creation date
+        updateAt:
+          type: string
+          description: update date
+        seminaryId:
+          type: integer
+          description: the seminary ID
+        typeId:
+          type: integer
+          description: type ID
+            
+  PerformerComplete:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: The performer ID.
+        name:
+          type: string
+          description: The performer name
+        company_members:
+          type: string
+          description: If the performer is a company, its members
+        current_affiliation:
+          type: string
+          description: The performer's current affiliation
+        main_achievements:
+          type: string
+          description: The performer's main achievements
+        image:
+          type: string
+          description: The performer's image
+        details:
+          type: string
+          description: Details about the performer
+        isCompany:
+          type: boolean
+          description: identify if the performer is a company or not
+        createdAt:
+          type: string
+          description: creation date
+        updateAt:
+          type: string
+          description: update date
+        artisticevents:
+          type: array
+          items: 
+            $ref: '#/definitions/ArtisticEventWithPerformance'
+            
+  ArtisticEventComplete:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: The artistic event ID.
+        title:
+          type: string
+          description: The artistic event title
+        date:
+          type: string
+          description: The artistic event date
+        factsheet:
+          type: string
+          description: The artistic event factsheet
+        abstract:
+          type: string
+          description: The artistic event abstract
+        image:
+          type: string
+          description: The artistic event image
+        createdAt:
+          type: string
+          description: creation date
+        updateAt:
+          type: string
+          description: update date
+        seminaryId:
+          type: integer
+          description: the related seminary ID
+        performers:
+          type: array
+          items: 
+            $ref: '#/definitions/PerformerWithPerformance'
+
+  ArtisticEventCompleteType:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: The artistic event ID.
+        title:
+          type: string
+          description: The artistic event title
+        date:
+          type: string
+          description: The artistic event date
+        factsheet:
+          type: string
+          description: The artistic event factsheet
+        abstract:
+          type: string
+          description: The artistic event abstract
+        image:
+          type: string
+          description: The artistic event image
+        createdAt:
+          type: string
+          description: creation date
+        updateAt:
+          type: string
+          description: update date
+        seminaryId:
+          type: integer
+          description: the related seminary ID
+        typologyae:
+            $ref: '#/definitions/Typologyae'
+        performers:
+          type: array
+          items: 
+            $ref: '#/definitions/PerformerWithPerformance'
+            
+  Typologyae:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: entry ID
+        createdAt:
+          type: string
+          description: creation date
+        updateAt:
+          type: string
+          description: update date
+        artisticeventId:
+          type: integer
+          description: the artistic event ID
+        typeId:
+          type: integer
+          description: type ID
+            
+  PerformerWithPerformance:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: The performer ID.
+        name:
+          type: string
+          description: The performer name
+        company_members:
+          type: string
+          description: If the performer is a company, its members
+        current_affiliation:
+          type: string
+          description: The performer's current affiliation
+        main_achievements:
+          type: string
+          description: The performer's main achievements
+        image:
+          type: string
+          description: The performer's image
+        details:
+          type: string
+          description: Details about the performer
+        isCompany:
+          type: boolean
+          description: identify if the performer is a company or not
+        createdAt:
+          type: string
+          description: creation date
+        updateAt:
+          type: string
+          description: update date
+        performance:
+            $ref: '#/definitions/Performance'
+          
+tags:
+- name: Artistic Events
+- name: Authentication
+- name: Performers
+- name: Seminaries
+- name: Reservation
