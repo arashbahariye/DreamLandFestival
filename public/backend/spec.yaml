@@ -1837,68 +1837,18 @@ definitions:
           description: related seminary Id
           
   ArtisticEventWithPerformance:
-      type: object
-      properties:
-        id:
-          type: integer
-          description: The artistic event ID.
-        title:
-          type: string
-          description: The artistic event title
-        date:
-          type: string
-          description: The artistic event date
-        factsheet:
-          type: string
-          description: The artistic event factsheet
-        abstract:
-          type: string
-          description: The artistic event abstract
-        image:
-          type: string
-          description: The artistic event image
-        createdAt:
-          type: string
-          description: creation date
-        updateAt:
-          type: string
-          description: update date
-        seminaryId:
-          type: string
-          description: related seminary Id
+   allOf:
+     - $ref: '#/definitions/ArtisticEvent'
+     - type: object
+       properties: 
         performance:
             $ref: '#/definitions/Performance'
             
   ArtisticEventSameDay:
-      type: object
-      properties:
-        id:
-          type: integer
-          description: The artistic event ID.
-        title:
-          type: string
-          description: The artistic event title
-        date:
-          type: string
-          description: The artistic event date
-        factsheet:
-          type: string
-          description: The artistic event factsheet
-        abstract:
-          type: string
-          description: The artistic event abstract
-        image:
-          type: string
-          description: The artistic event image
-        createdAt:
-          type: string
-          description: creation date
-        updateAt:
-          type: string
-          description: update date
-        seminaryId:
-          type: string
-          description: related seminary Id
+   allOf:
+     - $ref: '#/definitions/ArtisticEvent'
+     - type: object
+       properties:
         sameday_artisticevents:
           type: array
           items: 
@@ -1951,52 +1901,20 @@ definitions:
 
           
   SeminaryComplete:
-      type: object
-      properties:
-        id:
-          type: integer
-          description: The seminary ID.
-        title:
-          type: string
-          description: The seminary title
-        date:
-          type: string
-          description: The seminary date
-        location:
-          type: string
-          description: The seminary location
-        createdAt:
-          type: string
-          description: creation date
-        updateAt:
-          type: string
-          description: update date
+   allOf:
+     - $ref: '#/definitions/Seminary'
+     - type: object
+       properties:
         artisticevents:
           type: array
           items: 
             $ref: '#/definitions/ArtisticEvent'
             
   SeminaryCompleteType:
-      type: object
-      properties:
-        id:
-          type: integer
-          description: The seminary ID.
-        title:
-          type: string
-          description: The seminary title
-        date:
-          type: string
-          description: The seminary date
-        location:
-          type: string
-          description: The seminary location
-        createdAt:
-          type: string
-          description: creation date
-        updateAt:
-          type: string
-          description: update date
+   allOf:
+     - $ref: '#/definitions/Seminary'
+     - type: object
+       properties:
         typologyse:
             $ref: '#/definitions/Typologyse'
         artisticevents:
@@ -2024,6 +1942,16 @@ definitions:
           description: type ID
             
   PerformerComplete:
+   allOf:
+     - $ref: '#/definitions/Performer'
+     - type: object
+       properties: 
+        artisticevents:
+          type: array
+          items: 
+            $ref: '#/definitions/ArtisticEventWithPerformance'
+            
+  Performer:
       type: object
       properties:
         id:
@@ -2056,76 +1984,22 @@ definitions:
         updateAt:
           type: string
           description: update date
-        artisticevents:
-          type: array
-          items: 
-            $ref: '#/definitions/ArtisticEventWithPerformance'
             
   ArtisticEventComplete:
-      type: object
-      properties:
-        id:
-          type: integer
-          description: The artistic event ID.
-        title:
-          type: string
-          description: The artistic event title
-        date:
-          type: string
-          description: The artistic event date
-        factsheet:
-          type: string
-          description: The artistic event factsheet
-        abstract:
-          type: string
-          description: The artistic event abstract
-        image:
-          type: string
-          description: The artistic event image
-        createdAt:
-          type: string
-          description: creation date
-        updateAt:
-          type: string
-          description: update date
-        seminaryId:
-          type: integer
-          description: the related seminary ID
+   allOf:
+     - $ref: '#/definitions/ArtisticEvent'
+     - type: object
+       properties:
         performers:
           type: array
           items: 
             $ref: '#/definitions/PerformerWithPerformance'
 
   ArtisticEventCompleteType:
-      type: object
-      properties:
-        id:
-          type: integer
-          description: The artistic event ID.
-        title:
-          type: string
-          description: The artistic event title
-        date:
-          type: string
-          description: The artistic event date
-        factsheet:
-          type: string
-          description: The artistic event factsheet
-        abstract:
-          type: string
-          description: The artistic event abstract
-        image:
-          type: string
-          description: The artistic event image
-        createdAt:
-          type: string
-          description: creation date
-        updateAt:
-          type: string
-          description: update date
-        seminaryId:
-          type: integer
-          description: the related seminary ID
+   allOf:
+     - $ref: '#/definitions/ArtisticEvent'
+     - type: object
+       properties:
         typologyae:
             $ref: '#/definitions/Typologyae'
         performers:
@@ -2153,38 +2027,10 @@ definitions:
           description: type ID
             
   PerformerWithPerformance:
-      type: object
-      properties:
-        id:
-          type: integer
-          description: The performer ID.
-        name:
-          type: string
-          description: The performer name
-        company_members:
-          type: string
-          description: If the performer is a company, its members
-        current_affiliation:
-          type: string
-          description: The performer's current affiliation
-        main_achievements:
-          type: string
-          description: The performer's main achievements
-        image:
-          type: string
-          description: The performer's image
-        details:
-          type: string
-          description: Details about the performer
-        isCompany:
-          type: boolean
-          description: identify if the performer is a company or not
-        createdAt:
-          type: string
-          description: creation date
-        updateAt:
-          type: string
-          description: update date
+   allOf:
+     - $ref: '#/definitions/Performer'
+     - type: object
+       properties:
         performance:
             $ref: '#/definitions/Performance'
           

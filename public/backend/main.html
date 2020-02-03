@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Backend</title>
+		<meta content="width=device-width, initial-scale=1.0" name="viewport">
+		
+		<!-- Main Stylesheet File -->
+      	<link href="../backend/css/mainstyle.css" rel="stylesheet">
+		
+		<style type="text/css">
+			.tg  {border-collapse:collapse;border-spacing:0;border-color:#aabcfe;margin:0px auto;}
+			.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#aabcfe;color:#669;background-color:#e8edff;}
+			.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#aabcfe;color:#039;background-color:#b9c9fe;}
+			.tg .tg-phtq{background-color:#D2E4FC;border-color:inherit;text-align:left;vertical-align:top}
+			.tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
+			@media screen and (max-width: 767px) {.tg {width: auto !important;}.tg col {width: auto !important;}.tg-wrap {overflow-x: auto;-webkit-overflow-scrolling: touch;}}
+		</style>
+	</head>
+	<body>
+		<h1>Documentation of the Backend part</h1>
+		<blockquote>
+			<p>Deliverable D1</p>
+		</blockquote>
+		<h2>General group information</h2>
+		<div class="tg-wrap">
+			<table class="tg">
+				<tr>
+					<th class="tg-0pky">Member n.</th>
+					<th class="tg-0pky">Role</th>
+					<th class="tg-0pky">First name</th>
+					<th class="tg-0pky">Last name</th>
+					<th class="tg-0pky">Matricola</th>
+					<th class="tg-0pky">Email address</th>
+				</tr>
+				<tr>
+					<td class="tg-phtq">1</td>
+					<td class="tg-phtq">administrator</td>
+					<td class="tg-phtq">Alessandro</td>
+					<td class="tg-phtq">Musolino</td>
+					<td class="tg-phtq">928399</td>
+					<td class="tg-phtq"><a href="mailto:alessandro.musolino@mail.polimi.it">alessandro.musolino@mail.polimi.it</a></td>
+				</tr>
+				<tr>
+					<td class="tg-0pky">2</td>
+					<td class="tg-0pky">member</td>
+					<td class="tg-0pky">Fatemeh</td>
+					<td class="tg-0pky">Rezaei</td>
+					<td class="tg-0pky">894256</td>
+					<td class="tg-0pky"><a href="mailto:fatemeh2.rezaei@mail.polimi.it">fatemeh2.rezaei@mail.polimi.it</a><br></td>
+                </tr>
+                <tr>
+					<td class="tg-0pky">3</td>
+					<td class="tg-0pky">member</td>
+					<td class="tg-0pky">Arash</td>
+					<td class="tg-0pky">Bahariye</td>
+					<td class="tg-0pky">894024</td>
+					<td class="tg-0pky"><a href="arash.bahariye@mail.polimi.it">arash.bahariye@mail.polimi.it</a><br></td>
+				</tr>
+			</table>
+		</div>
+		<h2>Links to other deliverables</h2>
+		<ul>
+			<li>Deliverable D0: the web application is accessible at <a href="https://dreamlandfestival1.herokuapp.com">this address</a>.</li>
+			<li>Deliverable D2: the YAML file containing the specification of the app API can be found at <a href="https://dreamlandfestival1.herokuapp.com/backend/spec.yaml">this address</a>.</li>
+			<li>Deliverable D3: the SwaggerUI page of the same API is available at <a href="https://dreamlandfestival1.herokuapp.com/backend/swaggerui">this address</a>.</li>
+			<li>Deliverable D4: the source code of D0 is available as a zip file at <a href="https://dreamlandfestival1.herokuapp.com/backend/app.zip" download>this address</a>.</li>
+			<li>Deliverable D5: the address of the online source control repository is available <a href="https://github.com/arashbahariye/DreamLandFestival.git">this address</a>. We hereby declare that this is a private repository and, upon request, we will give access to the instructors.</li>
+		</ul>
+		<h2>Specification</h2>
+		
+		<h3>Web Architecture</h3>
+		<p>Describe here, with a diagram, the components of your web application and how 3 they interact. Highlight which parts belong to the application layer, data layer or presentation layer. How did you ensure that HTML is not rendered server side?</p>
+		<p>DreamLand Festival Web Application follows the common Client-Server pattern. The Client is represented by the user's web browser, and for that the frontend part of the application is written with HTML, CSS/(Bootstrap),and JavaScript. In this way, the most common browsers can handle and render properly the
+		 frontend of this application.
+		<br><br>
+
+		 <div>
+			<img src="../backend/img/languages.png" alt="HTML, CSS, JS" height="100">
+		</div>
+
+		<br><br>
+		Focusing on the Server, it is developed using the famous Node.js framework and it is deployed on
+		a Heroku machine.
+		
+		<br><br>
+
+		<div>
+			<img src="../backend/img/nodejs.png" alt="NodeJS" height="100">
+		</div>
+		
+		<br><br>
+        The Server is divided into 4 main component, which are in charge of fulfilling a specific function:
+		<br><br>
+
+		<div>
+		   <img src="../backend/img/structure.png" alt="Structure" height="300">
+	   </div>
+
+	   <br><br>
+
+		As you can notice from the diagram above, the four parts are the model, the controller, the route
+		handler and a static part, used to serve the HTML, CSS or JavaScript files.
+		</p>
+		
+		<h3>API</h3>
+		<h4>REST compliance</h4>
+		<p>Describe here to what extent did you follow REST principles and what are the reasons for which you might have decided to diverge. Note, you must not describe the whole API here, just the design decisions.</p>
+		
+		<ul>
+			<li><b>REST - Uniform Interface</b>: This simplifies the architecture, as all components follow the same rules to speak to one another. It also makes it easier to understand the interactions between the different components of the system.</li>
+			<li><b>REST - Client-Server</b>: the client and the server both have a different set of concerns. The server stores and manipulates information and makes it available to the user. The client takes that information and displays it to the user. This separation of concerns allows both the client and the server to evolve independently.</li>
+			<li><b>REST - Stateless</b>: We decided to manage the session state on server side. In this way each time the user asks for a private resource (e.g. his tickets) the server checks if the user is currently authenticated in the system. It means that if access to a resource requires authentication, then the client needs to authenticate itself before asks for determined resource.</li>
+			<li><b>REST - Cacheable</b>: We decided not to cache any information, both in client and server side.</li>
+			<li><b>REST - Layered System</b>: We decided not to develop a layered system in order to make the communication more straightforward.</li>
+		</ul>
+		
+		<h4>OpenAPI Resource models</h4>
+		<p>Here we describe synthetically the basic models introduced for resources. In addition to these basic models, there are also complex models which derive from the simple ones. Each resource is provided in json format with all the details of the resource.
+			<ul>
+				<li><b>Type</b>: Describes type of an Artistic Event or a Seminary (such as Music, Dance or Theatre)</li>
+				<li><b>User</b>: Model of an User inside the application</li>
+				<li><b>Ticket</b>: Model of a Ticket reservation of the user</li>
+				<li><b>ArtisticEvent</b>: Object used to describe an Artistic Event</li>
+				<li><b>Performer</b>: Object used to describe a Performer</li>
+				<li><b>Performance</b>: Object used to associate an Artistic Event to its Performers</li>
+				<li><b>Seminary</b>: Object used to describe a Seminary</li>
+				<li><b>Typologyse</b>: Object used to associate a Seminary to its Type (such as Music, Dance or Theatre)</li>
+				<li><b>Typologyae</b>: Object used to associate an Artisti Event to its Type (such as Music, Dance or Theatre)</li>
+			</ul>
+		</p>
+		
+		<h3>Data model</h3>
+		<p>Describe with an ER diagram the model used in the data layer of your web application. How these map to the OpenAPI data model?</p>
+
+		<div>
+			<img src="../backend/img/ER.jpeg" alt="Structure" height="800">
+		</div>
+
+		<p>Each database entity is mapped with specific HTTP requests. In order to retrive specific data from the database, different APIs corresponds to specific query. For instance if we want to retrieve all the information of a single artistic event, the request GET /artisticevent/artisticevent/{artisticeventId} is mapped with a specific query which returns all the artistic event information and its performers making the right joins between tables. For almost all the table a GET request is provided. Instead, about reservation services, to perform any request and query on the tickets table, an user must be authenticated. Each authenticated user can manipulate just his own entries in the tickets table. In the same way, the GET /auth/me request retrieves data only of the current authenticated user.</p>		
+		
+		<h2>Implementation</h2>
+		<h3>Tools used</h3>
+		<p>Describe here which tools, languages and frameworks did you use for the backend of the application.</p>
+		<p>The back end part of the project is entirely made in NodeJS, exploiting several libraries to accomplish different tasks such as: initialize the web server, handle and routes HTTP requests, manage OpenAPI, authentication.</p>
+		<ul>
+			<li>Tools
+			<ul>
+			<li>Visual Studio Code
+			<ul>
+			<li>All the code has been written from this editor.</li>
+			</ul></li>
+			<li>NodeJS
+			<ul>
+			<li>It is the base of our server.</li>
+			</ul></li>
+			<li>Swagger Tools
+			<ul>
+			<li>It is important in the checking of the API.</li>
+			</ul></li>
+			<li>Postman
+			<ul>
+			<li>It is important in the checking of the API.</li>
+			</ul></li>
+			</ul></li>
+			<li>Languagues
+			<ul>
+			<li>Javascript
+			<ul>
+			<li>It is used in the server (NODE) and for the Presentation Layer.</li>
+			</ul></li>
+			<li>OpenAPI
+			<ul>
+			<li>It is used for specifying the API.</li>
+			</ul></li>
+			</ul></li>
+			<li>Frameworks
+			<ul>
+			<li>Swagger
+			<ul>
+			<li>It models in an easy way the API and connects the differents functions.</li>
+			</ul></li>
+			<li>Express
+			<ul>
+			<li>It is the web application framework we used to create the server.</li>
+			</ul></li>
+			<li>Sequelize
+			<ul>
+			<li>It is a powerful library in Javascript that makes it easy to manage a SQL database.</li>
+			</ul></li>
+			<li>JWT
+			<ul>
+			<li>Json Web Token is used to manage authentication.</li>
+			</ul></li>
+			</ul></li>
+			</ul>
+		<h3>Discussion</h3>
+		<p>Describe here:</p>
+		<ul>
+			<li>How did you make sure your web application adheres to the provided OpenAPI specification?</li>
+			<p>The web application has been developed following the OpenAPI specification previously defined using the swagger.io editor. Each possible request are well defined in the .yaml file at the following link <a href="https://dreamlandfestival1.herokuapp.com/backend/spec.yaml">/backend/spec</a>. When we implemented the specification we checked the results with the swagger’s tools, checking that results were equivalent to what we expected.</p>
+			<li>Why do you think your web application adheres to common practices to partition the web application (static assets vs. application data)</li>
+			<p>We developed the main pages dynamically retriving data usign GET requests. The application data is provided dynamically by the server, so it has more complex and is where we focus in the backend. The static assets are the elements that doesn’t change from the point of view of the server: all the other parts, such as the layout, the images and texts of side pages are static and included in a separate folder.</p>
+			<li>Describe synthetically why and how did you manage session state, what are the state change triggering actions (e.g., POST to login etc..).</li>
+			<p> In our application we use Bearer Authentication in order to manage session state:
+                <ol>
+                    <li>Endpoint: /auth/login - user sends email and password.</li>
+                    <li>If the data matches with the database, a JWT-based token is created. This token is associated to the authenticated user.</li>
+                    <li>Before any request that requires authentication (e.g. create an event ticket in the database), the middleware isAuth.js uses the authentication token in order to associate the authenticated user to the request.</li>
+                    <li>The authenticated user can now performs his own actions.</li>
+                </ol>
+            </p>
+			<li>Which technology did you use (relational or a no-SQL database) for managing the data model?</li>
+			<p>We decided to use a relational DBMS - mySQL - which is based on SQL.</p>
+		</ul>
+		<h2>Other information</h2>
+		<h3>Task assignment</h3>
+		<p>Describe here how development tasks have been subdivided among members of the group:</p>
+		<ul>
+			<li>Alessandro worked on Back end (80%) and OpenAPI Spec (100% of the time), Front End (10% of the time). </li>
+            <li>Fatima worked on Back end (20%), design (100% of the time), Front End (30% of the time). </li>
+            <li>Arash worked on Front End (70% of the time). </li>
+		</ul>
+		<h3>Analysis of existing API</h3>
+		<p>Describe here if you have found relevant APIs that have inspired the OpenAPI specification and why (at least two).</p>
+		<p>The APIs of the application were developed without too much influence from existing ones. We only found very useful the project provided during the lectures by Professor Zaccaria, open source on github at the following link: <a href="https://github.com/vzaccaria/nodejs-server-server">https://github.com/vzaccaria/nodejs-server-server</a>. First, we have decided to test our endpoints by using Postman UI and then automatically generate the openAPI documentation by using the Postman export files. Finally, to implement the security and the authentication of the DreamLandFestival application, we have followed some guides available on the swagger.io online documentation.</p>
+		<h3>Learning outcome</h3>
+		<p>What was the most important thing all the members have learned while developing this part of the project, what questions remained unanswered, how you will use what you've learned in your everyday life?</p>	
+		<ul>
+			<li>Alessandro learned how to set up a webserver exploiting NodeJs libraries, how to set up openAPI using Swagger, how to manage the authentication and how to deploy the web application on a cloud platform such as Heroku. Now, he has the basis for being a full stack developer and creating his own web applications.</li>
+            <li>Fatima learned how to build a client-side render web page, how to interact with the realized webserver, how to retrieve data from a SQL database and how to design a responsive front end using CSS and Bootstrap. </li>
+            <li>Arash learned how to build a client-side render web page and how to design a responsive front end using CSS and Bootstrap. </li>
+		</ul>
+		
+		<script type="text/javascript" src="https://www.draw.io/js/viewer.min.js"></script>
+	</body>
+</html>
