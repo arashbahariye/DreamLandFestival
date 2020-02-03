@@ -8,10 +8,18 @@ const fs = require('fs');
 var helmet = require('helmet');
 var morgan = require('morgan');
 var compression = require('compression');
-
+const swaggerUi = require('swagger-ui-express');
 const sequelize  = require('./utils/database');
 
 const app = express();
+
+var options = {
+    swaggerOptions: {
+      url: 'https://dreamlandfestival1.herokuapp.com/backend/spec.yaml'
+    }
+  }
+
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(null, options));
 
 app.use(helmet());
 
