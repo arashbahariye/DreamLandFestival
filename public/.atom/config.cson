@@ -1,0 +1,7 @@
+"*":
+  editor:
+    fontSize: 18
+  "exception-reporting":
+    userId: "fcf4e2f6-82ff-43e7-8bb4-d4a6aa45eb79"
+  "linter-ui-default":
+    showPanel: true

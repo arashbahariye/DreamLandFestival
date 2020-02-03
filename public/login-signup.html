@@ -24,22 +24,25 @@
   <meta name="msapplication-TileImage" content="Icons/ms-icon-144x144.png">
   <meta name="theme-color" content="#ffffff">
   <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <!-- Google fonts -->
   <link href="https://fonts.googleapis.com/css?family=Modak&display=swap" rel="stylesheet">
   <!-- Style.css -->
-  <link rel="stylesheet" href="CSS/Style.css">
+  <link rel="stylesheet" href="CSS/style.css">
   <!-- Style.css -->
   <script src="https://kit.fontawesome.com/8dce347ea2.js" crossorigin="anonymous"></script>
 </head>
 
-<body>
+<body class="signup">
   <nav class="navbar navbar-expand-lg navbar-dark bg-info">
     <a class="navbar-brand" href="index.html">
-      <img src="Pictures/logo.png" alt="DreamlandFestival" class="d-inline-block align-center logo" width="40" height="40">
+      <img src="pictures/logo.png" alt="DreamlandFestival" class="d-inline-block align-center logo" width="50"
+        height="50">
       <em class="logo-text">DreamLandFestival</em>
     </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
@@ -58,10 +61,7 @@
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Artistic Events
           </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="Artistic-Event-Music.html">Music</a>
-            <a class="dropdown-item" href="Artistic-Event-Dance.html">Dance</a>
-            <a class="dropdown-item" href="Artistic-Event-Theater.html">Theater</a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="cmbEvent">
           </div>
         </li>
         <li class="nav-item dropdown">
@@ -69,145 +69,123 @@
             Performers
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="performers-single-artists.html">Single artists</a>
-            <a class="dropdown-item" href="performers-musical-insembles.html">Musical insembles</a>
-            <a class="dropdown-item" href="performers-dance-companies.html">Dance/Theater companies</a>
+            <a class="dropdown-item" href="Performers.html">List of Performers</a>
           </div>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Seminars
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="seminars-musical.html">Musical seminars</a>
-            <a class="dropdown-item" href="seminars-dance.html">Dance seminars</a>
-            <a class="dropdown-item" href="seminars-theater.html">Theater seminars</a>
-          </div>
-        </li>
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Seminars
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="cmbSeminar">
+            </div>
+          </li>
       </ul>
       <a id="login" href="login-signup.html">Login/SignUp</a>
     </div>
   </nav>
-  <div class="container register">
-    <div class="row">
-      <div class="col-md-3 register-left">
-        <img src="Pictures/signup.png" alt="" />
-        <h3>Welcome</h3>
-        <p>If you already have an account, you can simply Login into you account otherwise please SignUp</p>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card card-signup">
+          <header class="card-header">
+            <div class="form-row">
+              <div class="col">
+                <h3 class="card-title" style="margin-top:10%;">SignUp</h3>
+              </div>
+              <div class="col">
+                <a class="float-right" href="#Login"><img class="img-signup"
+                    src="https://www.freeiconspng.com/uploads/login-button-png-0.png" alt=""></a>
+              </div>
+            </div>
+          </header>
+          <article class="card-body" id="signup">
 
-      </div>
-      <div class="col-md-9 register-right">
-        <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
-          <li class="nav-item">
-            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#signup" role="tab" aria-controls="home" aria-selected="true">SignUp</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#login" role="tab" aria-controls="profile" aria-selected="false">Login</a>
-          </li>
-        </ul>
-        <div class="tab-content" id="myTabContent">
-          <div class="tab-pane fade show active" id="signup" role="tabpanel" aria-labelledby="home-tab">
-            <h3 class="register-heading">You can register here</h3>
-            <div class="row register-form" action="/auth/register" method="POST">
-              <div class="col-md-6">
-                <div class="form-group">
-                  <input type="text" class="form-control" name="name" id="name" placeholder="Name *" value="" />
-                </div>
-                <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Last Name *" value="" />
-                </div>
-                <div class="form-group">
-                  <input type="password" class="form-control" name="password" id="password" placeholder="Password *" value="" />
-                </div>
-                <div class="form-group">
-                  <input type="password" class="form-control" placeholder="Confirm Password *" value="" />
-                </div>
-                <div class="form-group">
-                  <div class="maxl">
-                    <label class="radio inline">
-                      <input type="radio" name="gender" value="male" checked>
-                      <span> Malenino </span>
-                    </label>
-                    <label class="radio inline">
-                      <input type="radio" name="gender" value="female">
-                      <span>Female </span>
-                    </label>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-group">
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email *" value="" />
-                </div>
-                <div class="form-group">
-                  <input type="text" minlength="10" maxlength="10" name="phoneNumber" id="phoneNumber" class="form-control" placeholder="Your Phone *" value="" />
-                </div>
-                <div class="form-group">
-                  <select class="form-control">
-                    <option class="hidden" selected disabled>Please select your Sequrity Question</option>
-                    <option>What is your Birthdate?</option>
-                    <option>What is Your old Phone Number</option>
-                    <option>What is your Pet Name?</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Enter Your Answer *" value="" />
-                </div>
-                <input type="submit" class="btnRegister" value="Register" />
-              </div>
-            </div>
+            <form>
+              <div class="form-row">
+                <div class="col form-group">
+                  <label>Name </label>
+                  <input type="text" class="form-control name" placeholder="">
+                </div> <!-- form-group end.// -->
+              </div> <!-- form-row end.// -->
+              <div class="form-group">
+                <label>Email address</label>
+                <input type="email" class="form-control email" placeholder="">
+                <small class="form-text text-muted">We'll never share your email with anyone else.</small>
+              </div> <!-- form-group end.// -->
+              <div class="form-group">
+                <label>Phone number</label>
+                <input type="phone" class="form-control phone" placeholder="">
+              </div> <!-- form-group end.// -->
+              <br>
+              <div class="form-group">
+                <label>Create password</label>
+                <input class="form-control password" type="password">
+              </div> <!-- form-group end.// -->
+              <div class="form-group">
+                <label>Confirm password</label>
+                <input class="form-control confirmemail" type="password">
+              </div> <!-- form-group end.// -->
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-block btnSignup"> SignUp </button>
+              </div> <!-- form-group// -->
+              <small class="text-muted">By clicking the 'Sign Up' button, you confirm that you accept our <br> Terms of
+                use and Privacy Policy.</small>
+            </form>
+          </article> <!-- card-body end .// -->
+          <div class="border-top card-body text-center login">
+            <h3 id="Login">Login</h3>
+            <br>
+            <form class="" action="index.html" method="post">
+              <div class="form-group">
+                <label>Email</label>
+                <input class="form-control txtEmail" type="text">
+              </div> <!-- form-group end.// -->
+              <div class="form-group">
+                <label>Password</label>
+                <input class="form-control txtPassword" type="password">
+              </div> <!-- form-group end.// -->
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-block btnLogin"> Login </button>
+              </div> <!-- form-group// -->
+            </form>
           </div>
-          <div class="tab-pane fade show" id="login" role="tabpanel" aria-labelledby="profile-tab">
-            <h3 class="register-heading">You can Login here</h3>
-            <div class="row register-form">
-              <div class="col-md-6">
-                <div class="form-group">
-                  <input type="text" class="form-control" placeholder="First Name *" value="" />
-                </div>
-                <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Last Name *" value="" />
-                </div>
-                <div class="form-group">
-                  <input type="email" class="form-control" placeholder="Email *" value="" />
-                </div>
-                <div class="form-group">
-                  <input type="text" maxlength="10" minlength="10" class="form-control" placeholder="Phone *" value="" />
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-group">
-                  <input type="password" class="form-control" placeholder="Password *" value="" />
-                </div>
-                <div class="form-group">
-                  <input type="password" class="form-control" placeholder="Confirm Password *" value="" />
-                </div>
-                <div class="form-group">
-                  <select class="form-control">
-                    <option class="hidden" selected disabled>Please select your Sequrity Question</option>
-                    <option>What is your Birthdate?</option>
-                    <option>What is Your old Phone Number</option>
-                    <option>What is your Pet Name?</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <input type="text" class="form-control" placeholder="`Answer *" value="" />
-                </div>
-                <input type="submit" class="btnRegister" value="Register" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+        </div> <!-- card.// -->
+      </div> <!-- col.//-->
+
+    </div> <!-- row.//-->
+
+
   </div>
+  <!--container end.//-->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      document.getElementById("cmbEvent").addEventListener("contentChanged", event);
+      document.getElementById("cmbSeminar").addEventListener("contentChanged", event);
+
+      fillComboFromApi('cmbEvent', 'https://dreamlandfestival1.herokuapp.com/artisticevent/types', 'id', 'name','Artistic-Event-');
+      fillComboFromApi('cmbSeminar', 'https://dreamlandfestival1.herokuapp.com/artisticevent/types', 'id', 'name','seminars-');
+
+  });
+
+  </script>
+
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script type="text/javascript" src="js/assessAPI2.js"></script>
+
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  </body>
-  <!-- Footer -->
-  <footer class="pt-5 pb-4" id="contact">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+</body>
+<!-- Footer -->
+<footer class="pt-5 pb-4" id="contact">
   <div class="container">
     <div class="row">
       <div class="col-lg-3 col-md-6 col-sm-6 mt-2 mb-4">
@@ -250,7 +228,8 @@
             <div class="row">
               <div class="col-1"><i class="fab fa-twitter"></i></div>
               <div class="col-10">
-                <p class="mb-0"><a href="https://www.twitter.com">@arashbaahriye </a> Cher will perform at the opening</p>
+                <p class="mb-0"><a href="https://www.twitter.com">@arashbaahriye </a> Cher will perform at the opening
+                </p>
                 <label>1 Week Ago</label>
               </div>
             </div>
@@ -259,7 +238,8 @@
             <div class="row">
               <div class="col-1"><i class="fab fa-twitter"></i></div>
               <div class="col-10">
-                <p class="mb-0"><a href="https://www.twitter.com">@arashbahariye </a> more than 20 singers are going to sing on the stage</p>
+                <p class="mb-0"><a href="https://www.twitter.com">@arashbahariye </a> more than 20 singers are going to
+                  sing on the stage</p>
                 <label>2 Weeks Ago</label>
               </div>
             </div>
@@ -268,7 +248,8 @@
             <div class="row">
               <div class="col-1"><i class="fab fa-twitter"></i></div>
               <div class="col-10">
-                <p class="mb-0"><a href="https://www.twitter.com">@arashbahariye </a> theater tickets are about to sold out</p>
+                <p class="mb-0"><a href="https://www.twitter.com">@arashbahariye </a> theater tickets are about to sold
+                  out</p>
                 <label>1 month Ago</label>
               </div>
             </div>
@@ -280,24 +261,24 @@
         <ul class="recent-post">
           <li>
             <a href="Reservation.html" class="latest-update"><label class="mr-3">28 <br><span>APR</span></label>
-            <span>DreamLandFestival ticket details announced</span></a>
+              <span>DreamLandFestival ticket details announced</span></a>
           </li>
           <li>
             <a href="Reservation.html" class="latest-update"><label class="mr-3">29 <br><span>APR</span></label>
-            <span>DreamLandFestival event details announced</span></a>
+              <span>DreamLandFestival event details announced</span></a>
           </li>
           <li>
             <a href="Reservation.html" class="latest-update"><label class="mr-3">30 <br><span>APR</span></label>
-            <span>5 artists not to miss at DreamLandFestival</span></a>
+              <span>5 artists not to miss at DreamLandFestival</span></a>
           </li>
         </ul>
       </div>
       <div class="col-lg-3 col-md-6 col-sm-6 mt-2 mb-4">
-        <h5 class="mb-4 font-weight-bold">SUBSCRIBE TO OUR NEWSLETTER</h5>
+        <h5 class="mb-4 font-weight-bold">SEARCHING CONTENT</h5>
         <div class="input-group">
           <form class="subscription" action="index.html" method="post">
-            <input class="email-input" type="email" name="" value="" placeholder="Ex: email@gmail.com">
-            <button type="submit" class="btn-sm btn-primary">subscribe</button>
+            <input class="email-input" type="email" name="" value="" placeholder="">
+            <button type="submit" class="btn-sm btn-primary">Search</button>
           </form>
         </div>
         <ul class="social-pet mt-4">
@@ -309,9 +290,9 @@
       </div>
     </div>
   </div>
-  </footer>
-  <!-- Copyright -->
-  <section class="copyright">
+</footer>
+<!-- Copyright -->
+<section class="copyright">
   <div class="container">
     <div class="row">
       <div class="col-md-12 ">
@@ -321,6 +302,51 @@
       </div>
     </div>
   </div>
-  </section>
+</section>
+<script src="./js/assessAPI2.js"></script>
+<script>
+  $(document).ready(function () {
 
-  </html>
+    $('.login .btnLogin').click(function (e) {
+      e.preventDefault();
+      let em = $('.txtEmail').val();
+      let pass = $('.txtPassword').val();
+      if (em === "" || pass === "")
+        alert("Please enter username and password");
+      else {
+        let prm = { email: em, password: pass };
+        postJson('https://dreamlandfestival1.herokuapp.com/auth/login', null, prm,
+          function (res) {
+            document.cookie = "token=" + res.token;
+            localStorage.setItem('token', res.token);
+            getJson('https://dreamlandfestival1.herokuapp.com/auth/me',
+              function (res) {
+                localStorage.setItem('name', JSON.parse(res).user.name);
+                window.open('reservation.html', '_self');
+              }
+              , res.token)
+          });
+      }
+    });
+
+    $('#signup .btnSignup').click(function (e) {
+      e.preventDefault();
+      let root = $('#signup');
+      let prm = {
+        name: root.find('.name').val(),
+        email: root.find('.email').val(),
+        phoneNumber: root.find('.phone').val(),
+        password: root.find('.password').val()
+      };
+      postJson('https://dreamlandfestival1.herokuapp.com/auth/register', null, prm,
+        function (res) {
+          alert('done!');
+          location.reload();
+        });
+    });
+
+  });
+
+</script>
+
+</html>

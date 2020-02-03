@@ -1,0 +1,50 @@
+{
+  "_from": "https://www.atom.io/api/packages/csslint/versions/1.2.0/tarball",
+  "_id": "csslint@1.2.0",
+  "_inBundle": false,
+  "_integrity": "sha512-vXXOPDUQFQbRApbFa1pEC5NXzH8AUb/n/ULb1wi6MSA/FztoqFXeBLU3CYsDU49w4nX+l37W+tRY2Hx7lgSZFg==",
+  "_location": "/csslint",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "remote",
+    "raw": "https://www.atom.io/api/packages/csslint/versions/1.2.0/tarball",
+    "rawSpec": "https://www.atom.io/api/packages/csslint/versions/1.2.0/tarball",
+    "saveSpec": "https://www.atom.io/api/packages/csslint/versions/1.2.0/tarball",
+    "fetchSpec": "https://www.atom.io/api/packages/csslint/versions/1.2.0/tarball"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://www.atom.io/api/packages/csslint/versions/1.2.0/tarball",
+  "_shasum": "59583df637ed898416a77e5f11fe36c958d9e7aa",
+  "_spec": "https://www.atom.io/api/packages/csslint/versions/1.2.0/tarball",
+  "_where": "/private/var/folders/63/qfx7dg_x0x947y9lyrldh4gc0000gn/T/apm-install-dir-11973-1101-bvekvh.iwiyr",
+  "author": {
+    "name": "tcarlsen"
+  },
+  "bugs": {
+    "url": "https://github.com/tcarlsen/atom-csslint/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "atom-message-panel": "1.2.7",
+    "csslint": "^0.10.0",
+    "loophole": "^1.0.0"
+  },
+  "deprecated": false,
+  "description": "CSSLint error reports for your Atom editor",
+  "engines": {
+    "atom": ">0.174.0"
+  },
+  "homepage": "https://github.com/tcarlsen/atom-csslint#readme",
+  "license": "MIT",
+  "main": "./lib/main",
+  "name": "csslint",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tcarlsen/atom-csslint.git"
+  },
+  "version": "1.2.0"
+}

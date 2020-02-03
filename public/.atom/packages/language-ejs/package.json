@@ -1,0 +1,42 @@
+{
+  "_from": "https://www.atom.io/api/packages/language-ejs/versions/0.4.0/tarball",
+  "_id": "language-ejs@0.4.0",
+  "_inBundle": false,
+  "_integrity": "sha512-I5tNuvqUsLpKQT/BjNVZZ+H6vNtr3+nXJynBj9DyCqLNHwrywRw2VvriXsrH8pMQNEjIaaNzl1mdPka342rJnw==",
+  "_location": "/language-ejs",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "remote",
+    "raw": "https://www.atom.io/api/packages/language-ejs/versions/0.4.0/tarball",
+    "rawSpec": "https://www.atom.io/api/packages/language-ejs/versions/0.4.0/tarball",
+    "saveSpec": "https://www.atom.io/api/packages/language-ejs/versions/0.4.0/tarball",
+    "fetchSpec": "https://www.atom.io/api/packages/language-ejs/versions/0.4.0/tarball"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://www.atom.io/api/packages/language-ejs/versions/0.4.0/tarball",
+  "_shasum": "70dd2fdc699f69ff0418257b7cfcd29f23a08be7",
+  "_spec": "https://www.atom.io/api/packages/language-ejs/versions/0.4.0/tarball",
+  "_where": "/private/var/folders/63/qfx7dg_x0x947y9lyrldh4gc0000gn/T/apm-install-dir-11973-1327-adkcca.b18j",
+  "bugs": {
+    "url": "https://github.com/darron/language-ejs/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {},
+  "deprecated": false,
+  "description": "EJS support for Atom.",
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "homepage": "https://github.com/darron/language-ejs#readme",
+  "license": "MIT",
+  "name": "language-ejs",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/darron/language-ejs.git"
+  },
+  "version": "0.4.0"
+}

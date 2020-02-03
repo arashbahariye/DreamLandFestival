@@ -28,7 +28,7 @@
   <!-- Google fonts -->
   <link href="https://fonts.googleapis.com/css?family=Modak&display=swap" rel="stylesheet">
   <!-- Style.css -->
-  <link rel="stylesheet" href="CSS/Style.css">
+  <link rel="stylesheet" href="CSS/style.css">
   <!-- Style.css -->
   <script src="https://kit.fontawesome.com/8dce347ea2.js" crossorigin="anonymous"></script>
 </head>
@@ -36,7 +36,7 @@
 <body class="background-image">
   <nav class="navbar navbar-expand-lg navbar-dark bg-info">
     <a class="navbar-brand" href="index.html">
-      <img src="Pictures/logo.png" alt="DreamlandFestival" class="d-inline-block align-center logo" width="30" height="30">
+      <img src="pictures/logo.png" alt="DreamlandFestival" class="d-inline-block align-center logo" width="50" height="50">
       <em class="logo-text">DreamLandFestival</em>
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -58,10 +58,7 @@
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Artistic Events
           </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="Artistic-Event-Music.html">Music</a>
-            <a class="dropdown-item" href="Artistic-Event-Dance.html">Dance</a>
-            <a class="dropdown-item" href="Artistic-Event-Theater.html">Theater</a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="cmbEvent">
           </div>
         </li>
         <li class="nav-item dropdown">
@@ -69,23 +66,20 @@
             Performers
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="performers-single-artists.html">Single artists</a>
-            <a class="dropdown-item" href="performers-musical-insembles.html">Musical insembles</a>
-            <a class="dropdown-item" href="performers-dance-companies.html">Dance/Theater companies</a>
+              <a class="dropdown-item" href="Performers.html">List of Performers</a>
           </div>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Seminars
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="seminars-musical.html">Musical seminars</a>
-            <a class="dropdown-item" href="seminars-dance.html">Dance seminars</a>
-            <a class="dropdown-item" href="seminars-theater.html">Theater seminars</a>
-          </div>
-        </li>
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Seminars
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="cmbSeminar">
+            </div>
+          </li>
       </ul>
-      <a id="login" href="login-signup.html">Login/SignUp</a>
+      <span class="pnl-login col-sm-2">
+				<a id="login" href="login-signup.html">Login/SignUp</a>
+			</span>
     </div>
   </nav>
   <div class="container">
@@ -147,6 +141,34 @@
     </div>
   </div>
   <!-- Optional JavaScript -->
+  <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById("cmbEvent").addEventListener("contentChanged", event);
+        document.getElementById("cmbSeminar").addEventListener("contentChanged", event);
+
+        fillComboFromApi('cmbEvent', 'https://dreamlandfestival1.herokuapp.com/artisticevent/types', 'id', 'name','Artistic-Event-');
+        fillComboFromApi('cmbSeminar', 'https://dreamlandfestival1.herokuapp.com/artisticevent/types', 'id', 'name','seminars-');
+
+  var name = localStorage.getItem('name');
+        if (name !== null && name !== "") {
+          let login = $('.pnl-login');
+          login.find('#login').html(name);
+          login.find('#login').attr('href', 'dashboard.html');
+          login.append('<i class="fas fa-sign-out-alt signout"></i>');
+
+          $('.pnl-login .signout').click(function (e) {
+            localStorage.removeItem('token');
+            localStorage.removeItem('name');
+            location.reload();
+          });
+
+        }
+
+      });
+    </script>
+
+  <!-- JQuery -->
+<script type="text/javascript" src="js/assessAPI2.js"></script>
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
@@ -239,11 +261,11 @@
         </ul>
       </div>
       <div class="col-lg-3 col-md-6 col-sm-6 mt-2 mb-4">
-        <h5 class="mb-4 font-weight-bold">SUBSCRIBE TO OUR NEWSLETTER</h5>
+        <h5 class="mb-4 font-weight-bold">SEARCHING CONTENT</h5>
         <div class="input-group">
           <form class="subscription" action="index.html" method="post">
-            <input class="email-input" type="email" name="" value="" placeholder="Ex: email@gmail.com">
-            <button type="submit" class="btn-sm btn-primary">subscribe</button>
+            <input class="email-input" type="email" name="" value="" placeholder="">
+            <button type="submit" class="btn-sm btn-primary">Search</button>
           </form>
         </div>
         <ul class="social-pet mt-4">
