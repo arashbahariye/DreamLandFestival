@@ -94,7 +94,7 @@
       fillComboFromApi('cmbSeminar', 'https://dreamlandfestival1.herokuapp.com/artisticevent/types', 'id', 'name','seminars-');
 
       document.getElementById("pageCards").addEventListener("contentChanged", event);
-      fillCardsFromApi("pageCards", 'https://dreamlandfestival1.herokuapp.com/artisticevent/artisticevent/searcheventsbytype?type=music', 'id', 'title');
+      fillCardsFromApi("pageCards", 'https://dreamlandfestival1.herokuapp.com/artisticevent/artisticevent/searcheventsbytype?type=Music', 'id', 'title');
 
 var name = localStorage.getItem('name');
       if (name !== null && name !== "") {
