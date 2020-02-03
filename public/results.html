@@ -31,6 +31,7 @@
   <link rel="stylesheet" href="CSS/style.css">
   <!-- Style.css -->
   <script src="https://kit.fontawesome.com/8dce347ea2.js" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="CSS/single-artist.css">
 </head>
 
 <body>
@@ -90,7 +91,7 @@
       </span>
     </div>
   </nav>
-  <div class="container">
+  <div class="container performer">
     <div class="row row-content">
       <div class="col">
         <img src="" alt="">
@@ -128,6 +129,56 @@
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	<script src="http://ajax.microsoft.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js"></script>
+  <script src="js/assessAPI2.js"></script>
+
+  <script type="text/html" id="colCard">
+		<div id='${id}'>
+			<div class='thumb-wrapper'>
+				<div class='img-box'>
+					<img src='${image}' class='img-responsive img-fluid' alt=''>
+				</div>
+				<div class='thumb-content'>
+					<h4>${name}</h4>
+					<p class='item-price'>${main_achievements}</p>
+					<p>${details}</p>
+				</div>
+			</div>
+		</div>
+  </script>
+  <script type="text/html" id="eventCard">
+  <div class="row">
+    <div class='col-3'>
+      <div class='img-box3'>
+        <img class="img-responsive img-fluid" src='${image}'>
+      </div>
+      <h4 class="mt-3 text-center">${title}</h4>
+      <h5 class="text-center">${date}</h5>
+    </div>
+  </div>
+  </script>
+
+  <script>
+    $(document).ready(function(){
+        let prm = window.location.href.split('?')[1];
+        let id = prm.split('=')[1];
+        getJson('https://dreamlandfestival1.herokuapp.com/performer/performer/'+id,
+        function(res){
+           let data = JSON.parse(res).data[0];
+            $.template("perform", $('#colCard').html());
+            let carouselRow = $.tmpl('perform', data)[0].outerHTML;
+            let performer = $('.performer');
+            performer.html(carouselRow);
+            let evs = data.artisticevents;
+            for(let k of evs){
+              $.template("events", $('#eventCard').html());
+              let ev = $.tmpl('events', k)[0].outerHTML;
+              performer.append(ev);
+            }
+        });
+    });
+  </script>
+
 </body>
 <!-- Footer -->
 <footer class="pt-5 pb-4" id="contact">

@@ -424,3 +424,9 @@ body {
     	font-size: 14px;
     	color: #ffc000;
     }
+
+    .img-box3{
+      height: 160px;
+    	width: 100%;
+    	position: relative;
+    }
