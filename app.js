@@ -19,7 +19,7 @@ var options = {
     }
   }
 
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(null, options));
+app.use('/backend/swaggerui', swaggerUi.serve, swaggerUi.setup(null, options));
 
 app.use(helmet());
 
