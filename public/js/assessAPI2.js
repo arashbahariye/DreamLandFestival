@@ -415,18 +415,20 @@ function searchFilter() {
   getJson("https://dreamlandfestival1.herokuapp.com/artisticevent/artisticevent/searcheventsbydate?date="+search_input,
     function(response) {
       myDate = JSON.parse(response);
-      if (myDate.artisticevents.length == 0) {
+
+      if (myDate.seminaries.length == 0 && myDate.artisticevents.length == 0) {
         document.getElementById("containerSearch").innerHTML = `
-<h4>No event for this date :(</h4>`;
-      } else {
+    <h4>No event for this date :(</h4>`;
+      } 
+      else {
         document.getElementById("containerSearch").innerHTML = `
 
-<table class="table ">
-<thead>
-<th>Event title</th>
-<th>Date</th>
-<th>Reservation</th>
-</thead>
+    <table class="table ">
+    <thead>
+    <th>Artistic Event</th>
+    <th>Date</th>
+    <th>Reservation</th>
+    </thead>
           ${myDate.artisticevents.map(item => `
              <tr style= "margin:0px; border:0px">
                  <td><a href=''>${item.title}</a></td>
@@ -434,19 +436,10 @@ function searchFilter() {
                  <td><button type="button" class="btn btn-primary">Reserve</button></td>
              </tr>
           `).join('')}
-         </table>
-
-
-      `;}
-      if (myDate.seminaries.length == 0) {
-        document.getElementById("containerSearch").innerHTML = `
-    <h4>No event for this date :(</h4>`;
-      } else {
-        document.getElementById("containerSearch").innerHTML = `
-
+    </table>
     <table class="table ">
     <thead>
-    <th>Seminar title</th>
+    <th>Seminar Event</th>
     <th>Date</th>
     <th>Reservation</th>
     </thead>
@@ -454,20 +447,15 @@ function searchFilter() {
              <tr style= "margin:0px; border:0px">
                  <td><a href=''>${item.title}</a></td>
                  <td>${item.date}</td>
-                 <td><button type="button" class="btn btn-primary">Reserve</button></td>
              </tr>
           `).join('')}
-         </table>
-
-
-      `;
-      }
+    </table>
+    `;
+    }
     });
+  
   document.getElementById("search").value = "";
 }
-
-
-
 
 function getToken() {
   var loginUrl = "/users/authenticateext"
