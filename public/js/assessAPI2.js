@@ -282,8 +282,8 @@ function fillSeminarFromApi(elementId, url, idColumn, valueColumn) {
       div.append(div1);
       var img = document.createElement("img");
       img.classList = "img-thumbnail";
-      img.style = 'height:160px; width:250px';
-      img.src = item.image;
+      img.style = 'height:130px; width:250px';
+      img.src = "./images/seminary.jpg"
       img.alt = "";
       div1.append(img);
 
@@ -306,7 +306,7 @@ function fillSeminarFromApi(elementId, url, idColumn, valueColumn) {
 
       var p2 = document.createElement("p");
       p2.className = "card-text text-xs-left";
-      p2 = "Description:" + item.factsheet;
+      p2 = "Location:" + item.location;
       div2.append(p2);
 
       var div3 = document.createElement("div");
@@ -323,23 +323,11 @@ function fillSeminarFromApi(elementId, url, idColumn, valueColumn) {
         var p = document.createElement("p");
         p.className = "card-text";
         p.style = 'align:left';
-        p = item.artisticevents[i].name;
+        p = item.artisticevents[i].title;
         var br = document.createElement("br");
         div3.append(p);
         div3.append(br);
       }
-
-      var div4 = document.createElement("div");
-      div4.classList = "col-sm-1 align-middle";
-      div4.style = "align: middle";
-      var button = document.createElement("button");
-      button.classList = "btn btn-primary align-middle";
-      button.type = "submit";
-      button.innerText = "Reserve";
-      button.style = "margin-top:60%";
-      div4.append(button);
-      div.append(div4);
-
     }
 
 
@@ -351,10 +339,6 @@ function fillSeminarFromApi(elementId, url, idColumn, valueColumn) {
   });
 
 }
-
-
-
-
 
 function getParFromURL(parName) {
   var fullUrl = new URL(window.location.href);
