@@ -28,10 +28,10 @@
   <!-- Google fonts -->
   <link href="https://fonts.googleapis.com/css?family=Modak&display=swap" rel="stylesheet">
   <!-- Style.css -->
-  <link rel="stylesheet" href="CSS/Style.css">
+  <link rel="stylesheet" href="CSS/style.css">
   <!-- Style.css -->
   <script src="https://kit.fontawesome.com/8dce347ea2.js" crossorigin="anonymous"></script>
-	<link rel="stylesheet" href="CSS/single-artist.css">
+  <link rel="stylesheet" href="CSS/single-artist.css">
 </head>
 
 <body>
@@ -67,134 +67,115 @@
             Performers
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="Performers.html">List of Performers</a>
+            <a class="dropdown-item" href="Performers.html">List of Performers</a>
           </div>
         </li>
         <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Seminars
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="cmbSeminar">
-            </div>
-          </li>
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Seminars
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="cmbSeminar">
+          </div>
+        </li>
       </ul>
       <span class="pnl-login col-sm-2">
         <a id="login" href="user-pannel.html">Login/SignUp</a>
       </span>
-      </div>
-      </nav>
-  <div class="container performer">
-    <div class="row row-content">
-      <div class="col">
-        <img src="" alt="">
-        <p></p>
-        <a href="#"></a>
-        <button class="btn reservation-btn btn-lg btn-primary center-block" type="button" name="button">Back</button>
-      </div>
+    </div>
+  </nav>
+  <div class="container performer"></div>
+  <div class="container performer2"></div>
 
-    </div>
-    <h3 class="col-content">See also</h3>
-    <div class="row row-content">
-      <div class="col">
-        <img src="" alt="">
-        <p></p>
-        <a href="#"></a>
-        <button class="btn reservation-btn btn-lg btn-primary center-block" type="button" name="button">More</button>
-      </div>
-      <div class="col">
-        <img src="" alt="">
-        <p></p>
-        <a href="#"></a>
-        <button class="btn reservation-btn btn-lg btn-primary center-block" type="button" name="button">More</button>
-      </div>
-      <div class="col">
-        <img src="" alt="">
-        <p></p>
-        <a href="#"></a>
-        <button class="btn reservation-btn btn-lg btn-primary center-block" type="button" name="button">More</button>
-      </div>
-    </div>
   </div>
-</div>
   <!-- Optional JavaScript -->
   <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        document.getElementById("cmbEvent").addEventListener("contentChanged", event);
-        document.getElementById("cmbSeminar").addEventListener("contentChanged", event);
+    document.addEventListener('DOMContentLoaded', function() {
+      document.getElementById("cmbEvent").addEventListener("contentChanged", event);
+      document.getElementById("cmbSeminar").addEventListener("contentChanged", event);
 
-        fillComboFromApi('cmbEvent', 'https://dreamlandfestival1.herokuapp.com/artisticevent/types', 'id', 'name','Artistic-Event-');
-        fillComboFromApi('cmbSeminar', 'https://dreamlandfestival1.herokuapp.com/artisticevent/types', 'id', 'name','seminars-');
+      fillComboFromApi('cmbEvent', 'https://dreamlandfestival1.herokuapp.com/artisticevent/types', 'id', 'name', 'Artistic-Event-');
+      fillComboFromApi('cmbSeminar', 'https://dreamlandfestival1.herokuapp.com/artisticevent/types', 'id', 'name', 'seminars-');
 
-        var name = localStorage.getItem('name');
-        if (name !== null && name !== "") {
-          let login = $('.pnl-login');
-          login.find('#login').html(name);
-          login.find('#login').attr('href', 'user-pannel.html');
-          login.append('<i class="fas fa-sign-out-alt signout"></i>');
+      var name = localStorage.getItem('name');
+      if (name !== null && name !== "") {
+        let login = $('.pnl-login');
+        login.find('#login').html(name);
+        login.find('#login').attr('href', 'user-pannel.html');
+        login.append('<i class="fas fa-sign-out-alt signout"></i>');
 
-          $('.pnl-login .signout').click(function (e) {
-            localStorage.removeItem('token');
-            localStorage.removeItem('name');
-            location.reload();
-          });
+        $('.pnl-login .signout').click(function(e) {
+          localStorage.removeItem('token');
+          localStorage.removeItem('name');
+          location.reload();
+        });
 
-        }
+      }
 
-      });
-    </script>
+    });
+  </script>
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-	<script src="https://ajax.microsoft.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js"></script>
+  <script src="https://ajax.microsoft.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js"></script>
   <script src="js/assessAPI2.js"></script>
 
   <script type="text/html" id="colCard">
-		<div id='${id}'>
-			<div class='thumb-wrapper'>
-				<div class='img-box' style="margin:1rem">
-					<img src='${image}' class='img-responsive img-fluid' style="height:400px; width:600px" alt=''>
-				</div>
-				<div class='thumb-content'>
-					<h4>${name}</h4>
-					<p class='item-price'><b>Achivement</b>:${main_achievements}</p>
-					<p>${details}</p>
-				</div>
-			</div>
-		</div>
-  </script>
-  <script type="text/html" id="eventCard">
-  <div class="row">
-    <div class='col-3'>
-  	<p class='item-price' style="margin:1rem"><b>Related Event</b></p>
-      <div class='img-box3'>
-        <img class="img-responsive img-fluid" src='${image}'>
+    <div id='${id}'>
+      <div class='thumb-wrapper'>
+        <div class='img-box' style="margin:1rem">
+          <img src='${image}' class='img-responsive img-fluid img-thumbnail' style="height:400px; width:600px" alt=''>
+        </div>
+        <div class='thumb-content'>
+          <h4>${title}</h4>
+          <p class='item-price'><b>Description</b>:${factsheet}</p>
+          <p>Performers : ${performers[0].name}</p>
+        </div>
       </div>
-      <h4 class="mt-3 text-center">${title}</h4>
-      <h5 class="text-center">Date:${date}</h5>
     </div>
-  </div>
   </script>
 
+  <script type="text/html" id="eventCard">
+    <div id='${id}'>
+    <hr style="border-top: 8px dotted pink; width:600px"></hr>
+
+<h3 style="align:center; color:DimGrey;">Similar events</h3>
+      <div class='thumb-wrapper'>
+        <div class='img-box' style="margin:1rem">
+          <img src='${image}' class='img-responsive img-fluid img-thumbnail' style="height:200px; width:300px" alt=''>
+        </div>
+        <div class='thumb-content'>
+          <h5>${title}</h5>
+          <p class='item-price'><b>Description</b>:${factsheet}</p>
+        </div>
+      </div>
+    </div>
+  </script>
+  <script src="js/assessAPI2.js"></script>
   <script>
-    $(document).ready(function(){
-        let prm = window.location.href.split('?')[1];
-        let id = prm.split('=')[1];
-        getJson('https://dreamlandfestival1.herokuapp.com/performer/performer/'+id,
-        function(res){
-           let data = JSON.parse(res).data[0];
-            $.template("perform", $('#colCard').html());
-            let carouselRow = $.tmpl('perform', data)[0].outerHTML;
-            let performer = $('.performer');
-            performer.html(carouselRow);
-            let evs = data.artisticevents;
-            for(let k of evs){
-              $.template("events", $('#eventCard').html());
-              let ev = $.tmpl('events', k)[0].outerHTML;
-              performer.append(ev);
-            }
-        });
-    });
+    $(document).ready(function() {
+      let prm = window.location.href.split('?')[1];
+      let id = prm.split('=')[1];
+      getJson('https://dreamlandfestival1.herokuapp.com/artisticevent/artisticevent/' + id,
+        function(res) {
+          let data = JSON.parse(res).data[0];
+          $.template("perform", $('#colCard').html());
+          let carouselRow = $.tmpl('perform', data)[0].outerHTML;
+          let performer = $('.performer');
+          performer.html(carouselRow);
+        }
+      );
+      getJson2('https://dreamlandfestival1.herokuapp.com/artisticevent/artisticevent/similars/'+id,
+        function(res) {
+          let data = JSON.parse(res).data[0];
+          $.template("perform", $('#eventCard').html());
+          let carouselRow = $.tmpl('perform', data)[0].outerHTML;
+          let performer2 = $('.performer2');
+          performer2.html(carouselRow);
+        }
+      );
+  });
+
   </script>
 
 </body>
@@ -272,15 +253,15 @@
         <ul class="recent-post">
           <li>
             <a href="Reservation.html" class="latest-update"><label class="mr-3">28 <br><span>APR</span></label>
-            <span>DreamLandFestival ticket details announced</span></a>
+              <span>DreamLandFestival ticket details announced</span></a>
           </li>
           <li>
             <a href="Reservation.html" class="latest-update"><label class="mr-3">29 <br><span>APR</span></label>
-            <span>DreamLandFestival event details announced</span></a>
+              <span>DreamLandFestival event details announced</span></a>
           </li>
           <li>
             <a href="Reservation.html" class="latest-update"><label class="mr-3">30 <br><span>APR</span></label>
-            <span>5 artists not to miss at DreamLandFestival</span></a>
+              <span>5 artists not to miss at DreamLandFestival</span></a>
           </li>
         </ul>
       </div>

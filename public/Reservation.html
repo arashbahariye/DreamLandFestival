@@ -57,7 +57,8 @@
         <li class="nav-item active">
           <a class="nav-link" href="Reservation.html">Reservation</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item active
+        ">
           <a class="nav-link" href="Festival-presentation.html">Festival presentation</a>
         </li>
         <li class="nav-item dropdown">
@@ -65,26 +66,34 @@
             Artistic Events
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="cmbEvent">
+            <a class="dropdown-item" href="Artistic-Event-Music.html">Music</a>
+            <a class="dropdown-item" href="Artistic-Event-Dance.html">Dance</a>
+            <a class="dropdown-item" href="Artistic-Event-Theatre.html">Theatre</a>
           </div>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
             Performers
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="Performers.html">List of Performers</a>
+            <a class="dropdown-item" href="Performers.html">List of Performers</a>
           </div>
         </li>
         <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Seminars
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="cmbSeminar">
-            </div>
-          </li>
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Seminars
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="cmbSeminar">
+            <a class="dropdown-item" href="seminars-Music.html">Music</a>
+            <a class="dropdown-item" href="seminars-Dance.html">Dance</a>
+            <a class="dropdown-item" href="seminar-Theatre.html">Theatre</a>
+          </div>
+        </li>
       </ul>
       <span class="pnl-login col-sm-2">
-				<a id="login" href="login-signup.html">Login/SignUp</a>
+				<a id="login" href="user-pannel.html">Login/SignUp</a>
 			</span>
       </div>
       </nav>
@@ -96,13 +105,14 @@
         </div>
       </div>
       <h1 class="display-4">Pricing</h1>
-      <p class="lead">Dreamland Festival provides you with the best payments offering, making it super easy and affordable to book your festival experience.
+      <p class="lead">DreamLandFestival provides you with the best payments offering, making it super easy and affordable to book your festival experience.
   </div>
   </div>
 
   <div class="container reservation-container">
+     <div id='today' style="padding:1rem;"></div>
     <div class="md-form">
-      <h4 class="h3-margin"><b>Please select your preferable date below to find out relevant events</b></h4>
+      <h4 class="h3-margin">please select your preferable date below to find out relevant events</h4>
       <div class="jquery-datepicker">
         <input type="text" class="form-control jquery-datepicker__input" id="search">
         <button type="submit" name="button" class="btn btn-lg btn-primary btn-search" onclick="searchFilter()">Search</button>
@@ -112,11 +122,11 @@
       </div>
     </div>
   </div>
+<script type="text/javascript" src="js/assessAPI2.js"></script>
   <script>
       document.addEventListener('DOMContentLoaded', function() {
         document.getElementById("cmbEvent").addEventListener("contentChanged", event);
         document.getElementById("cmbSeminar").addEventListener("contentChanged", event);
-
         fillComboFromApi('cmbEvent', 'https://dreamlandfestival1.herokuapp.com/artisticevent/types', 'id', 'name','Artistic-Event-');
         fillComboFromApi('cmbSeminar', 'https://dreamlandfestival1.herokuapp.com/artisticevent/types', 'id', 'name','seminars-');
 
@@ -136,6 +146,74 @@
         }
 
       });
+
+window.onload=Today();
+function Today() {
+var today = new Date();
+var month = (today.getMonth() + 1);
+var day=today.getDate()
+if (month < 10) {
+  month = '0' + month;
+}
+if (day < 10) {
+  day = '0' + day;
+}
+var date = day + '-' + month + '-' + today.getFullYear();
+getJson("https://dreamlandfestival1.herokuapp.com/artisticevent/artisticevent/searcheventsbydate?date=" + date,
+  function(response) {
+    myDate = JSON.parse(response);
+    if (myDate.artisticevents.length == 0) {
+      document.getElementById("today").innerHTML = `
+<h4 style="color:blue">There is No event for Today :(</h4>`;
+    } else {
+      document.getElementById("today").innerHTML = `
+
+<table class="table">
+<thead>
+<th>Event title</th>
+<th>Date</th>
+<th>Reservation</th>
+</thead>
+        ${myDate.artisticevents.map(item => `
+           <tr style= "margin:0px; border:0px">
+               <td><a href=''>${item.title}</a></td>
+               <td>${item.date}</td>
+               <td><button type="button" class="btn btn-primary">Reserve</button></td>
+           </tr>
+        `).join('')}
+       </table>
+
+
+    `;
+    }
+    if (myDate.seminaries.length == 0) {
+      document.getElementById("today").innerHTML = `
+  <h4>No event for Today:(</h4>`;
+    } else {
+      document.getElementById("today").innerHTML = `
+
+  <table class="table ">
+  <thead>
+  <th>Seminar title</th>
+  <th>Date</th>
+  <th>Reservation</th>
+  </thead>
+        ${myDate.seminaries.map(item => `
+           <tr style= "margin:0px; border:0px">
+               <td><a href=''>${item.title}</a></td>
+               <td>${item.date}</td>
+               <td><button type="button" class="btn btn-primary">Reserve</button></td>
+           </tr>
+        `).join('')}
+       </table>
+
+
+    `;
+    }
+  });
+
+}
+
     </script>
 
   <!-- JQuery -->

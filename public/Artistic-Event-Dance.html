@@ -18,13 +18,14 @@
   <link rel="icon" type="image/png" sizes="192x192" href="Icons/android-icon-192x192.png">
   <link rel="icon" type="image/png" sizes="32x32" href="Icons/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="96x96" href="Icons/favicon-96x96.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="Icons/favicon-16x16.png"> 
+  <link rel="icon" type="image/png" sizes="16x16" href="Icons/favicon-16x16.png">
   <link rel="manifest" href="Icons/manifest.json">
   <meta name="msapplication-TileColor" content="#ffffff">
   <meta name="msapplication-TileImage" content="Icons/ms-icon-144x144.png">
   <meta name="theme-color" content="#ffffff">
   <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <!-- Google fonts -->
   <link href="https://fonts.googleapis.com/css?family=Modak&display=swap" rel="stylesheet">
   <!-- Style.css -->
@@ -36,10 +37,12 @@
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-info">
     <a class="navbar-brand" href="index.html">
-      <img src="Pictures/logo.png" alt="DreamlandFestival" class="d-inline-block align-center logo" width="40" height="40">
+      <img src="Pictures/logo.png" alt="DreamlandFestival" class="d-inline-block align-center logo" width="40"
+        height="40">
       <em class="logo-text">DreamLandFestival</em>
     </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
@@ -55,46 +58,118 @@
           <a class="nav-link" href="Festival-presentation.html">Festival presentation</a>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
             Artistic Events
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="cmbEvent">
           </div>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
             Performers
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-           <a class="dropdown-item" href="Performers.html">List of Performers</a>
+            <a class="dropdown-item" href="Performers.html">List of Performers</a>
           </div>
         </li>
         <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Seminars
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="cmbSeminar">
-            </div>
-          </li>
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Seminars
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="cmbSeminar">
+          </div>
+        </li>
       </ul>
       <span class="pnl-login col-sm-2">
-        <a id="login" href="login-signup.html">Login/SignUp</a>
+        <a id="login" href="user-pannel.html">Login/SignUp</a>
       </span>
     </div>
   </nav>
-  <div class="container-fluid"  id="pageCards">
-    </div>
-    <!-- Optional JavaScript -->
+  <div class="container-fluid row-content" id="pageCards">
+
+  </div>
+  <!-- Optional JavaScript -->
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
       document.getElementById("cmbEvent").addEventListener("contentChanged", event);
       document.getElementById("cmbSeminar").addEventListener("contentChanged", event);
 
       fillComboFromApi('cmbEvent', 'https://dreamlandfestival1.herokuapp.com/artisticevent/types', 'id', 'name','Artistic-Event-');
       fillComboFromApi('cmbSeminar', 'https://dreamlandfestival1.herokuapp.com/artisticevent/types', 'id', 'name','seminars-');
 
-      document.getElementById("pageCards").addEventListener("contentChanged", event);
-      fillCardsFromApi("pageCards", 'https://dreamlandfestival1.herokuapp.com/artisticevent/artisticevent/searcheventsbytype?type=Dance', 'id', 'title');
+
+
+      //fillPerformers('cardPerformers', 'https://dreamlandfestival1.herokuapp.com/performer/performer', 'id', 'name');
+
+    });
+  </script>
+
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+  <script src="https://ajax.microsoft.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js"></script>
+  <script type="text/javascript" src="js/assessAPI2.js"></script>
+
+  <script type="text/html" id="itemCard">
+    <div class="row row-content" style="margin-bottom:1rem; padding:0" id=${id}>
+      <div class="col-sm-3">
+        <img class="img-thumbnail" src="${image}" alt="" style="height: 160px; width: 250px;">
+      </div>
+      <div class="col-sm-3 align-middle" style="text-align: left;">
+        <h4 class="card-title">${title}</h4><br>
+        Date: ${date}
+        <br>
+        Performers:
+ ${performers[0].name}
+
+      </div>
+      <div class="col-sm-1 align-middle">
+      				<a href='Details.html?id=${id}' class='btn btn-primary align-middle' style="margin-top: 60%;">More</a>
+      </div>
+      <div class="col-sm-1 align-middle">
+        <button class="btn btn-primary align-middle btnReserve" type="submit" style="margin-top: 60%;">Reserve</button>
+      </div>
+  </script>
+
+  <script>
+
+    $(document).ready(function () {
+      getJson('https://dreamlandfestival1.herokuapp.com/artisticevent/artisticevent/searcheventsbytype?type=dance',
+        function (res) {
+          let data = JSON.parse(res).artisticevents;
+          for (let art of data) {
+            $.template("template", $('#itemCard').html());
+            let carouselRow = $.tmpl('template', art)[0].outerHTML;
+            $('#pageCards').append(carouselRow);
+            $('#' + art.id + ' .btnReserve').click(function () {
+              var prm = {
+                id: art.id,
+                title: art.title.toLowerCase(),
+                date: art.date,
+                name: 'artisticevent',
+                userId: localStorage.getItem('id')
+              };
+              var token = localStorage.getItem('token');
+              if (token) {
+                postJson('https://dreamlandfestival1.herokuapp.com/reservation/ticket', 'Bearer ' + token, prm,
+                  function (ress) {
+                    alert('added');
+                    location.reload();
+                  });
+              }
+            });
+          }
+        });
 
       var name = localStorage.getItem('name');
       if (name !== null && name !== "") {
@@ -108,19 +183,11 @@
           localStorage.removeItem('name');
           location.reload();
         });
-
-
-
       }
-  });
+    });
 
   </script>
 
-  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script type="text/javascript" src="js/assessAPI2.js"></script>
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 <!-- Footer -->
 <footer class="pt-5 pb-4" id="contact">
@@ -166,7 +233,8 @@
             <div class="row">
               <div class="col-1"><i class="fab fa-twitter"></i></div>
               <div class="col-10">
-                <p class="mb-0"><a href="https://www.twitter.com">@arashbaahriye </a> Cher will perform at the opening</p>
+                <p class="mb-0"><a href="https://www.twitter.com">@arashbaahriye </a> Cher will perform at the opening
+                </p>
                 <label>1 Week Ago</label>
               </div>
             </div>
@@ -175,7 +243,8 @@
             <div class="row">
               <div class="col-1"><i class="fab fa-twitter"></i></div>
               <div class="col-10">
-                <p class="mb-0"><a href="https://www.twitter.com">@arashbahariye </a> more than 20 singers are going to sing on the stage</p>
+                <p class="mb-0"><a href="https://www.twitter.com">@arashbahariye </a> more than 20 singers are going to
+                  sing on the stage</p>
                 <label>2 Weeks Ago</label>
               </div>
             </div>
@@ -184,7 +253,8 @@
             <div class="row">
               <div class="col-1"><i class="fab fa-twitter"></i></div>
               <div class="col-10">
-                <p class="mb-0"><a href="https://www.twitter.com">@arashbahariye </a> theater tickets are about to sold out</p>
+                <p class="mb-0"><a href="https://www.twitter.com">@arashbahariye </a> theater tickets are about to sold
+                  out</p>
                 <label>1 month Ago</label>
               </div>
             </div>
@@ -196,15 +266,15 @@
         <ul class="recent-post">
           <li>
             <a href="Reservation.html" class="latest-update"><label class="mr-3">28 <br><span>APR</span></label>
-            <span>DreamLandFestival ticket details announced</span></a>
+              <span>DreamLandFestival ticket details announced</span></a>
           </li>
           <li>
             <a href="Reservation.html" class="latest-update"><label class="mr-3">29 <br><span>APR</span></label>
-            <span>DreamLandFestival event details announced</span></a>
+              <span>DreamLandFestival event details announced</span></a>
           </li>
           <li>
             <a href="Reservation.html" class="latest-update"><label class="mr-3">30 <br><span>APR</span></label>
-            <span>5 artists not to miss at DreamLandFestival</span></a>
+              <span>5 artists not to miss at DreamLandFestival</span></a>
           </li>
         </ul>
       </div>
