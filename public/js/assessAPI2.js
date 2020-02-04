@@ -283,7 +283,7 @@ function fillSeminarFromApi(elementId, url, idColumn, valueColumn) {
       div.append(div1);
       var img = document.createElement("img");
       img.classList = "img-thumbnail";
-      img.style = 'height:130px; width:250px';
+      img.style = 'height:130px; width:200px';
       img.src = "./images/seminary.jpg"
       img.alt = "";
       div1.append(img);
