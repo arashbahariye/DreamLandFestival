@@ -234,6 +234,7 @@ function fillCardsFromApi(elementId, url, idColumn, valueColumn) {
       button.type = "submit";
       button.innerText = "Reserve";
       button.style = "margin-top:60%";
+
       div4.append(button);
       div.append(div4);
 
@@ -328,6 +329,37 @@ function fillSeminarFromApi(elementId, url, idColumn, valueColumn) {
         div3.append(p);
         div3.append(br);
       }
+      var name = localStorage.getItem('name');
+      var div4 = document.createElement("div");
+      div4.classList = "col-sm-1 align-middle";
+      div4.style = "align: middle";
+      var button = document.createElement("button");
+      button.classList = "btn btn-primary align-middle btnReserve";
+      button.type = "submit";
+      button.innerText = "Reserve";
+      button.style = "margin-top:60%";
+      item.title = item.title.toLowerCase();
+      var prm = {
+        id: item.id,
+        title: item.title,
+        date: item.date,
+        name: name
+      };
+      //button.addEventListener("click",creatTicket(prm))
+      //button.onclick=creatTicket(prm);//inja bayad eventhandler estefade koni
+      div4.append(button);
+      div.append(div4);
+      $('.btnReserve').click(function(e) {
+        e.preventDefault();
+        var token = localStorage.getItem('token');
+        postJson('https://dreamlandfestival1.herokuapp.com/reservation/ticket', 'Bearer ' + token, prm,
+          function(res) {
+            //alert('Added!');
+            console.log('added');
+            location.reload();
+          });
+        });
+    
     }
 
 
@@ -340,11 +372,75 @@ function fillSeminarFromApi(elementId, url, idColumn, valueColumn) {
 
 }
 
+function creatTicket(file) {
+  var token = localStorage.getItem('token');
+  postJson('https://dreamlandfestival1.herokuapp.com/reservation/ticket', 'Bearer ' + token, file,
+    function(res) {
+      //alert('Added!');
+      console.log('added');
+      location.reload();
+    });
+}
+
+
 function getParFromURL(parName) {
   var fullUrl = new URL(window.location.href);
   return fullUrl.searchParams.get(parName);
 }
 
+function Today() {
+  var today = new Date();
+  var month = (today.getMonth() + 1);
+  var day=today.getDate()
+  if (month < 10) {
+    month = '0' + month;
+  }
+  if (day < 10) {
+    day = '0' + day;
+  }
+  var date = day + '-' + month + '-' + today.getFullYear();
+  getJson("https://dreamlandfestival1.herokuapp.com/artisticevent/artisticevent/searcheventsbydate?date=" + date,
+    function(response) {
+      myDate = JSON.parse(response);
+      if (myDate.seminaries.length == 0 && myDate.artisticevents.length == 0) {
+        document.getElementById("containerSearch").innerHTML = `
+    <h4>No event for Today :(</h4>`;
+      } 
+      else {
+        document.getElementById("containerSearch").innerHTML = `
+
+    <table class="table ">
+    <thead>
+    <th>Artistic Event</th>
+    <th>Date</th>
+    <th>Reservation</th>
+    </thead>
+          ${myDate.artisticevents.map(item => `
+             <tr style= "margin:0px; border:0px">
+                 <td><a href=''>${item.title}</a></td>
+                 <td>${item.date}</td>
+                 <td><button type="button" class="btn btn-primary">Reserve</button></td>
+             </tr>
+          `).join('')}
+    </table>
+    <table class="table ">
+    <thead>
+    <th>Seminar Event</th>
+    <th>Date</th>
+    <th>Reservation</th>
+    </thead>
+          ${myDate.seminaries.map(item => `
+             <tr style= "margin:0px; border:0px">
+                 <td><a href=''>${item.title}</a></td>
+                 <td>${item.date}</td>
+             </tr>
+          `).join('')}
+    </table>
+    `;
+    }
+    });
+  document.getElementById("today").value = "";
+  }
 
 function createBreadCrumbs(links) {
   var container = document.getElementById("myContainer");
@@ -439,6 +535,30 @@ function searchFilter() {
     });
   
   document.getElementById("search").value = "";
+}
+
+function getJson2(url, onloadCallback, token) {
+  var http2 = new XMLHttpRequest();
+
+  http2.open('GET', url, true);
+
+  http2.overrideMimeType("application/json");
+  if (token)
+    http2.setRequestHeader('Authorization', 'Bearer ' + token);
+
+  http2.onreadystatechange = function() {
+
+    if (this.readyState == 4 && http2.status >= 200 && http2.status < 400) {
+      onloadCallback(this.response)
+    } else
+    if (this.readyState == 4 && http2.status == 401) {
+      alert("invalid token");
+      window.location.replace("./login.html");
+
+    }
+  }
+
+  http2.send();
 }
 
 function getToken() {
