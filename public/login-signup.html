@@ -322,7 +322,7 @@
             getJson('https://dreamlandfestival1.herokuapp.com/auth/me',
               function (res) {
                 localStorage.setItem('name', JSON.parse(res).user.name);
-                window.open('reservation.html', '_self');
+                window.open('Reservation.html', '_self');
               }
               , res.token)
           });
